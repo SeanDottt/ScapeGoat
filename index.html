@@ -16,10 +16,10 @@
             font-family: -apple-system, BlinkMacSystemFont, sans-serif;
         }
 
-        /* Logo Unit - Perfectly Balanced Breathing Room */
+        /* Logo Unit - prestige positioning */
         .logo-container {
-            flex: 0 0 auto; /* Don't let it shrink */
-            padding-top: 60px; /* Strong desktop clearance */
+            flex: 0 0 auto;
+            padding-top: 80px; /* Increased for better desktop balance */
             padding-bottom: 40px;
             display: flex;
             justify-content: center;
@@ -28,13 +28,19 @@
 
         .logo {
             width: 85vw; 
-            max-width: 320px; /* Caps the size so it doesn't get rowdy on desktop */
+            max-width: 320px;
             height: auto;
             border-radius: 20px;
             box-shadow: 0 0 30px rgba(164, 255, 0, 0.4);
+            cursor: pointer; /* Signals it is clickable */
+            transition: transform 0.2s ease;
         }
 
-        /* The Functional Core - Fills remaining space */
+        .logo:active {
+            transform: scale(0.98); /* Slight "press" effect when clicked */
+        }
+
+        /* The Functional Core */
         .form-container { 
             flex: 1 1 auto;
             width: 100%; 
@@ -45,7 +51,6 @@
             box-sizing: border-box;
         }
 
-        /* Hide scrollbars for the Terminal aesthetic */
         .form-container::-webkit-scrollbar { display: none; }
 
         iframe {
@@ -53,9 +58,8 @@
             border: none !important;
         }
 
-        /* Mobile specific tweak */
         @media (max-width: 600px) {
-            .logo-container { padding-top: 40px; }
+            .logo-container { padding-top: 50px; }
             .logo { max-width: 280px; }
         }
     </style>
@@ -63,7 +67,9 @@
 <body>
 
     <div class="logo-container">
-        <img src="logo.png" class="logo" alt="Kilroy">
+        <a href="https://seandottt.github.io/ScapeGoat/">
+            <img src="logo.png" class="logo" alt="Kilroy">
+        </a>
     </div>
 
     <div class="form-container">
