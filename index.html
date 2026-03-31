@@ -10,37 +10,46 @@
             margin: 0; padding: 0;
             background-color: #000000;
             height: 100%; width: 100%;
-            overflow: hidden; /* Keeps the background still */
+            overflow: hidden; 
             display: flex; flex-direction: column;
             align-items: center;
             font-family: -apple-system, BlinkMacSystemFont, sans-serif;
         }
 
-        /* The Kilroy Mark - Responsive for Mobile */
+        /* The Logo Container - Added Vertical Breathing Room */
         .logo-container {
-            padding-top: 20px;
-            flex-shrink: 0; /* Prevents logo from squishing */
+            padding-top: 8vh; /* Pushes logo down 8% of the screen height */
+            padding-bottom: 20px;
+            flex-shrink: 0; 
+            display: flex;
+            justify-content: center;
+            width: 100%;
         }
 
         .logo {
-            width: 80vw; /* Takes up 80% of phone width */
-            max-width: 320px; /* Won't get too huge on desktop */
+            width: 85vw; /* Slightly larger for impact */
+            max-width: 340px; 
             height: auto;
-            border-radius: 15px;
-            box-shadow: 0 0 20px rgba(164, 255, 0, 0.45);
+            border-radius: 18px;
+            box-shadow: 0 0 25px rgba(164, 255, 0, 0.45);
         }
 
         /* The Functional Core - Scrollable inner area */
         .form-container { 
             width: 100%; 
-            max-width: 450px; 
+            max-width: 480px; 
             flex-grow: 1;
-            overflow-y: auto; /* Only the form scrolls */
-            -webkit-overflow-scrolling: touch; /* Smooth scroll for iPhone */
-            padding-bottom: 50px;
+            overflow-y: auto; 
+            -webkit-overflow-scrolling: touch; 
+            padding: 10px 20px 80px 20px; /* Padding for the form inside */
+            box-sizing: border-box;
         }
 
-        /* Cleaning up JotForm UI */
+        /* Remove JotForm scrollbars for cleaner look */
+        .form-container::-webkit-scrollbar {
+            display: none;
+        }
+
         iframe {
             width: 100% !important;
             border: none !important;
