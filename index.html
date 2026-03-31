@@ -5,40 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kilroy | Access</title>
     <style>
+        /* The Canvas: Matte Black & No-Scroll */
         body, html {
-            margin: 0; padding: 0;
+            margin: 0; 
+            padding: 0;
             background-color: #000000;
-            height: 100vh; width: 100vw;
-            overflow: hidden;
-            display: flex; flex-direction: column;
-            justify-content: center; align-items: center;
-            font-family: sans-serif;
+            height: 100vh; 
+            width: 100vw;
+            overflow: hidden; /* Strict: No scrolling */
+            display: flex; 
+            flex-direction: column;
+            justify-content: center; 
+            align-items: center;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
+
+        /* The Kilroy Logo with Lime Glow */
         .logo {
             width: 180px;
-            filter: drop-shadow(0 0 15px rgba(164, 255, 0, 0.5));
+            height: auto;
+            /* Matches the Lime Green from your image */
+            filter: drop-shadow(0 0 15px rgba(164, 255, 0, 0.6));
             margin-bottom: 40px;
         }
-        .form-container { width: 100%; max-width: 400px; }
-        .footer {
-            position: absolute; bottom: 30px;
-            font-size: 10px; letter-spacing: 2px;
-            text-transform: uppercase;
+
+        /* The Functional Core */
+        .form-container { 
+            width: 100%; 
+            max-width: 450px; 
+            display: flex;
+            justify-content: center;
         }
-        .footer a { color: #333; text-decoration: none; transition: 0.3s; }
-        .footer a:hover { color: #A4FF00; }
     </style>
 </head>
 <body>
 
-    <img src=""logo.png" class="logo">
+    <img src="logo.png" class="logo" alt="Kilroy">
 
     <div class="form-container">
         <script type="text/javascript" src="https://form.jotform.com/jsform/260538594946068"></script>
-    </div>
-
-    <div class="footer">
-        <a href="mailto:Aria@scapegoat.com">Contact Aria@scapegoat.com</a>
     </div>
 
 </body>
