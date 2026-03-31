@@ -16,10 +16,10 @@
             font-family: -apple-system, BlinkMacSystemFont, sans-serif;
         }
 
-        /* Logo Unit - prestige positioning */
+        /* Logo Unit - Perfectly Spaced */
         .logo-container {
             flex: 0 0 auto;
-            padding-top: 80px; /* Increased for better desktop balance */
+            padding-top: 80px; 
             padding-bottom: 40px;
             display: flex;
             justify-content: center;
@@ -31,13 +31,14 @@
             max-width: 320px;
             height: auto;
             border-radius: 20px;
-            box-shadow: 0 0 30px rgba(164, 255, 0, 0.4);
-            cursor: pointer; /* Signals it is clickable */
-            transition: transform 0.2s ease;
+            box-shadow: 0 0 30px rgba(164, 255, 0, 0.45);
+            cursor: pointer;
+            transition: transform 0.15s ease;
+            -webkit-tap-highlight-color: transparent; /* Removes blue flash on mobile */
         }
 
         .logo:active {
-            transform: scale(0.98); /* Slight "press" effect when clicked */
+            transform: scale(0.95); /* Deeper "press" for feedback */
         }
 
         /* The Functional Core */
@@ -59,7 +60,7 @@
         }
 
         @media (max-width: 600px) {
-            .logo-container { padding-top: 50px; }
+            .logo-container { padding-top: 60px; }
             .logo { max-width: 280px; }
         }
     </style>
@@ -67,9 +68,10 @@
 <body>
 
     <div class="logo-container">
-        <a href="https://seandottt.github.io/ScapeGoat/">
-            <img src="logo.png" class="logo" alt="Kilroy">
-        </a>
+        <img src="logo.png" 
+             class="logo" 
+             alt="Kilroy" 
+             onclick="window.location.reload();">
     </div>
 
     <div class="form-container">
