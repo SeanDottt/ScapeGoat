@@ -1,11 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1SYJXQBKTS"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-1SYJXQBKTS');
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <title>Access</title>
     <style>
-        /* The Canvas: Matte Black & Fixed */
+        /* 1. The Canvas: Matte Black & Fixed */
         body, html {
             margin: 0; padding: 0;
             background-color: #000000;
@@ -16,7 +24,7 @@
             font-family: -apple-system, BlinkMacSystemFont, sans-serif;
         }
 
-        /* Logo Unit - Perfectly Spaced */
+        /* 2. Logo Unit - Prestige Positioning */
         .logo-container {
             flex: 0 0 auto;
             padding-top: 80px; 
@@ -38,10 +46,10 @@
         }
 
         .logo:active {
-            transform: scale(0.95); /* Deeper "press" for feedback */
+            transform: scale(0.95); /* Physical feedback on press */
         }
 
-        /* The Functional Core */
+        /* 3. The Functional Core - JotForm Container */
         .form-container { 
             flex: 1 1 auto;
             width: 100%; 
@@ -52,6 +60,7 @@
             box-sizing: border-box;
         }
 
+        /* Remove scrollbars for clean Terminal aesthetic */
         .form-container::-webkit-scrollbar { display: none; }
 
         iframe {
@@ -59,6 +68,7 @@
             border: none !important;
         }
 
+        /* Mobile specific balance */
         @media (max-width: 600px) {
             .logo-container { padding-top: 60px; }
             .logo { max-width: 280px; }
