@@ -42,11 +42,11 @@
             box-shadow: 0 0 30px rgba(164, 255, 0, 0.45);
             cursor: pointer;
             transition: transform 0.15s ease;
-            -webkit-tap-highlight-color: transparent; /* Removes blue flash on mobile */
+            -webkit-tap-highlight-color: transparent;
         }
 
         .logo:active {
-            transform: scale(0.95); /* Physical feedback on press */
+            transform: scale(0.95);
         }
 
         /* 3. The Functional Core - JotForm Container */
@@ -54,13 +54,24 @@
             flex: 1 1 auto;
             width: 100%; 
             max-width: 500px; 
+            
+            /* THE FIX: Reserve space to prevent layout jump */
+            min-height: 600px; 
+            
             overflow-y: auto; 
             -webkit-overflow-scrolling: touch; 
             padding: 0 20px 60px 20px; 
             box-sizing: border-box;
+            
+            /* Subtle fade-in for high-status entry */
+            animation: fadeIn 0.8s ease-in;
         }
 
-        /* Remove scrollbars for clean Terminal aesthetic */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
         .form-container::-webkit-scrollbar { display: none; }
 
         iframe {
@@ -72,6 +83,7 @@
         @media (max-width: 600px) {
             .logo-container { padding-top: 60px; }
             .logo { max-width: 280px; }
+            .form-container { min-height: 500px; }
         }
     </style>
 </head>
