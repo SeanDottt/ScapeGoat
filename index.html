@@ -9,50 +9,54 @@
         body, html {
             margin: 0; padding: 0;
             background-color: #000000;
-            height: 100%; width: 100%;
+            height: 100vh; width: 100vw;
             overflow: hidden; 
             display: flex; flex-direction: column;
             align-items: center;
             font-family: -apple-system, BlinkMacSystemFont, sans-serif;
         }
 
-        /* The Logo Container - Added Vertical Breathing Room */
+        /* Logo Unit - Perfectly Balanced Breathing Room */
         .logo-container {
-            padding-top: 8vh; /* Pushes logo down 8% of the screen height */
-            padding-bottom: 20px;
-            flex-shrink: 0; 
+            flex: 0 0 auto; /* Don't let it shrink */
+            padding-top: 60px; /* Strong desktop clearance */
+            padding-bottom: 40px;
             display: flex;
             justify-content: center;
             width: 100%;
         }
 
         .logo {
-            width: 85vw; /* Slightly larger for impact */
-            max-width: 340px; 
+            width: 85vw; 
+            max-width: 320px; /* Caps the size so it doesn't get rowdy on desktop */
             height: auto;
-            border-radius: 18px;
-            box-shadow: 0 0 25px rgba(164, 255, 0, 0.45);
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(164, 255, 0, 0.4);
         }
 
-        /* The Functional Core - Scrollable inner area */
+        /* The Functional Core - Fills remaining space */
         .form-container { 
+            flex: 1 1 auto;
             width: 100%; 
-            max-width: 480px; 
-            flex-grow: 1;
+            max-width: 500px; 
             overflow-y: auto; 
             -webkit-overflow-scrolling: touch; 
-            padding: 10px 20px 80px 20px; /* Padding for the form inside */
+            padding: 0 20px 60px 20px; 
             box-sizing: border-box;
         }
 
-        /* Remove JotForm scrollbars for cleaner look */
-        .form-container::-webkit-scrollbar {
-            display: none;
-        }
+        /* Hide scrollbars for the Terminal aesthetic */
+        .form-container::-webkit-scrollbar { display: none; }
 
         iframe {
             width: 100% !important;
             border: none !important;
+        }
+
+        /* Mobile specific tweak */
+        @media (max-width: 600px) {
+            .logo-container { padding-top: 40px; }
+            .logo { max-width: 280px; }
         }
     </style>
 </head>
