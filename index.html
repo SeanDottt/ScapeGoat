@@ -5,36 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kilroy | Access</title>
     <style>
-        /* The Canvas: Matte Black & No-Scroll */
+        /* 1. The Canvas: Deep Matte Black */
         body, html {
-            margin: 0; 
-            padding: 0;
+            margin: 0; padding: 0;
             background-color: #000000;
-            height: 100vh; 
-            width: 100vw;
-            overflow: hidden; /* Strict: No scrolling */
-            display: flex; 
-            flex-direction: column;
-            justify-content: center; 
-            align-items: center;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            height: 100vh; width: 100vw;
+            overflow: hidden; /* No scrolling */
+            display: flex; flex-direction: column;
+            justify-content: center; align-items: center;
+            font-family: -apple-system, sans-serif;
         }
 
-        /* The Kilroy Logo with Lime Glow */
+        /* 2. The Kilroy Mark (Sized for your specific upload) */
         .logo {
-            width: 180px;
+            width: 320px; /* Slightly larger to show the detail */
             height: auto;
-            /* Matches the Lime Green from your image */
-            filter: drop-shadow(0 0 15px rgba(164, 255, 0, 0.6));
+            border-radius: 24px; /* Matches the curve in your image */
+            box-shadow: 0 0 25px rgba(164, 255, 0, 0.4); /* Lime Green Glow */
             margin-bottom: 40px;
         }
 
-        /* The Functional Core */
+        /* 3. The Functional Core */
         .form-container { 
             width: 100%; 
             max-width: 450px; 
-            display: flex;
-            justify-content: center;
+            display: flex; 
+            justify-content: center; 
         }
     </style>
 </head>
