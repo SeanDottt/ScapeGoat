@@ -2,41 +2,56 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kilroy | Access</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>Access</title>
     <style>
-        /* 1. The Canvas: Deep Matte Black */
+        /* The Canvas: Matte Black & Fixed */
         body, html {
             margin: 0; padding: 0;
             background-color: #000000;
-            height: 100vh; width: 100vw;
-            overflow: hidden; /* No scrolling */
+            height: 100%; width: 100%;
+            overflow: hidden; /* Keeps the background still */
             display: flex; flex-direction: column;
-            justify-content: center; align-items: center;
-            font-family: -apple-system, sans-serif;
+            align-items: center;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
         }
 
-        /* 2. The Kilroy Mark (Sized for your specific upload) */
+        /* The Kilroy Mark - Responsive for Mobile */
+        .logo-container {
+            padding-top: 20px;
+            flex-shrink: 0; /* Prevents logo from squishing */
+        }
+
         .logo {
-            width: 320px; /* Slightly larger to show the detail */
+            width: 80vw; /* Takes up 80% of phone width */
+            max-width: 320px; /* Won't get too huge on desktop */
             height: auto;
-            border-radius: 24px; /* Matches the curve in your image */
-            box-shadow: 0 0 25px rgba(164, 255, 0, 0.4); /* Lime Green Glow */
-            margin-bottom: 40px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(164, 255, 0, 0.45);
         }
 
-        /* 3. The Functional Core */
+        /* The Functional Core - Scrollable inner area */
         .form-container { 
             width: 100%; 
             max-width: 450px; 
-            display: flex; 
-            justify-content: center; 
+            flex-grow: 1;
+            overflow-y: auto; /* Only the form scrolls */
+            -webkit-overflow-scrolling: touch; /* Smooth scroll for iPhone */
+            padding-bottom: 50px;
+        }
+
+        /* Cleaning up JotForm UI */
+        iframe {
+            width: 100% !important;
+            border: none !important;
         }
     </style>
 </head>
 <body>
 
-    <img src="logo.png" class="logo" alt="Kilroy">
+    <div class="logo-container">
+        <img src="logo.png" class="logo" alt="Kilroy">
+    </div>
 
     <div class="form-container">
         <script type="text/javascript" src="https://form.jotform.com/jsform/260538594946068"></script>
