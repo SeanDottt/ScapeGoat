@@ -16,8 +16,7 @@
 
         .card-container {
             position: relative;
-            /* Using Viewport Min to ensure it stays large but contained */
-            height: 96vh; 
+            height: 95vh; 
             width: auto;
             aspect-ratio: 4 / 5.8; 
             background-image: url('./card.png') !important;
@@ -30,69 +29,75 @@
         }
 
         .content {
-            margin-top: 18%; /* Lifted up to use more of the top space */
-            width: 90%; /* Pushed to the very edges of the gold border */
-            height: 72%; /* Expanded height to eliminate scrolling */
-            overflow-y: hidden; /* Lock the scroll */
+            margin-top: 22%; 
+            width: 86%; 
+            height: 68%;
             text-align: left;
             display: flex;
             flex-direction: column;
-            justify-content: space-between; /* Spreads content top-to-bottom */
+            justify-content: space-around; /* Spreads sections out to fill vertical space */
         }
 
         .intro {
             color: #fff;
-            font-size: clamp(14px, 1.8vh, 18px); /* Responsive sizing */
+            font-size: 18px;
             letter-spacing: 0.5px;
-            line-height: 1.4;
+            line-height: 1.5;
             text-align: center;
-            margin-bottom: 15px;
             font-style: italic;
             border-bottom: 1px solid #333;
-            padding-bottom: 10px;
+            padding-bottom: 15px;
+            margin-bottom: 10px;
         }
 
         h3 {
             color: #A4FF00;
-            font-size: clamp(12px, 1.6vh, 16px);
+            font-size: 22px; /* Large Header */
             text-transform: uppercase;
-            letter-spacing: 4px;
-            margin: 10px 0 5px 0;
+            letter-spacing: 5px;
+            margin: 0;
+            font-weight: bold;
         }
 
         .section-tagline {
             color: #fff;
-            font-size: clamp(11px, 1.4vh, 14px);
-            letter-spacing: 0.5px;
-            margin-bottom: 8px;
+            font-size: 14px;
+            letter-spacing: 1px;
+            margin: 5px 0 10px 0;
             display: block;
-            opacity: 0.9;
+            opacity: 0.8;
+            font-style: italic;
         }
 
         ul { list-style: none; padding: 0; margin: 0; }
         li {
-            font-size: clamp(11px, 1.4vh, 14px);
+            font-size: 15px; /* Standardized Bullet Size */
             letter-spacing: 0.5px;
-            margin-bottom: 6px;
+            margin-bottom: 8px;
             color: #ccc;
-            line-height: 1.3;
+            line-height: 1.4;
         }
-        li strong { color: #fff; font-weight: normal; }
+        
+        /* Bold the "Label" of each bullet for scannability */
+        li strong { 
+            color: #fff; 
+            font-weight: bold; 
+            margin-right: 5px;
+        }
 
         .signup-area {
-            margin-top: 15px;
             text-align: center;
             border-top: 1px solid #333;
-            padding-top: 15px;
+            padding-top: 20px;
         }
 
-        .signup-text { color: #fff; font-size: clamp(11px, 1.4vh, 14px); letter-spacing: 1px; }
+        .signup-text { color: #fff; font-size: 14px; letter-spacing: 1px; }
         .highlight {
             display: block;
-            margin-top: 8px;
+            margin-top: 10px;
             color: #A4FF00;
             font-weight: bold;
-            font-size: clamp(18px, 2.5vh, 26px);
+            font-size: 24px; /* Heavy CTA */
             text-decoration: none;
             letter-spacing: 1px;
         }
@@ -103,10 +108,10 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 4px;
+            gap: 5px;
         }
 
-        .dev-text { font-size: 9px; color: #555; text-transform: uppercase; }
+        .dev-text { font-size: 9px; color: #555; text-transform: uppercase; letter-spacing: 2px; }
         .hawkish-logo { width: 90px; height: auto; opacity: 0.8; filter: grayscale(1); }
 
         .back-link {
@@ -117,13 +122,6 @@
             text-decoration: none;
             color: #444;
             text-transform: uppercase;
-        }
-
-        /* Mobile specific adjustments to ensure no scroll */
-        @media (max-height: 800px) {
-            .content { margin-top: 22%; height: 68%; }
-            li { margin-bottom: 4px; }
-            h3 { margin-top: 8px; }
         }
     </style>
 </head>
@@ -141,8 +139,8 @@
                 <h3>The Profit Guard</h3>
                 <span class="section-tagline">A deal that does not pay its way is no deal at all.</span>
                 <ul>
-                    <li><strong>Audit Every Deal:</strong> Run a full P&L before you commit.</li>
-                    <li><strong>Protect the Margin:</strong> Flag leads below target RPP.</li>
+                    <li><strong>Audit Every Deal:</strong> Run through a full P&L before you commit.</li>
+                    <li><strong>Protect the Margin:</strong> System flags leads below target revenue per pallet.</li>
                     <li><strong>Hard Facts:</strong> Data-driven bottom line security.</li>
                 </ul>
             </section>
@@ -151,18 +149,17 @@
                 <h3>Real-Time Rails</h3>
                 <span class="section-tagline">Promptness is the essence of good commerce.</span>
                 <ul>
-                    <li><strong>Instant Quotes:</strong> No waiting for manual proposals.</li>
-                    <li><strong>Close the Gap:</strong> API delivery for instant signing.</li>
+                    <li><strong>Instant Quotes:</strong> No more waiting for manual proposals.</li>
+                    <li><strong>Close the Gap:</strong> Quotes delivered via API for instant signing.</li>
                     <li><strong>Specific Logic:</strong> Solving for actual operational costs.</li>
                 </ul>
             </section>
 
             <section>
                 <h3>Operational Alpha</h3>
-                <span class="section-tagline">Focus on the work, not the paperwork.</span>
                 <ul>
                     <li><strong>Sell Your Strengths:</strong> Start selling operational expertise.</li>
-                    <li><strong>Close Faster:</strong> Automated move to the finish line.</li>
+                    <li><strong>Close Faster:</strong> Automating the move to the finish line.</li>
                     <li><strong>Direct Impact:</strong> Strategic hub, not just a vendor.</li>
                 </ul>
             </section>
