@@ -1,1 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>Access</title>
+    <style>
+        /* 1. The Environment - Deep Black Space */
+        body, html {
+            margin: 0; padding: 0;
+            background-color: #000;
+            height: 100vh; width: 100vw;
+            display: flex; justify-content: center; align-items: center;
+            font-family: 'Georgia', serif;
+            overflow: hidden;
+        }
 
+        /* 2. The Physical Card - Using card.png */
+        .card-container {
+            position: relative;
+            width: 92vw;
+            max-width: 500px; 
+            aspect-ratio: 4 / 5.8; 
+            background: url('card.png') no-repeat center center;
+            background-size: contain;
+            display: flex; flex-direction: column;
+            align-items: center;
+            /* Creates a shadow that makes the card look 3D */
+            filter: drop-shadow(0 30px 60px rgba(0,0,0,0.9));
+        }
+
+        /* 3. The Content Area - Scrollable for mobile safety */
+        .content {
+            margin-top: 22%;
+            width: 82%;
+            height: 58%;
+            overflow-y: auto;
+            scrollbar-width: none; 
+            -ms-overflow-style: none;  
+            text-align: left;
+            padding-right: 5px;
+        }
+        .content::-webkit-scrollbar { display: none; }
+
+        .intro {
+            color: #fff;
+            font-size: 11px;
+            letter-spacing: 1px;
+            line-height: 1.6;
+            text-align: center;
+            margin-bottom: 25px;
+            font-style: italic;
+            border-bottom: 1px solid #222;
+            padding-bottom: 15px;
+        }
+
+        h3 {
+            color: #A4FF00; /* Kilroy Lime Green */
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin: 20px 0 10px 0;
+        }
+
+        .section-tagline {
+            color: #fff;
+            font-size: 10px;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            display: block;
+            opacity: 0.8;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0; margin: 0;
+        }
+
+        li {
+            font-size: 10px;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            color: #b5b5b5;
+            line-height: 1.4;
+        }
+
+        li strong { color: #eee; font-weight: normal; border-bottom: 1px solid #333; }
+
+        /* 4. The Call to Action */
+        .signup-area {
+            margin-top: 30px;
+            text-align: center;
+            border-top: 1px solid #222;
+            padding-top: 20px;
+        }
+
+        .signup-text {
+            color: #fff;
+            font-size: 10px;
+            letter-spacing: 1px;
+        }
+
+        .highlight {
+            display: block;
+            margin-top: 10px;
+            color: #A4FF00;
+            font-weight: bold;
+            font-size: 12px;
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        /* 5. The Hawkish Signature */
+        .dev-footer {
+            position: absolute;
+            bottom: 6%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .dev-text {
+            font-size: 7px;
+            letter-spacing: 2px;
+            color: #444;
+            text-transform: uppercase;
+        }
+
+        .hawkish-logo {
+            width: 70px;
+            height: auto;
+            opacity: 0.5;
+            /* Makes logo blend into the card aesthetic */
+            filter: grayscale(1) brightness(1.2);
+        }
+
+        .back-link {
+            position: absolute;
+            top: 5%;
+            font-size: 8px;
+            letter-spacing: 2px;
+            text-decoration: none;
+            color: #333;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card-container">
+        <a href="index.html" class="back-link">← Terminal</a>
+
+        <div class="content">
+            <div class="intro">
+                ScapeGoat is the logic layer that allows a warehouse to quote and contract instantly while securing profit.
+            </div>
+
+            <h3>The Profit Guard</h3>
+            <span class="section-tagline">A deal that does not pay its way is no deal at all.</span>
+            <ul>
+                <li><strong>Audit Every Deal:</strong> Every opportunity is run through a full P&L before you commit.</li>
+                <li><strong>Protect the Margin:</strong> The system flags any lead that fails to hit your target revenue per pallet.</li>
+                <li><strong>Hard Facts:</strong> We replace "gut feelings" with real-time data to secure your bottom line.</li>
+            </ul>
+
+            <h3>Real-Time Rails</h3>
+            <span class="section-tagline">Promptness is the essence of good commerce.</span>
+            <ul>
+                <li><strong>Instant Quotes:</strong> We remove the days of waiting for a manual proposal.</li>
+                <li><strong>Close the Gap:</strong> Quotes are delivered via API while the client is ready to sign.</li>
+                <li><strong>Specific Logic:</strong> We solve for your actual operational costs rather than using blanket rates.</li>
+            </ul>
+
+            <h3>Operational Alpha</h3>
+            <span class="section-tagline">Focus on the work, not the paperwork.</span>
+            <ul>
+                <li><strong>Sell Your Strengths:</strong> Stop chasing data and start selling your operational expertise.</li>
+                <li><strong>Close Faster:</strong> By automating the quote, you move the client straight to the finish line.</li>
+                <li><strong>Direct Impact:</strong> You become a strategic hub for the client, not just another vendor.</li>
+            </ul>
+
+            <div class="signup-area">
+                <span class="signup-text">To sign up for dynamic rates, email "Interested" to:</span>
+                <a href="mailto:rates@hawkishllc.com" class="highlight">rates@hawkishllc.com</a>
+            </div>
+        </div>
+
+        <div class="dev-footer">
+            <span class="dev-text">Developed by</span>
+            <img src="hawkish-logo.png" class="hawkish-logo" alt="Hawkish">
+        </div>
+    </div>
+
+</body>
+</html>
