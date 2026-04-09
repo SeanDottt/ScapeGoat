@@ -25,46 +25,46 @@
             background-size: 100% 100% !important;
             display: flex; flex-direction: column;
             align-items: center;
-            filter: drop-shadow(0 0 50px rgba(164, 255, 0, 0.2));
+            filter: drop-shadow(0 0 50px rgba(164, 255, 0, 0.25));
         }
 
-        /* 1. Centering and Sizing the Core Content */
+        /* 1. Aggressive Middle Section Scaling */
         .content {
-            margin-top: 32%; /* Pushed down to clear goat/divider */
-            width: 82%; 
-            height: 58%;
+            margin-top: 32%; 
+            width: 84%; 
+            height: 60%;
             text-align: left;
             display: flex;
             flex-direction: column;
-            justify-content: space-between; 
+            justify-content: space-around; /* Forces sections to spread out maximally */
         }
 
         .intro {
             color: #fff;
-            font-size: 21px; 
+            font-size: 22px; 
             letter-spacing: 0.5px;
-            line-height: 1.5;
+            line-height: 1.6;
             text-align: center;
             font-style: italic;
-            border-bottom: 1px solid #333;
+            border-bottom: 2px solid #333;
             padding-bottom: 20px;
         }
 
         h3 {
             color: #A4FF00;
-            font-size: 28px; 
+            font-size: 30px; /* Stronger presence */
             text-transform: uppercase;
-            letter-spacing: 5px;
+            letter-spacing: 6px;
             margin: 0;
             font-weight: bold;
         }
 
-        ul { list-style: none; padding: 0; margin: 0; }
+        ul { list-style: none; padding: 0; margin: 5px 0 0 0; }
         
         li {
-            font-size: 18px; 
+            font-size: 20px; /* Larger bullet text */
             letter-spacing: 0.5px;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             color: #ccc;
             line-height: 1.4;
         }
@@ -75,52 +75,52 @@
             margin-right: 8px;
         }
 
-        /* 2. Email Section Spacing */
+        /* 2. Aggressive Email Spacing */
         .signup-area {
             text-align: center;
-            border-top: 1px solid #333;
-            padding-top: 25px;
-            margin-bottom: 10px;
+            border-top: 2px solid #333;
+            padding-top: 40px; /* Big gap here */
+            margin-bottom: 15px;
         }
 
         .signup-text { 
             color: #fff; 
-            font-size: 19px; 
+            font-size: 20px; 
             letter-spacing: 1px;
             display: block;
-            margin-bottom: 20px; /* Added more space before email */
+            margin-bottom: 30px; /* Maximum gap to email */
         }
         
         .highlight {
             display: block;
             color: #A4FF00;
             font-weight: bold;
-            font-size: 34px; 
+            font-size: 38px; /* Massive focus */
             text-decoration: none;
             letter-spacing: 1px;
             text-align: center;
         }
 
-        /* 3. Moving Hawkish Logo Down onto the tile */
+        /* 3. Dropping the Footer into the Tile Zone */
         .dev-footer {
             position: absolute;
-            bottom: 2.5%; /* Lowered to sit on the tile border area */
+            bottom: 1.5%; /* Pushed to the very bottom tile */
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 5px;
         }
 
-        .dev-text { font-size: 10px; color: #555; text-transform: uppercase; letter-spacing: 2px; }
-        .hawkish-logo { width: 115px; height: auto; opacity: 0.9; filter: grayscale(1); }
+        .dev-text { font-size: 11px; color: #666; text-transform: uppercase; letter-spacing: 3px; }
+        .hawkish-logo { width: 125px; height: auto; opacity: 1; filter: grayscale(1) brightness(1.2); }
 
         .back-link {
             position: absolute;
-            top: 3.5%; /* Adjusted for better "Terminal" link placement */
-            font-size: 14px;
-            letter-spacing: 4px;
+            top: 2.5%; 
+            font-size: 15px;
+            letter-spacing: 5px;
             text-decoration: none;
-            color: #444;
+            color: #555;
             text-transform: uppercase;
         }
     </style>
@@ -162,17 +162,4 @@
                 </ul>
             </section>
 
-            <div class="signup-area">
-                <span class="signup-text">To sign up for dynamic rates, email "Interested" to:</span>
-                <a href="mailto:josh@hawkishllc.com" class="highlight">josh@hawkishllc.com</a>
-            </div>
-        </div>
-
-        <div class="dev-footer">
-            <span class="dev-text">Developed by</span>
-            <img src="hawkish-logo.png" class="hawkish-logo" alt="Hawkish">
-        </div>
-    </div>
-
-</body>
-</html>
+            <div class="signup-area
