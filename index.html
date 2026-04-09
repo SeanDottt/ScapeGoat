@@ -53,60 +53,64 @@
         .form-container { 
             width: 100%; 
             max-width: 550px; 
-            min-height: 1000px; 
-            padding: 0 20px 150px 20px; /* Room for footer */
+            min-height: 800px; 
+            padding: 0 20px 180px 20px; /* Extra bottom padding for the floating button */
             box-sizing: border-box;
             animation: fadeIn 0.8s ease-in;
         }
 
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-        /* 4. The High-Status Footer - Updated for "Pop" */
+        /* 4. The High-Status Footer Button */
         .footer {
             position: fixed;
             bottom: 30px;
             left: 0;
             width: 100%;
             text-align: center;
-            z-index: 100;
+            z-index: 1000;
         }
 
         .footer a {
-            color: #A4FF00; /* Direct Lime Color */
+            color: #A4FF00;
             text-decoration: none;
             font-size: 11px;
-            letter-spacing: 4px; /* Increased spacing for elegance */
+            letter-spacing: 4px;
             text-transform: uppercase;
-            padding: 12px 24px;
-            border: 1px solid rgba(164, 255, 0, 0.3); /* Subtle Border */
+            padding: 14px 28px;
+            border: 1px solid rgba(164, 255, 0, 0.4);
             border-radius: 50px;
             transition: all 0.4s ease;
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(5px);
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             box-shadow: 0 0 15px rgba(164, 255, 0, 0.1);
-            animation: pulseGlow 3s infinite; /* Subtle attention grabber */
+            animation: pulseGlow 3s infinite;
+            display: inline-block;
         }
 
         .footer a:hover {
             color: #000;
-            background: #A4FF00; /* Solid Fill on Hover */
+            background: #A4FF00;
             box-shadow: 0 0 25px rgba(164, 255, 0, 0.6);
             border-color: #A4FF00;
         }
 
         @keyframes pulseGlow {
-            0% { box-shadow: 0 0 5px rgba(164, 255, 0, 0.1); border-color: rgba(164, 255, 0, 0.2); }
-            50% { box-shadow: 0 0 20px rgba(164, 255, 0, 0.3); border-color: rgba(164, 255, 0, 0.5); }
-            100% { box-shadow: 0 0 5px rgba(164, 255, 0, 0.1); border-color: rgba(164, 255, 0, 0.2); }
+            0% { box-shadow: 0 0 5px rgba(164, 255, 0, 0.1); border-color: rgba(164, 255, 0, 0.3); }
+            50% { box-shadow: 0 0 20px rgba(164, 255, 0, 0.3); border-color: rgba(164, 255, 0, 0.6); }
+            100% { box-shadow: 0 0 5px rgba(164, 255, 0, 0.1); border-color: rgba(164, 255, 0, 0.3); }
         }
 
         ::-webkit-scrollbar { display: none; }
+        
+        /* JotForm styling overrides */
         iframe { width: 100% !important; border: none !important; background: transparent !important; }
 
         @media (max-width: 600px) {
             .logo-container { padding-top: 40px; }
             .logo { max-width: 260px; }
-            .footer a { font-size: 10px; padding: 10px 20px; }
+            .footer a { font-size: 10px; padding: 12px 22px; }
         }
     </style>
 </head>
@@ -117,7 +121,7 @@
     </div>
 
     <div class="form-container">
-        <script type="text/javascript" src="https://form.jotform.com/260985514278165"></script>
+        <script type="text/javascript" src="https://form.jotform.com/jsform/260985514278165"></script>
     </div>
 
     <footer class="footer">
