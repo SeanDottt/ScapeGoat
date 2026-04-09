@@ -16,6 +16,7 @@
             overflow: hidden;
         }
 
+        /* --- DESKTOP (LEAVE ALONE) --- */
         .card-container {
             position: relative;
             height: 96vh; 
@@ -30,9 +31,8 @@
             filter: drop-shadow(0 30px 60px rgba(0,0,0,1));
         }
 
-        /* THE PUSH: 55% shift downward to clear the goat graphic grass and divider */
         .content {
-            margin-top: 55% !important; /* Force override of older vertical spacing */
+            margin-top: 55% !important; 
             width: 82%;
             height: 40%; 
             display: flex;
@@ -83,23 +83,14 @@
 
         .signup-text { color: #fff; font-size: 1.3vh; letter-spacing: 1.5px; opacity: 0.7; }
 
-        /* SILVER CHROME SIGNATURE STYLE: Now anchored at the very bottom */
         .signature-email {
             display: block;
-            margin-top: 1vh; /* Separates Josh from the text slightly */
+            margin-top: 1vh; 
             text-decoration: none;
             font-family: 'Great Vibes', cursive;
             font-size: 5vh; 
             font-weight: 400;
-            
-            background: linear-gradient(
-                180deg, 
-                #ffffff 0%, 
-                #f2f2f2 35%, 
-                #8c8c8c 50%, 
-                #d9d9d9 65%, 
-                #ffffff 100%
-            );
+            background: linear-gradient(180deg, #ffffff 0%, #f2f2f2 35%, #8c8c8c 50%, #d9d9d9 65%, #ffffff 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             filter: drop-shadow(0px 2px 3px rgba(0,0,0,0.7));
@@ -126,6 +117,29 @@
             text-decoration: none;
             color: #333;
             text-transform: uppercase;
+        }
+
+        /* --- MOBILE VERSION (ONLY TRIGGERS ON PHONES) --- */
+        @media (max-width: 600px) {
+            .card-container {
+                height: auto;
+                width: 92vw; /* Fits to screen width so sides don't cut off */
+                aspect-ratio: 4 / 5.8;
+                background-color: #111;
+            }
+            .content { 
+                margin-top: 52% !important; 
+                height: 44%;
+            }
+            /* Swapping font units to scale with width for mobile readability */
+            .intro { font-size: 3.5vw; }
+            h3 { font-size: 3.8vw; }
+            li { font-size: 3vw; }
+            .signup-text { font-size: 3vw; }
+            .signature-email { font-size: 10vw; }
+            .dev-text { font-size: 2vw; }
+            .back-link { font-size: 2.5vw; }
+            .hawkish-logo { width: 14vw; }
         }
     </style>
 </head>
