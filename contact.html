@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <title>Access</title>
     <style>
-        /* 1. The Environment - Deep Black Space */
+        /* 1. The Environment */
         body, html {
             margin: 0; padding: 0;
             background-color: #000;
@@ -15,30 +15,28 @@
             overflow: hidden;
         }
 
-        /* 2. The Physical Card - Using card.png */
+        /* 2. The Physical Card - Explicitly using your card.png */
         .card-container {
             position: relative;
-            width: 92vw;
+            width: 95vw;
             max-width: 500px; 
             aspect-ratio: 4 / 5.8; 
             background: url('card.png') no-repeat center center;
-            background-size: contain;
+            background-size: 100% 100%; /* Forces the image to fill the card exactly */
             display: flex; flex-direction: column;
             align-items: center;
-            /* Creates a shadow that makes the card look 3D */
             filter: drop-shadow(0 30px 60px rgba(0,0,0,0.9));
         }
 
-        /* 3. The Content Area - Scrollable for mobile safety */
+        /* 3. Positioning content inside the card's blank space */
         .content {
-            margin-top: 22%;
-            width: 82%;
-            height: 58%;
+            margin-top: 25%; /* Pushes text below the goat/divider in the image */
+            width: 80%;
+            height: 55%;
             overflow-y: auto;
             scrollbar-width: none; 
             -ms-overflow-style: none;  
             text-align: left;
-            padding-right: 5px;
         }
         .content::-webkit-scrollbar { display: none; }
 
@@ -46,63 +44,52 @@
             color: #fff;
             font-size: 11px;
             letter-spacing: 1px;
-            line-height: 1.6;
+            line-height: 1.5;
             text-align: center;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             font-style: italic;
-            border-bottom: 1px solid #222;
+            border-bottom: 1px solid #333;
             padding-bottom: 15px;
         }
 
         h3 {
-            color: #A4FF00; /* Kilroy Lime Green */
+            color: #A4FF00;
             font-size: 10px;
             text-transform: uppercase;
             letter-spacing: 3px;
-            margin: 20px 0 10px 0;
+            margin: 15px 0 5px 0;
         }
 
         .section-tagline {
             color: #fff;
-            font-size: 10px;
+            font-size: 9px;
             letter-spacing: 1px;
             margin-bottom: 10px;
             display: block;
-            opacity: 0.8;
+            opacity: 0.7;
         }
 
-        ul {
-            list-style: none;
-            padding: 0; margin: 0;
-        }
-
+        ul { list-style: none; padding: 0; margin: 0; }
         li {
             font-size: 10px;
             letter-spacing: 1px;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             color: #b5b5b5;
-            line-height: 1.4;
+            line-height: 1.3;
         }
+        li strong { color: #eee; font-weight: normal; border-bottom: 1px solid #444; }
 
-        li strong { color: #eee; font-weight: normal; border-bottom: 1px solid #333; }
-
-        /* 4. The Call to Action */
         .signup-area {
-            margin-top: 30px;
+            margin-top: 20px;
             text-align: center;
-            border-top: 1px solid #222;
-            padding-top: 20px;
+            border-top: 1px solid #333;
+            padding-top: 15px;
         }
 
-        .signup-text {
-            color: #fff;
-            font-size: 10px;
-            letter-spacing: 1px;
-        }
-
+        .signup-text { color: #fff; font-size: 9px; letter-spacing: 1px; }
         .highlight {
             display: block;
-            margin-top: 10px;
+            margin-top: 8px;
             color: #A4FF00;
             font-weight: bold;
             font-size: 12px;
@@ -110,38 +97,30 @@
             letter-spacing: 1px;
         }
 
-        /* 5. The Hawkish Signature */
+        /* 4. Developed By Footer */
         .dev-footer {
             position: absolute;
-            bottom: 6%;
+            bottom: 7%;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 5px;
+            gap: 4px;
         }
 
-        .dev-text {
-            font-size: 7px;
-            letter-spacing: 2px;
-            color: #444;
-            text-transform: uppercase;
-        }
-
+        .dev-text { font-size: 7px; letter-spacing: 2px; color: #555; text-transform: uppercase; }
         .hawkish-logo {
-            width: 70px;
-            height: auto;
-            opacity: 0.5;
-            /* Makes logo blend into the card aesthetic */
-            filter: grayscale(1) brightness(1.2);
+            width: 75px;
+            opacity: 0.6;
+            filter: grayscale(1) brightness(1.1);
         }
 
         .back-link {
             position: absolute;
-            top: 5%;
+            top: 6%;
             font-size: 8px;
             letter-spacing: 2px;
             text-decoration: none;
-            color: #333;
+            color: #444;
             text-transform: uppercase;
         }
     </style>
@@ -159,25 +138,25 @@
             <h3>The Profit Guard</h3>
             <span class="section-tagline">A deal that does not pay its way is no deal at all.</span>
             <ul>
-                <li><strong>Audit Every Deal:</strong> Every opportunity is run through a full P&L before you commit.</li>
-                <li><strong>Protect the Margin:</strong> The system flags any lead that fails to hit your target revenue per pallet.</li>
-                <li><strong>Hard Facts:</strong> We replace "gut feelings" with real-time data to secure your bottom line.</li>
+                <li><strong>Audit Every Deal:</strong> Run through a full P&L before you commit.</li>
+                <li><strong>Protect the Margin:</strong> System flags leads below target revenue per pallet.</li>
+                <li><strong>Hard Facts:</strong> Data-driven bottom line security.</li>
             </ul>
 
             <h3>Real-Time Rails</h3>
             <span class="section-tagline">Promptness is the essence of good commerce.</span>
             <ul>
-                <li><strong>Instant Quotes:</strong> We remove the days of waiting for a manual proposal.</li>
-                <li><strong>Close the Gap:</strong> Quotes are delivered via API while the client is ready to sign.</li>
-                <li><strong>Specific Logic:</strong> We solve for your actual operational costs rather than using blanket rates.</li>
+                <li><strong>Instant Quotes:</strong> No more waiting for manual proposals.</li>
+                <li><strong>Close the Gap:</strong> Quotes delivered via API for instant signing.</li>
+                <li><strong>Specific Logic:</strong> Solving for actual operational costs.</li>
             </ul>
 
             <h3>Operational Alpha</h3>
             <span class="section-tagline">Focus on the work, not the paperwork.</span>
             <ul>
-                <li><strong>Sell Your Strengths:</strong> Stop chasing data and start selling your operational expertise.</li>
-                <li><strong>Close Faster:</strong> By automating the quote, you move the client straight to the finish line.</li>
-                <li><strong>Direct Impact:</strong> You become a strategic hub for the client, not just another vendor.</li>
+                <li><strong>Sell Your Strengths:</strong> Start selling operational expertise.</li>
+                <li><strong>Close Faster:</strong> Automating the move to the finish line.</li>
+                <li><strong>Direct Impact:</strong> Strategic hub, not just a vendor.</li>
             </ul>
 
             <div class="signup-area">
