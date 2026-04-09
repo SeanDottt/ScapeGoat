@@ -30,9 +30,9 @@
             filter: drop-shadow(0 30px 60px rgba(0,0,0,1));
         }
 
-        /* 1. BALANCED POSITIONING: Clear daylight but lifted off the floor */
+        /* THE PUSH: 55% shift downward to clear the goat graphic grass and divider */
         .content {
-            margin-top: 55%; 
+            margin-top: 55% !important; /* Force override of older vertical spacing */
             width: 82%;
             height: 40%; 
             display: flex;
@@ -74,7 +74,6 @@
         }
         li strong { color: #fff; font-weight: 400; }
 
-        /* 2. EMAIL ANCHOR: Added space before the signature */
         .signup-area {
             text-align: center;
             border-top: 1px solid rgba(255,255,255,0.1);
@@ -84,10 +83,10 @@
 
         .signup-text { color: #fff; font-size: 1.3vh; letter-spacing: 1.5px; opacity: 0.7; }
 
-        /* 3. CHROME SIGNATURE: Snell Style */
+        /* SILVER CHROME SIGNATURE STYLE: Now anchored at the very bottom */
         .signature-email {
             display: block;
-            margin-top: 1.5vh; /* Added space for Josh */
+            margin-top: 1vh; /* Separates Josh from the text slightly */
             text-decoration: none;
             font-family: 'Great Vibes', cursive;
             font-size: 5vh; 
