@@ -16,112 +16,114 @@
 
         .card-container {
             position: relative;
-            /* Scale up to 90% of screen height */
-            height: 90vh; 
+            /* Using Viewport Min to ensure it stays large but contained */
+            height: 96vh; 
             width: auto;
             aspect-ratio: 4 / 5.8; 
             background-image: url('./card.png') !important;
             background-repeat: no-repeat !important;
             background-position: center center !important;
-            background-size: contain !important;
+            background-size: 100% 100% !important;
             display: flex; flex-direction: column;
             align-items: center;
             filter: drop-shadow(0 30px 60px rgba(0,0,0,1));
         }
 
         .content {
-            margin-top: 22%; 
-            width: 82%; 
-            height: 62%;
-            overflow-y: auto;
-            scrollbar-width: none; 
+            margin-top: 18%; /* Lifted up to use more of the top space */
+            width: 90%; /* Pushed to the very edges of the gold border */
+            height: 72%; /* Expanded height to eliminate scrolling */
+            overflow-y: hidden; /* Lock the scroll */
             text-align: left;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Spreads content top-to-bottom */
         }
-        .content::-webkit-scrollbar { display: none; }
 
         .intro {
             color: #fff;
-            font-size: 18px; /* High visibility */
-            letter-spacing: 1px;
-            line-height: 1.6;
+            font-size: clamp(14px, 1.8vh, 18px); /* Responsive sizing */
+            letter-spacing: 0.5px;
+            line-height: 1.4;
             text-align: center;
-            margin-bottom: 35px;
+            margin-bottom: 15px;
             font-style: italic;
             border-bottom: 1px solid #333;
-            padding-bottom: 25px;
+            padding-bottom: 10px;
         }
 
         h3 {
             color: #A4FF00;
-            font-size: 16px; /* Authority size */
+            font-size: clamp(12px, 1.6vh, 16px);
             text-transform: uppercase;
-            letter-spacing: 5px;
-            margin: 30px 0 12px 0;
+            letter-spacing: 4px;
+            margin: 10px 0 5px 0;
         }
 
         .section-tagline {
             color: #fff;
-            font-size: 14px; 
-            letter-spacing: 1px;
-            margin-bottom: 15px;
+            font-size: clamp(11px, 1.4vh, 14px);
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
             display: block;
             opacity: 0.9;
         }
 
         ul { list-style: none; padding: 0; margin: 0; }
         li {
-            font-size: 14px; 
-            letter-spacing: 1px;
-            margin-bottom: 14px;
+            font-size: clamp(11px, 1.4vh, 14px);
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
             color: #ccc;
-            line-height: 1.6;
+            line-height: 1.3;
         }
-        li strong { color: #fff; font-weight: normal; border-bottom: 1px solid #444; }
+        li strong { color: #fff; font-weight: normal; }
 
         .signup-area {
-            margin-top: 40px;
+            margin-top: 15px;
             text-align: center;
             border-top: 1px solid #333;
-            padding-top: 30px;
-            padding-bottom: 20px;
+            padding-top: 15px;
         }
 
-        .signup-text { color: #fff; font-size: 14px; letter-spacing: 1px; }
+        .signup-text { color: #fff; font-size: clamp(11px, 1.4vh, 14px); letter-spacing: 1px; }
         .highlight {
             display: block;
-            margin-top: 15px;
+            margin-top: 8px;
             color: #A4FF00;
             font-weight: bold;
-            font-size: 22px; /* Massive Call to Action */
+            font-size: clamp(18px, 2.5vh, 26px);
             text-decoration: none;
             letter-spacing: 1px;
         }
 
         .dev-footer {
             position: absolute;
-            bottom: 5%;
+            bottom: 4%;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 8px;
+            gap: 4px;
         }
 
-        .dev-text { font-size: 10px; letter-spacing: 2px; color: #555; text-transform: uppercase; }
-        .hawkish-logo {
-            width: 100px; /* Bigger logo */
-            height: auto;
-            opacity: 0.8;
-            filter: grayscale(1) brightness(1.2);
-        }
+        .dev-text { font-size: 9px; color: #555; text-transform: uppercase; }
+        .hawkish-logo { width: 90px; height: auto; opacity: 0.8; filter: grayscale(1); }
 
         .back-link {
             position: absolute;
             top: 4%;
-            font-size: 12px;
-            letter-spacing: 4px;
+            font-size: 11px;
+            letter-spacing: 3px;
             text-decoration: none;
             color: #444;
             text-transform: uppercase;
+        }
+
+        /* Mobile specific adjustments to ensure no scroll */
+        @media (max-height: 800px) {
+            .content { margin-top: 22%; height: 68%; }
+            li { margin-bottom: 4px; }
+            h3 { margin-top: 8px; }
         }
     </style>
 </head>
@@ -135,29 +137,35 @@
                 ScapeGoat is the logic layer that allows a warehouse to quote and contract instantly while securing profit.
             </div>
 
-            <h3>The Profit Guard</h3>
-            <span class="section-tagline">A deal that does not pay its way is no deal at all.</span>
-            <ul>
-                <li><strong>Audit Every Deal:</strong> Run through a full P&L before you commit.</li>
-                <li><strong>Protect the Margin:</strong> System flags leads below target revenue per pallet.</li>
-                <li><strong>Hard Facts:</strong> Data-driven bottom line security.</li>
-            </ul>
+            <section>
+                <h3>The Profit Guard</h3>
+                <span class="section-tagline">A deal that does not pay its way is no deal at all.</span>
+                <ul>
+                    <li><strong>Audit Every Deal:</strong> Run a full P&L before you commit.</li>
+                    <li><strong>Protect the Margin:</strong> Flag leads below target RPP.</li>
+                    <li><strong>Hard Facts:</strong> Data-driven bottom line security.</li>
+                </ul>
+            </section>
 
-            <h3>Real-Time Rails</h3>
-            <span class="section-tagline">Promptness is the essence of good commerce.</span>
-            <ul>
-                <li><strong>Instant Quotes:</strong> No more waiting for manual proposals.</li>
-                <li><strong>Close the Gap:</strong> Quotes delivered via API for instant signing.</li>
-                <li><strong>Specific Logic:</strong> Solving for actual operational costs.</li>
-            </ul>
+            <section>
+                <h3>Real-Time Rails</h3>
+                <span class="section-tagline">Promptness is the essence of good commerce.</span>
+                <ul>
+                    <li><strong>Instant Quotes:</strong> No waiting for manual proposals.</li>
+                    <li><strong>Close the Gap:</strong> API delivery for instant signing.</li>
+                    <li><strong>Specific Logic:</strong> Solving for actual operational costs.</li>
+                </ul>
+            </section>
 
-            <h3>Operational Alpha</h3>
-            <span class="section-tagline">Focus on the work, not the paperwork.</span>
-            <ul>
-                <li><strong>Sell Your Strengths:</strong> Start selling operational expertise.</li>
-                <li><strong>Close Faster:</strong> Automating the move to the finish line.</li>
-                <li><strong>Direct Impact:</strong> Strategic hub, not just a vendor.</li>
-            </ul>
+            <section>
+                <h3>Operational Alpha</h3>
+                <span class="section-tagline">Focus on the work, not the paperwork.</span>
+                <ul>
+                    <li><strong>Sell Your Strengths:</strong> Start selling operational expertise.</li>
+                    <li><strong>Close Faster:</strong> Automated move to the finish line.</li>
+                    <li><strong>Direct Impact:</strong> Strategic hub, not just a vendor.</li>
+                </ul>
+            </section>
 
             <div class="signup-area">
                 <span class="signup-text">To sign up for dynamic rates, email "Interested" to:</span>
