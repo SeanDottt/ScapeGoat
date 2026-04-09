@@ -14,11 +14,10 @@
             overflow: hidden;
         }
 
-        /* 1. AGGRESSIVE SCALING: Pushes the card to fill the screen height */
         .card-container {
             position: relative;
             height: 96vh; 
-            width: auto; /* Width will automatically follow the aspect ratio of the height */
+            width: auto;
             aspect-ratio: 4 / 5.8; 
             background-image: url('./Gemini_Generated_Image_s0tklrs0tklrs0tk.png') !important;
             background-repeat: no-repeat !important;
@@ -29,23 +28,21 @@
             filter: drop-shadow(0 30px 60px rgba(0,0,0,1));
         }
 
-        /* 2. FLEXIBLE CONTENT: Adjusts based on card height */
         .content {
             margin-top: 32%; 
-            width: 85%;
+            width: 88%;
             height: 56%; 
             display: flex;
             flex-direction: column;
-            justify-content: space-around; /* Automatically spreads items to prevent the "cut-off" at the bottom */
-            text-align: left;
+            justify-content: space-around; 
+            text-align: center; /* FORCE ALL TEXT CENTER */
         }
 
         .intro {
             color: #fff;
-            font-size: 1.8vh; /* Font scales with the card height */
+            font-size: 1.8vh; 
             letter-spacing: 0.5px;
             line-height: 1.4;
-            text-align: center;
             font-style: italic;
             border-bottom: 1px solid #333;
             padding-bottom: 2vh;
@@ -60,17 +57,25 @@
             font-weight: bold;
         }
 
-        ul { list-style: none; padding: 0; margin: 1vh 0 0 0; }
+        ul { 
+            list-style: none; 
+            padding: 0; 
+            margin: 1vh 0 0 0; 
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* CENTER THE BULLET LIST */
+        }
+
         li {
             font-size: 1.5vh;
             letter-spacing: 0.5px;
-            margin-bottom: 1vh;
+            margin-bottom: 0.8vh;
             color: #ccc;
             line-height: 1.3;
         }
+        
         li strong { color: #fff; font-weight: bold; }
 
-        /* 3. EMAIL SECTION: Locked into view */
         .signup-area {
             text-align: center;
             border-top: 1px solid #333;
@@ -83,12 +88,11 @@
             margin-top: 1.5vh;
             color: #A4FF00;
             font-weight: bold;
-            font-size: 3vh; /* Bold, high-visibility email */
+            font-size: 3vh; 
             text-decoration: none;
             letter-spacing: 1px;
         }
 
-        /* 4. FOOTER PINNED TO BOTTOM TILE */
         .dev-footer {
             position: absolute;
             bottom: 2%; 
@@ -99,7 +103,7 @@
 
         .dev-text { font-size: 0.8vh; color: #555; text-transform: uppercase; letter-spacing: 2px; }
         .hawkish-logo {
-            width: 12vh; /* Logo scales with card size */
+            width: 12vh; 
             height: auto;
             opacity: 0.9;
             filter: grayscale(1) brightness(1.2);
@@ -129,8 +133,8 @@
             <section>
                 <h3>The Profit Guard</h3>
                 <ul>
-                    <li><strong>Audit Every Deal:</strong> Run through a full P&L before you commit.</li>
-                    <li><strong>Protect the Margin:</strong> System flags leads below target RPP.</li>
+                    <li><strong>Audit Every Deal:</strong> Run a full P&L before you commit.</li>
+                    <li><strong>Protect the Margin:</strong> Flag leads below target RPP.</li>
                     <li><strong>Hard Facts:</strong> Data-driven bottom line security.</li>
                 </ul>
             </section>
@@ -138,8 +142,8 @@
             <section>
                 <h3>Real-Time Rails</h3>
                 <ul>
-                    <li><strong>Instant Quotes:</strong> No more waiting for manual proposals.</li>
-                    <li><strong>Close the Gap:</strong> Quotes delivered via API for instant signing.</li>
+                    <li><strong>Instant Quotes:</strong> No waiting for manual proposals.</li>
+                    <li><strong>Close the Gap:</strong> API delivery for instant signing.</li>
                     <li><strong>Specific Logic:</strong> Solving for actual operational costs.</li>
                 </ul>
             </section>
@@ -148,7 +152,7 @@
                 <h3>Operational Alpha</h3>
                 <ul>
                     <li><strong>Sell Your Strengths:</strong> Start selling operational expertise.</li>
-                    <li><strong>Close Faster:</strong> Automating the move to the finish line.</li>
+                    <li><strong>Close Faster:</strong> Automated move to the finish line.</li>
                     <li><strong>Direct Impact:</strong> Strategic hub, not just a vendor.</li>
                 </ul>
             </section>
