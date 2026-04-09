@@ -9,7 +9,7 @@
         body, html {
             margin: 0; padding: 0;
             background-color: #000;
-            height: 100vh; width: 100vw;
+            height: 100%; width: 100%;
             display: flex; justify-content: center; align-items: center;
             font-family: 'Georgia', serif;
             overflow: hidden;
@@ -18,28 +18,28 @@
         .card-container {
             position: relative;
             height: 96vh; 
-            width: auto;
-            aspect-ratio: 4 / 5.8; 
-            /* Fallback color so you don't get a black screen */
+            width: 66vh; /* Fixed width relative to height for stability */
+            max-width: 95vw;
             background-color: #1a1a1a; 
             background-image: url('Gemini_Generated_Image_s0tklrs0tklrs0tk.png');
             background-repeat: no-repeat;
             background-position: center center;
-            background-size: cover;
+            background-size: 100% 100%;
             display: flex; flex-direction: column;
             align-items: center;
             filter: drop-shadow(0 30px 60px rgba(0,0,0,1));
-            border: 1px solid #222;
+            border: 1px solid rgba(255,255,255,0.05);
         }
 
         .content {
             margin-top: 55%; 
-            width: 82%;
-            height: 40%; 
+            width: 85%;
+            flex-grow: 1; /* Tells the box to take up all available space */
             display: flex;
             flex-direction: column;
-            justify-content: space-between; 
+            justify-content: space-around; 
             text-align: center; 
+            padding-bottom: 8%;
         }
 
         .intro {
@@ -51,7 +51,7 @@
             border-bottom: 1px solid rgba(255,255,255,0.1);
             padding-bottom: 1vh;
             margin: 0 auto; 
-            width: 85%; 
+            width: 90%; 
         }
 
         h3 {
@@ -76,7 +76,7 @@
             padding-top: 1vh;
         }
 
-        .signup-text { color: #fff; font-size: 1.2vh; letter-spacing: 1px; opacity: 0.7; }
+        .signup-text { color: #fff; font-size: 1.3vh; letter-spacing: 1px; opacity: 0.7; }
 
         .signature-email {
             display: block;
@@ -86,7 +86,7 @@
             background: linear-gradient(180deg, #fff 0%, #888 50%, #fff 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-top: 1vh;
+            margin-top: 0.5vh;
         }
 
         .dev-footer {
@@ -95,7 +95,6 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            opacity: 0.5;
         }
 
         .dev-text { font-size: 0.7vh; color: #444; text-transform: uppercase; letter-spacing: 2px; }
@@ -111,19 +110,21 @@
             text-transform: uppercase;
         }
 
-        /* --- MOBILE RECOVERY --- */
+        /* --- HARD MOBILE OVERRIDE --- */
         @media (max-width: 600px) {
             .card-container {
-                width: 92vw;
-                height: calc(92vw * 1.45); /* Force height based on width */
+                height: 85vh; /* Shorter height to avoid the 'tall/skinny' squish on phones */
+                width: 90vw; /* Driven by width */
+                min-height: 500px; /* Never let it collapse to 0 */
             }
-            .intro { font-size: 3.5vw; }
-            h3 { font-size: 4vw; }
-            li { font-size: 3vw; }
-            .signature-email { font-size: 10vw; }
-            .signup-text { font-size: 3vw; }
-            .dev-text { font-size: 2vw; }
-            .hawkish-logo { width: 14vw; }
+            .content { margin-top: 50%; }
+            .intro { font-size: 14px; }
+            h3 { font-size: 15px; }
+            li { font-size: 12px; }
+            .signature-email { font-size: 32px; }
+            .signup-text { font-size: 12px; }
+            .dev-text { font-size: 8px; }
+            .back-link { font-size: 9px; }
         }
     </style>
 </head>
