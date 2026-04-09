@@ -13,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <title>Access</title>
     <style>
-        /* 1. The Canvas: Matte Black & Vertical Freedom */
+        /* 1. The Canvas */
         body, html {
             margin: 0; padding: 0;
             background-color: #000000;
@@ -26,7 +26,7 @@
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
 
-        /* 2. Logo Unit - Prestige Positioning */
+        /* 2. Logo Unit */
         .logo-container {
             flex: 0 0 auto;
             padding-top: 60px; 
@@ -47,52 +47,66 @@
             -webkit-tap-highlight-color: transparent;
         }
 
-        .logo:active {
-            transform: scale(0.95);
-        }
+        .logo:active { transform: scale(0.95); }
 
-        /* 3. The Functional Core - Updated to accommodate new form length */
+        /* 3. The Functional Core */
         .form-container { 
             width: 100%; 
             max-width: 550px; 
-            min-height: 1200px; 
-            padding: 0 20px 100px 20px; 
+            min-height: 1000px; 
+            padding: 0 20px 150px 20px; /* Room for footer */
             box-sizing: border-box;
             animation: fadeIn 0.8s ease-in;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        /* 4. The High-Status Footer */
+        .footer {
+            position: fixed;
+            bottom: 30px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            z-index: 100;
+        }
+
+        .footer a {
+            color: #333; /* Discrete Gray */
+            text-decoration: none;
+            font-size: 10px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            transition: 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: #A4FF00; /* Lime Glow on hover */
+            text-shadow: 0 0 8px rgba(164, 255, 0, 0.6);
         }
 
         ::-webkit-scrollbar { display: none; }
-
-        iframe {
-            width: 100% !important;
-            border: none !important;
-            background: transparent !important;
-        }
+        iframe { width: 100% !important; border: none !important; background: transparent !important; }
 
         @media (max-width: 600px) {
             .logo-container { padding-top: 40px; }
             .logo { max-width: 260px; }
-            .form-container { min-height: 1400px; }
         }
     </style>
 </head>
 <body>
 
     <div class="logo-container">
-        <img src="logo.png" 
-             class="logo" 
-             alt="Kilroy" 
-             onclick="window.location.reload();">
+        <img src="logo.png" class="logo" alt="Kilroy" onclick="window.location.reload();">
     </div>
 
     <div class="form-container">
         <script type="text/javascript" src="https://form.jotform.com/jsform/260985514278165"></script>
     </div>
+
+    <footer class="footer">
+        <a href="contact.html">Contact Information</a>
+    </footer>
 
 </body>
 </html>
