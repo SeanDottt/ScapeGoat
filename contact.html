@@ -29,8 +29,8 @@
         }
 
         .content {
-            margin-top: 35%; /* Pushed down to clear the goat and divider line entirely */
-            width: 82%;
+            margin-top: 28%; /* Back to your preferred scale */
+            width: 80%;
             height: 52%; 
             overflow-y: auto;
             scrollbar-width: none; 
@@ -38,13 +38,15 @@
         }
         .content::-webkit-scrollbar { display: none; }
 
+        /* This pushes the text down specifically to clear the goat icon */
         .intro {
             color: #fff;
-            font-size: 12px; 
-            letter-spacing: 0.5px;
+            font-size: 10px; 
+            letter-spacing: 1px;
             line-height: 1.5;
             text-align: center;
-            margin-bottom: 25px;
+            margin-top: 15px; /* Added internal space to clear the legs */
+            margin-bottom: 20px;
             font-style: italic;
             border-bottom: 1px solid #333;
             padding-bottom: 15px;
@@ -52,51 +54,51 @@
 
         h3 {
             color: #A4FF00;
-            font-size: 13px; 
+            font-size: 9px; 
             text-transform: uppercase;
             letter-spacing: 3px;
-            margin: 20px 0 8px 0;
+            margin: 15px 0 5px 0;
             font-weight: bold;
         }
 
         ul { list-style: none; padding: 0; margin: 0; }
         li {
-            font-size: 11px;
-            letter-spacing: 0.5px;
-            margin-bottom: 10px;
+            font-size: 9px;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
             color: #b5b5b5;
-            line-height: 1.4;
+            line-height: 1.3;
         }
         li strong { color: #eee; font-weight: normal; border-bottom: 1px solid #444; }
 
         .signup-area {
-            margin-top: 30px;
+            margin-top: 20px;
             text-align: center;
             border-top: 1px solid #333;
-            padding-top: 20px;
+            padding-top: 15px;
         }
 
-        .signup-text { color: #fff; font-size: 11px; letter-spacing: 1px; }
+        .signup-text { color: #fff; font-size: 9px; letter-spacing: 1px; }
         .highlight {
             display: block;
-            margin-top: 15px;
+            margin-top: 10px;
             color: #A4FF00;
             font-weight: bold;
-            font-size: 18px; 
+            font-size: 12px; 
             text-decoration: none;
             letter-spacing: 1px;
         }
 
         .dev-footer {
             position: absolute;
-            bottom: 2%; 
+            bottom: 2.5%; 
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 4px;
         }
 
-        .dev-text { font-size: 7px; letter-spacing: 2px; color: #555; text-transform: uppercase; }
+        .dev-text { font-size: 6px; letter-spacing: 2px; color: #555; text-transform: uppercase; }
         .hawkish-logo {
             width: 105px;
             height: auto;
@@ -107,8 +109,8 @@
         .back-link {
             position: absolute;
             top: 4%;
-            font-size: 10px;
-            letter-spacing: 4px;
+            font-size: 9px;
+            letter-spacing: 3px;
             text-decoration: none;
             color: #444;
             text-transform: uppercase;
