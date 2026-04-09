@@ -16,88 +16,87 @@
 
         .card-container {
             position: relative;
-            height: 95vh; 
+            /* Almost full screen height */
+            height: 98vh; 
             width: auto;
-            aspect-ratio: 4 / 5.8; 
+            aspect-ratio: 4 / 5.6; 
             background-image: url('./card.png') !important;
             background-repeat: no-repeat !important;
             background-position: center center !important;
             background-size: 100% 100% !important;
             display: flex; flex-direction: column;
             align-items: center;
-            filter: drop-shadow(0 30px 60px rgba(0,0,0,1));
+            filter: drop-shadow(0 0 50px rgba(164, 255, 0, 0.2));
         }
 
         .content {
             margin-top: 22%; 
-            width: 86%; 
+            width: 88%; 
             height: 68%;
             text-align: left;
             display: flex;
             flex-direction: column;
-            justify-content: space-around; /* Spreads sections out to fill vertical space */
+            justify-content: space-between; /* Spreads content to hit top and bottom of card */
         }
 
         .intro {
             color: #fff;
-            font-size: 18px;
+            font-size: 20px; /* Big intro */
             letter-spacing: 0.5px;
-            line-height: 1.5;
+            line-height: 1.6;
             text-align: center;
             font-style: italic;
             border-bottom: 1px solid #333;
-            padding-bottom: 15px;
-            margin-bottom: 10px;
+            padding-bottom: 20px;
         }
 
         h3 {
             color: #A4FF00;
-            font-size: 22px; /* Large Header */
+            font-size: 24px; /* Massive Pillar Headers */
             text-transform: uppercase;
-            letter-spacing: 5px;
+            letter-spacing: 6px;
             margin: 0;
             font-weight: bold;
         }
 
         .section-tagline {
             color: #fff;
-            font-size: 14px;
+            font-size: 16px;
             letter-spacing: 1px;
-            margin: 5px 0 10px 0;
+            margin: 8px 0 12px 0;
             display: block;
             opacity: 0.8;
-            font-style: italic;
         }
 
         ul { list-style: none; padding: 0; margin: 0; }
         li {
-            font-size: 15px; /* Standardized Bullet Size */
+            font-size: 17px; /* Authoritative text size */
             letter-spacing: 0.5px;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             color: #ccc;
-            line-height: 1.4;
+            line-height: 1.5;
         }
         
-        /* Bold the "Label" of each bullet for scannability */
         li strong { 
             color: #fff; 
             font-weight: bold; 
             margin-right: 5px;
+            border-bottom: 1px solid #444;
         }
 
         .signup-area {
             text-align: center;
             border-top: 1px solid #333;
-            padding-top: 20px;
+            padding-top: 25px;
         }
 
-        .signup-text { color: #fff; font-size: 14px; letter-spacing: 1px; }
+        .signup-text { color: #fff; font-size: 16px; letter-spacing: 1px; }
         .highlight {
             display: block;
             margin-top: 10px;
             color: #A4FF00;
             font-weight: bold;
-            font-size: 24px; /* Heavy CTA */
+            font-size: 28px; /* The "Money" link */
             text-decoration: none;
             letter-spacing: 1px;
         }
@@ -112,13 +111,13 @@
         }
 
         .dev-text { font-size: 9px; color: #555; text-transform: uppercase; letter-spacing: 2px; }
-        .hawkish-logo { width: 90px; height: auto; opacity: 0.8; filter: grayscale(1); }
+        .hawkish-logo { width: 100px; height: auto; opacity: 0.8; filter: grayscale(1); }
 
         .back-link {
             position: absolute;
             top: 4%;
-            font-size: 11px;
-            letter-spacing: 3px;
+            font-size: 12px;
+            letter-spacing: 4px;
             text-decoration: none;
             color: #444;
             text-transform: uppercase;
@@ -140,7 +139,7 @@
                 <span class="section-tagline">A deal that does not pay its way is no deal at all.</span>
                 <ul>
                     <li><strong>Audit Every Deal:</strong> Run through a full P&L before you commit.</li>
-                    <li><strong>Protect the Margin:</strong> System flags leads below target revenue per pallet.</li>
+                    <li><strong>Protect the Margin:</strong> System flags leads below target RPP.</li>
                     <li><strong>Hard Facts:</strong> Data-driven bottom line security.</li>
                 </ul>
             </section>
@@ -157,6 +156,7 @@
 
             <section>
                 <h3>Operational Alpha</h3>
+                <span class="section-tagline">Focus on the work, not the paperwork.</span>
                 <ul>
                     <li><strong>Sell Your Strengths:</strong> Start selling operational expertise.</li>
                     <li><strong>Close Faster:</strong> Automating the move to the finish line.</li>
