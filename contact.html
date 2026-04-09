@@ -16,7 +16,7 @@
             overflow: hidden;
         }
 
-        /* --- DESKTOP (LEAVE ALONE) --- */
+        /* --- DESKTOP (UNTOUCHED) --- */
         .card-container {
             position: relative;
             height: 96vh; 
@@ -119,27 +119,28 @@
             text-transform: uppercase;
         }
 
-        /* --- MOBILE VERSION (ONLY TRIGGERS ON PHONES) --- */
+        /* --- MOBILE FIX (Phones Only) --- */
         @media (max-width: 600px) {
             .card-container {
-                height: auto;
-                width: 92vw; /* Fits to screen width so sides don't cut off */
-                aspect-ratio: 4 / 5.8;
-                background-color: #111;
+                height: 92vh; /* Slightly shorter to allow room for browser bars */
+                width: 95vw; /* Expand width to prevent text squishing */
+                aspect-ratio: auto; /* Break the strict aspect ratio for mobile */
+                background-size: cover !important; /* Ensure background fills the wider card */
             }
             .content { 
-                margin-top: 52% !important; 
-                height: 44%;
+                margin-top: 48% !important; /* Move text up slightly on mobile to create space */
+                height: 48%; 
+                width: 88%;
+                justify-content: space-around; /* Distribute sections evenly */
             }
-            /* Swapping font units to scale with width for mobile readability */
-            .intro { font-size: 3.5vw; }
-            h3 { font-size: 3.8vw; }
-            li { font-size: 3vw; }
-            .signup-text { font-size: 3vw; }
-            .signature-email { font-size: 10vw; }
-            .dev-text { font-size: 2vw; }
-            .back-link { font-size: 2.5vw; }
-            .hawkish-logo { width: 14vw; }
+            .intro { font-size: 14px; width: 90%; line-height: 1.4; }
+            h3 { font-size: 16px; letter-spacing: 3px; }
+            li { font-size: 12px; margin-bottom: 2px; line-height: 1.2; }
+            .signup-text { font-size: 11px; }
+            .signature-email { font-size: 32px; margin-top: 5px; }
+            .dev-text { font-size: 8px; }
+            .hawkish-logo { width: 60px; }
+            .back-link { font-size: 10px; top: 2%; }
         }
     </style>
 </head>
@@ -158,7 +159,6 @@
                 <ul>
                     <li><strong>Audit Every Deal:</strong> Run a full P&L before you commit.</li>
                     <li><strong>Protect the Margin:</strong> Flags leads below target revenue.</li>
-                    <li><strong>Hard Facts:</strong> Data-driven bottom line security.</li>
                 </ul>
             </section>
 
@@ -167,7 +167,6 @@
                 <ul>
                     <li><strong>Instant Quotes:</strong> No waiting for manual proposals.</li>
                     <li><strong>Close the Gap:</strong> API delivery for instant signing.</li>
-                    <li><strong>Specific Logic:</strong> Solving for actual operational costs.</li>
                 </ul>
             </section>
 
@@ -176,7 +175,6 @@
                 <ul>
                     <li><strong>Sell Your Strengths:</strong> Start selling operational expertise.</li>
                     <li><strong>Close Faster:</strong> Automated move to the finish line.</li>
-                    <li><strong>Direct Impact:</strong> Strategic hub, not just a vendor.</li>
                 </ul>
             </section>
 
