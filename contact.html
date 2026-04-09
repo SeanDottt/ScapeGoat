@@ -29,15 +29,15 @@
             filter: drop-shadow(0 30px 60px rgba(0,0,0,1));
         }
 
-        /* 1. AGGRESSIVE ANCHORING: Pushing content to the floor */
+        /* 1. AGGRESSIVE DROP: Pushing all text below the goat graphic */
         .content {
-            margin-top: 42%; 
+            margin-top: 45%; 
             width: 82%;
-            height: 52%; 
+            height: 50%; 
             display: flex;
             flex-direction: column;
-            justify-content: flex-end; /* Sinks all text to the bottom */
-            gap: 2vh; /* Consistent spacing between sections */
+            justify-content: flex-end; 
+            gap: 1.8vh; 
             text-align: center; 
         }
 
@@ -50,7 +50,8 @@
             border-bottom: 1px solid rgba(255,255,255,0.1);
             padding-bottom: 1.5vh;
             font-weight: 300;
-            margin-bottom: 1vh;
+            margin: 0 auto 1vh auto;
+            width: 90%; /* "Brings in" the text so it's not so wide */
         }
 
         h3 {
@@ -79,12 +80,11 @@
         
         li strong { color: #fff; font-weight: 400; }
 
-        /* 2. EMAIL AREA: This will now hit the very bottom of the card */
         .signup-area {
             text-align: center;
             border-top: 1px solid rgba(255,255,255,0.1);
             padding-top: 2vh;
-            margin-top: 1vh;
+            margin-top: 0.5vh;
         }
 
         .signup-text { color: #fff; font-size: 1.4vh; letter-spacing: 1.5px; opacity: 0.8; }
@@ -98,7 +98,6 @@
             letter-spacing: 2px;
         }
 
-        /* 3. FOOTER: Small and discrete on the concrete tile */
         .dev-footer {
             position: absolute;
             bottom: 1.2%; 
