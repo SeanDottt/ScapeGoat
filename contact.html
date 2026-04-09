@@ -16,7 +16,6 @@
             overflow: hidden;
         }
 
-        /* DESKTOP SCALE (The one you liked) */
         .card-container {
             position: relative;
             height: 96vh; 
@@ -31,8 +30,9 @@
             filter: drop-shadow(0 30px 60px rgba(0,0,0,1));
         }
 
+        /* THE PUSH: 55% shift downward to clear the goat graphic grass and divider */
         .content {
-            margin-top: 55% !important; 
+            margin-top: 55% !important; /* Force override of older vertical spacing */
             width: 82%;
             height: 40%; 
             display: flex;
@@ -63,7 +63,7 @@
             font-weight: 400;
         }
 
-        ul { list-style: none; padding: 0; margin: 0; }
+        ul { list-style: none; padding: 0; margin: 0.5vh 0 0 0; }
         li {
             font-size: 1.4vh; 
             letter-spacing: 0.8px;
@@ -83,14 +83,23 @@
 
         .signup-text { color: #fff; font-size: 1.3vh; letter-spacing: 1.5px; opacity: 0.7; }
 
+        /* SILVER CHROME SIGNATURE STYLE: Now anchored at the very bottom */
         .signature-email {
             display: block;
-            margin-top: 1.5vh; 
+            margin-top: 1vh; /* Separates Josh from the text slightly */
             text-decoration: none;
             font-family: 'Great Vibes', cursive;
             font-size: 5vh; 
             font-weight: 400;
-            background: linear-gradient(180deg, #ffffff 0%, #f2f2f2 35%, #8c8c8c 50%, #d9d9d9 65%, #ffffff 100%);
+            
+            background: linear-gradient(
+                180deg, 
+                #ffffff 0%, 
+                #f2f2f2 35%, 
+                #8c8c8c 50%, 
+                #d9d9d9 65%, 
+                #ffffff 100%
+            );
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             filter: drop-shadow(0px 2px 3px rgba(0,0,0,0.7));
@@ -117,24 +126,6 @@
             text-decoration: none;
             color: #333;
             text-transform: uppercase;
-        }
-
-        /* MOBILE OVERRIDE */
-        @media (max-width: 600px) {
-            .card-container {
-                height: auto;
-                width: 95vw;
-                aspect-ratio: 4 / 5.8;
-                background-color: #111; /* Shows a dark box even if image fails */
-            }
-            .content { margin-top: 52% !important; height: 44%; }
-            .intro { font-size: 3.5vw; }
-            h3 { font-size: 3.8vw; }
-            li { font-size: 3vw; }
-            .signature-email { font-size: 10vw; margin-top: 1vh; }
-            .signup-text { font-size: 3vw; }
-            .dev-text { font-size: 2vw; }
-            .hawkish-logo { width: 15vw; }
         }
     </style>
 </head>
