@@ -19,7 +19,6 @@
             background-color: #000000;
             width: 100vw;
             min-height: 100vh;
-            /* Allow vertical scrolling for long forms */
             overflow-x: hidden; 
             overflow-y: auto;
             display: flex; flex-direction: column;
@@ -52,18 +51,13 @@
             transform: scale(0.95);
         }
 
-        /* 3. The Functional Core - Expanded for Long Forms */
+        /* 3. The Functional Core - Updated to accommodate new form length */
         .form-container { 
             width: 100%; 
-            max-width: 550px; /* Slightly wider for better quoting readability */
-            
-            /* SAFETY NET: High min-height prevents the 'cut off' at the bottom */
+            max-width: 550px; 
             min-height: 1200px; 
-            
-            padding: 0 20px 100px 20px; /* Large bottom padding for thumb-reach */
+            padding: 0 20px 100px 20px; 
             box-sizing: border-box;
-            
-            /* High-status fade-in */
             animation: fadeIn 0.8s ease-in;
         }
 
@@ -72,7 +66,6 @@
             to { opacity: 1; }
         }
 
-        /* Remove scrollbars for clean aesthetic */
         ::-webkit-scrollbar { display: none; }
 
         iframe {
@@ -81,11 +74,10 @@
             background: transparent !important;
         }
 
-        /* Mobile specific balance */
         @media (max-width: 600px) {
             .logo-container { padding-top: 40px; }
             .logo { max-width: 260px; }
-            .form-container { min-height: 1400px; } /* Even longer for mobile stack */
+            .form-container { min-height: 1400px; }
         }
     </style>
 </head>
@@ -99,7 +91,7 @@
     </div>
 
     <div class="form-container">
-        <script type="text/javascript" src="https://form.jotform.com/jsform/260538594946068"></script>
+        <script type="text/javascript" src="https://form.jotform.com/jsform/260985514278165"></script>
     </div>
 
 </body>
