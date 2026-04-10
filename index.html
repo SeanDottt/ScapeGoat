@@ -22,13 +22,10 @@
             flex-direction: column;
             align-items: center;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            overflow-x: hidden;
         }
 
         .logo-container {
-            flex: 0 0 auto;
             padding: 60px 0 20px 0;
-            text-align: center;
         }
 
         .logo {
@@ -39,22 +36,26 @@
             box-shadow: 0 0 30px rgba(164, 255, 0, 0.45);
         }
 
-        /* THE FIX: Giving the widget massive breathing room */
         .form-container { 
             width: 100%; 
             max-width: 550px; 
             padding: 0 20px; 
             box-sizing: border-box;
-            min-height: 700px; /* Ensures the page doesn't look empty while loading */
-            margin-bottom: 120px; /* Massive gap between form buttons and contact button */
-            flex-grow: 1;
+            /* We are forcing the container to stay open even if the script is weird */
+            min-height: 800px; 
+        }
+
+        /* This is a physical invisible block that pushes the footer down */
+        .spacer {
+            height: 200px; 
+            width: 100%;
+            display: block;
         }
 
         .footer {
-            flex: 0 0 auto;
             width: 100%;
             text-align: center;
-            padding-bottom: 60px; /* Space from the very bottom of the screen */
+            padding-bottom: 60px;
         }
 
         .footer a {
@@ -66,16 +67,8 @@
             padding: 14px 28px;
             border: 1px solid rgba(164, 255, 0, 0.4);
             border-radius: 50px;
-            background: rgba(0, 0, 0, 0.5);
             display: inline-block;
-            transition: all 0.4s ease;
             animation: pulseGlow 3s infinite;
-        }
-
-        .footer a:hover {
-            color: #000;
-            background: #A4FF00;
-            box-shadow: 0 0 25px rgba(164, 255, 0, 0.6);
         }
 
         @keyframes pulseGlow {
@@ -84,24 +77,26 @@
             100% { box-shadow: 0 0 5px rgba(164, 255, 0, 0.1); border-color: rgba(164, 255, 0, 0.3); }
         }
 
-        iframe { width: 100% !important; border: none !important; background: transparent !important; }
+        iframe { width: 100% !important; border: none !important; }
 
         @media (max-width: 600px) {
             .logo-container { padding-top: 40px; }
             .logo { max-width: 260px; }
-            .form-container { margin-bottom: 150px; } /* Even more space on mobile */
+            .spacer { height: 150px; }
         }
     </style>
 </head>
 <body>
 
     <div class="logo-container">
-        <img src="logo.png" class="logo" alt="Kilroy" onclick="window.location.reload();">
+        <img src="logo.png" class="logo" alt="Kilroy">
     </div>
 
     <div class="form-container">
         <script type="text/javascript" src="https://form.jotform.com/jsform/260985514278165"></script>
     </div>
+
+    <div class="spacer"></div>
 
     <footer class="footer">
         <a href="contact.html">Contact Information</a>
