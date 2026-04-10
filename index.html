@@ -11,7 +11,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <title>Access</title>
+    <title>Access | ScapeGoat</title>
     <style>
         body, html {
             margin: 0; padding: 0;
@@ -28,27 +28,26 @@
 
         .logo-container {
             flex: 0 0 auto;
-            padding: 40px 0 10px 0; 
+            padding: 40px 0 20px 0; 
         }
 
         .logo {
-            width: 75vw; 
-            max-width: 280px;
+            width: 60vw; 
+            max-width: 220px;
             height: auto;
             border-radius: 20px;
             box-shadow: 0 0 30px rgba(164, 255, 0, 0.45);
-            cursor: pointer;
         }
 
+        /* CENTERED FORM LAYOUT */
         .form-wrapper {
             width: 100%;
-            max-width: 550px;
-            padding: 0 20px; 
+            max-width: 550px; /* Return to focused width */
+            padding: 0 20px;
             box-sizing: border-box;
-            flex: 0 0 auto;
+            flex: 1 0 auto;
         }
 
-        /* HEIGHT CALIBRATION: Optimized to keep Goat and Footer in frame */
         #JotFormIFrame-260985514278165 {
             width: 100% !important;
             height: 770px !important; 
@@ -60,34 +59,29 @@
             flex: 0 0 auto;
             width: 100%;
             text-align: center;
-            padding: 5px 0 50px 0;
+            padding: 30px 0 50px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
         }
 
         .footer a {
             color: #A4FF00;
             text-decoration: none;
-            font-size: 11px;
+            font-size: 10px;
             letter-spacing: 3px;
             text-transform: uppercase;
             padding: 12px 24px;
             border: 1px solid rgba(164, 255, 0, 0.4);
             border-radius: 50px;
             display: inline-block;
-            transition: all 0.4s ease;
-            animation: pulseGlow 3s infinite;
+            background: rgba(0,0,0,0.5);
+            transition: 0.3s;
         }
 
-        .footer a:hover {
-            color: #000;
-            background: #A4FF00;
-            box-shadow: 0 0 25px rgba(164, 255, 0, 0.6);
-        }
-
-        /* CUSTOM AGENT STYLING: Shrinking Aria to be as small as possible */
-        .jotform-agent-embed {
-            transform: scale(0.7) !important;
-            transform-origin: bottom right !important;
-        }
+        .primary-btn { animation: pulseGlow 3s infinite; }
+        .secondary-btn { color: #fff; opacity: 0.6; }
 
         @keyframes pulseGlow {
             0% { box-shadow: 0 0 5px rgba(164, 255, 0, 0.1); border-color: rgba(164, 255, 0, 0.3); }
@@ -96,22 +90,16 @@
         }
 
         @media (max-width: 600px) {
-            .logo-container { padding-top: 30px; }
-            .logo { max-width: 220px; }
+            .logo-container { padding-top: 20px; }
+            .logo { max-width: 200px; }
             #JotFormIFrame-260985514278165 { height: 820px !important; } 
-            
-            /* Aria mobile placement to avoid overlap */
-            .jotform-agent-embed {
-                transform: scale(0.6) !important;
-                bottom: 85px !important;
-            }
         }
     </style>
 </head>
 <body>
 
     <div class="logo-container">
-        <img src="logo.png" class="logo" alt="Kilroy" onclick="window.location.reload();">
+        <img src="logo.png" class="logo" alt="ScapeGoat" onclick="window.location.reload();">
     </div>
 
     <div class="form-wrapper">
@@ -121,16 +109,16 @@
           src="https://form.jotform.com/260985514278165"
           frameborder="0"
           scrolling="no"
-          allowtransparency="true"
-          allow="geolocation; microphone; camera">
+          allowtransparency="true">
         </iframe>
     </div>
 
     <footer class="footer">
-        <a href="contact.html">Contact Information</a>
+        <a href="video.html" class="primary-btn">Tutorial Walkthrough</a>
+        <a href="contact.html" class="secondary-btn">Contact Information</a>
     </footer>
 
-    <script src="https://agent.jotform.com/019d794177f871df8f79a05cb9bfb46a7790" type="text/javascript"></script>
+    <script src='https://cdn.jotfor.ms/agent/embedjs/019d794177f871df8f79a05cb9bfb46a7790/embed.js'></script>
 
 </body>
 </html>
