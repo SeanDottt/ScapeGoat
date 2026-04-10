@@ -27,12 +27,12 @@
 
         .logo-container {
             flex: 0 0 auto;
-            padding: 60px 0 20px 0;
+            padding: 30px 0 10px 0; /* Tightened top padding */
         }
 
         .logo {
-            width: 85vw; 
-            max-width: 320px;
+            width: 70vw; /* Slightly smaller logo for better fit */
+            max-width: 240px;
             height: auto;
             border-radius: 20px;
             box-shadow: 0 0 30px rgba(164, 255, 0, 0.45);
@@ -42,15 +42,15 @@
         .form-wrapper {
             width: 100%;
             max-width: 550px;
-            flex-grow: 1;
-            padding: 0 20px;
+            flex: 0 0 auto; /* Don't force growth */
+            padding: 0 20px; 
             box-sizing: border-box;
         }
 
-        /* TIGHTER HEIGHT: Now that the buffer is inside JotForm, we can shrink this */
+        /* REDUCED HEIGHT: This prevents the browser from "centering" off-screen */
         #JotFormIFrame-260985514278165 {
             width: 100% !important;
-            height: 800px !important; /* Adjusted to sit closer to the footer */
+            height: 520px !important; /* Shrunk from 800px to keep goat in frame */
             border: none !important;
             background: transparent !important;
         }
@@ -59,16 +59,16 @@
             flex: 0 0 auto;
             width: 100%;
             text-align: center;
-            padding: 20px 0 60px 0; /* Reduced top padding for a tighter look */
+            padding: 20px 0 40px 0;
         }
 
         .footer a {
             color: #A4FF00;
             text-decoration: none;
-            font-size: 11px;
-            letter-spacing: 4px;
+            font-size: 10px; /* Slightly smaller for mobile scaling */
+            letter-spacing: 3px;
             text-transform: uppercase;
-            padding: 14px 28px;
+            padding: 12px 24px;
             border: 1px solid rgba(164, 255, 0, 0.4);
             border-radius: 50px;
             display: inline-block;
@@ -84,14 +84,14 @@
 
         @keyframes pulseGlow {
             0% { box-shadow: 0 0 5px rgba(164, 255, 0, 0.1); border-color: rgba(164, 255, 0, 0.3); }
-            50% { box-shadow: 0 0 20px rgba(164, 255, 0, 0.3); border-color: rgba(164, 255, 0, 0.6); }
+            50% { box-shadow: 0 0 15px rgba(164, 255, 0, 0.2); border-color: rgba(164, 255, 0, 0.5); }
             100% { box-shadow: 0 0 5px rgba(164, 255, 0, 0.1); border-color: rgba(164, 255, 0, 0.3); }
         }
 
         @media (max-width: 600px) {
-            .logo-container { padding-top: 40px; }
-            .logo { max-width: 260px; }
-            #JotFormIFrame-260985514278165 { height: 850px !important; } 
+            .logo-container { padding-top: 20px; }
+            .logo { max-width: 200px; }
+            #JotFormIFrame-260985514278165 { height: 550px !important; } /* Mobile needs a tiny bit more for wrapping */
         }
     </style>
 </head>
