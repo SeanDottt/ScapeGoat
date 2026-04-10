@@ -28,26 +28,27 @@
 
         .logo-container {
             flex: 0 0 auto;
-            padding: 40px 0 20px 0; 
+            padding: 40px 0 10px 0; 
         }
 
         .logo {
-            width: 60vw; 
-            max-width: 220px;
+            width: 75vw; 
+            max-width: 280px;
             height: auto;
             border-radius: 20px;
             box-shadow: 0 0 30px rgba(164, 255, 0, 0.45);
+            cursor: pointer;
         }
 
-        /* CENTERED FORM LAYOUT */
         .form-wrapper {
             width: 100%;
-            max-width: 550px; /* Return to focused width */
-            padding: 0 20px;
+            max-width: 550px;
+            padding: 0 20px; 
             box-sizing: border-box;
-            flex: 1 0 auto;
+            flex: 0 0 auto;
         }
 
+        /* Adjusted for the internal buffer you added in JotForm */
         #JotFormIFrame-260985514278165 {
             width: 100% !important;
             height: 770px !important; 
@@ -59,7 +60,7 @@
             flex: 0 0 auto;
             width: 100%;
             text-align: center;
-            padding: 30px 0 50px 0;
+            padding: 20px 0 60px 0;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -69,19 +70,35 @@
         .footer a {
             color: #A4FF00;
             text-decoration: none;
-            font-size: 10px;
+            font-size: 11px;
             letter-spacing: 3px;
             text-transform: uppercase;
-            padding: 12px 24px;
+            padding: 14px 28px;
             border: 1px solid rgba(164, 255, 0, 0.4);
             border-radius: 50px;
             display: inline-block;
+            transition: all 0.4s ease;
+            width: fit-content;
             background: rgba(0,0,0,0.5);
-            transition: 0.3s;
         }
 
-        .primary-btn { animation: pulseGlow 3s infinite; }
-        .secondary-btn { color: #fff; opacity: 0.6; }
+        .primary-btn {
+            animation: pulseGlow 3s infinite;
+        }
+
+        .secondary-btn {
+            color: #fff;
+            border-color: rgba(255,255,255,0.2);
+            opacity: 0.7;
+        }
+
+        .footer a:hover {
+            color: #000;
+            background: #A4FF00;
+            box-shadow: 0 0 25px rgba(164, 255, 0, 0.6);
+            border-color: #A4FF00;
+            opacity: 1;
+        }
 
         @keyframes pulseGlow {
             0% { box-shadow: 0 0 5px rgba(164, 255, 0, 0.1); border-color: rgba(164, 255, 0, 0.3); }
@@ -90,8 +107,8 @@
         }
 
         @media (max-width: 600px) {
-            .logo-container { padding-top: 20px; }
-            .logo { max-width: 200px; }
+            .logo-container { padding-top: 30px; }
+            .logo { max-width: 220px; }
             #JotFormIFrame-260985514278165 { height: 820px !important; } 
         }
     </style>
@@ -99,7 +116,7 @@
 <body>
 
     <div class="logo-container">
-        <img src="logo.png" class="logo" alt="ScapeGoat" onclick="window.location.reload();">
+        <img src="logo.png" class="logo" alt="Kilroy" onclick="window.location.reload();">
     </div>
 
     <div class="form-wrapper">
@@ -109,7 +126,8 @@
           src="https://form.jotform.com/260985514278165"
           frameborder="0"
           scrolling="no"
-          allowtransparency="true">
+          allowtransparency="true"
+          allow="geolocation; microphone; camera">
         </iframe>
     </div>
 
