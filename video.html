@@ -9,14 +9,15 @@
             margin: 0; padding: 0;
             background-color: #000;
             min-height: 100vh;
-            display: flex; flex-direction: column;
+            display: flex; 
+            flex-direction: column;
             align-items: center;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             color: #fff;
             overflow-x: hidden;
         }
 
-        /* THE PREMIUM BANNER */
+        /* 1. THE PREMIUM BANNER */
         .banner-container {
             width: 100%;
             max-width: 900px;
@@ -33,15 +34,16 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        /* THE VIDEO SECTION */
+        /* 2. THE CINEMA VIDEO PLAYER */
         .video-wrapper {
-            width: 90%;
-            max-width: 850px;
-            margin: 10px 0 30px 0;
+            position: relative;
+            width: 95%; 
+            max-width: 1280px; /* Cinema Wide */
+            margin: 20px 0 40px 0;
             aspect-ratio: 16 / 9;
-            background: #111;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+            background: #000;
+            border: 1px solid rgba(164, 255, 0, 0.2);
+            box-shadow: 0 20px 80px rgba(164, 255, 0, 0.15);
             border-radius: 4px;
             overflow: hidden;
         }
@@ -52,10 +54,23 @@
             border: none;
         }
 
-        /* THE TERMINAL LINK */
+        /* 3. THE GHOST SHIELD */
+        /* This prevents users from clicking the YouTube logo in the bottom right */
+        .video-shield {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 15% ;
+            height: 15%;
+            background: transparent;
+            z-index: 10;
+            cursor: default;
+        }
+
+        /* 4. THE TERMINAL LINK */
         .footer {
             margin-top: auto;
-            padding: 40px 0 60px 0;
+            padding: 20px 0 80px 0;
             text-align: center;
         }
 
@@ -65,35 +80,42 @@
             font-size: 11px;
             letter-spacing: 4px;
             text-transform: uppercase;
-            padding: 14px 28px;
+            padding: 14px 32px;
             border: 1px solid rgba(164, 255, 0, 0.3);
             border-radius: 50px;
             transition: all 0.4s ease;
             display: inline-block;
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.8);
         }
 
         .back-link:hover {
             background: #A4FF00;
             color: #000;
-            box-shadow: 0 0 25px rgba(164, 255, 0, 0.5);
+            box-shadow: 0 0 30px rgba(164, 255, 0, 0.5);
         }
 
-        @media (max-width: 600px) {
+        /* RESPONSIVE SCALING */
+        @media (max-width: 800px) {
+            .video-wrapper { 
+                width: 98%; 
+                margin-top: 10px;
+            }
             .banner-container { padding: 20px 10px; }
-            .video-wrapper { width: 95%; margin-bottom: 20px; }
+            .video-shield { width: 25%; height: 25%; } /* Larger shield for mobile thumbs */
         }
     </style>
 </head>
 <body>
 
     <div class="banner-container">
-        <img src="Gemini_Generated_Image_rr02bbrr02bbrr02.png" class="banner-img" alt="ScapeGoat Walkthrough">
+        <img src="Gemini_Generated_Image_rr02bbrr02bbrr02.png" class="banner-img" alt="ScapeGoat Internal">
     </div>
 
     <div class="video-wrapper">
+        <div class="video-shield"></div>
+        
         <iframe 
-            src="https://www.youtube.com/embed/TFSboxNFcwI?rel=0&modestbranding=1" 
+            src="https://www.youtube.com/embed/TFSboxNFcwI?rel=0&modestbranding=1&iv_load_policy=3&autoplay=0&hd=1" 
             title="ScapeGoat Walkthrough" 
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
             allowfullscreen>
