@@ -43,18 +43,16 @@
         .form-wrapper {
             width: 100%;
             max-width: 550px;
-            padding: 0 20px; 
+            padding: 0 20px 40px 20px; /* Added 40px bottom padding safety zone */
             box-sizing: border-box;
-            flex: 1 0 auto; /* Allows this area to grow with the form */
-            display: flex;
-            flex-direction: column;
+            flex: 1 0 auto;
         }
 
-        /* CHANGED: Switched to min-height so it can expand if needed */
         #JotFormIFrame-260985514278165 {
             width: 100% !important;
-            min-height: 770px !important; /* The "Tight" default */
-            height: auto !important;      /* The "Expand" ability */
+            /* We use a large min-height to ensure the iframe has room for the checkboxes */
+            min-height: 900px !important; 
+            height: auto !important;
             border: none !important;
             background: transparent !important;
         }
@@ -63,11 +61,12 @@
             flex: 0 0 auto;
             width: 100%;
             text-align: center;
-            padding: 20px 0 60px 0;
+            padding: 0 0 60px 0; /* Tightened top padding since wrapper has bottom padding */
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 15px;
+            z-index: 100; /* Ensures buttons stay on top */
         }
 
         .footer a {
@@ -82,7 +81,7 @@
             display: inline-block;
             transition: all 0.4s ease;
             width: fit-content;
-            background: rgba(0,0,0,0.5);
+            background: rgba(0,0,0,0.8); /* Darker background to prevent transparency overlap */
         }
 
         .primary-btn {
@@ -112,8 +111,7 @@
         @media (max-width: 600px) {
             .logo-container { padding-top: 30px; }
             .logo { max-width: 220px; }
-            /* Mobile adjustment */
-            #JotFormIFrame-260985514278165 { min-height: 820px !important; } 
+            #JotFormIFrame-260985514278165 { min-height: 1100px !important; } /* More room for mobile wrapping */
         }
     </style>
 </head>
