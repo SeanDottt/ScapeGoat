@@ -25,15 +25,6 @@
             overflow-x: hidden;
         }
 
-        /* MOVES THE AI BUBBLE TO THE TOP RIGHT */
-        div[id^="jotform-agent-container"], 
-        .jotform-agent-embed-view {
-            top: 20px !important;
-            bottom: auto !important;
-            right: 20px !important;
-            z-index: 9999 !important;
-        }
-
         .logo-container {
             padding: 40px 0 20px 0;
             flex-shrink: 0;
@@ -60,14 +51,6 @@
             border: none !important;
             background: transparent !important;
         }
-
-        /* Mobile specific nudge for the AI bubble */
-        @media (max-width: 600px) {
-            div[id^="jotform-agent-container"] {
-                top: 10px !important;
-                right: 10px !important;
-            }
-        }
     </style>
 </head>
 <body>
@@ -92,8 +75,6 @@
         <script src='https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js'></script>
         <script>window.jotformEmbedHandler("iframe[id='JotFormIFrame-260538594946068']", "https://form.jotform.com/")</script>
     </div>
-
-    <script src='https://cdn.jotfor.ms/agent/embedjs/019d794177f871df8f79a05cb9bfb46a7790/embed.js'></script>
 
 </body>
 </html>
