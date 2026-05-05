@@ -20,53 +20,54 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: flex-start; 
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             overflow-x: hidden;
         }
 
         .logo-container {
-            flex: 0 0 auto;
-            padding: 40px 0 10px 0; 
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding: 40px 0 20px 0;
+            flex-shrink: 0;
         }
 
         .logo {
             width: 75vw; 
-            max-width: 280px;
+            max-width: 260px;
             height: auto;
             border-radius: 20px;
-            box-shadow: 0 0 30px rgba(164, 255, 0, 0.45);
-            cursor: pointer;
+            box-shadow: 0 0 30px rgba(164, 255, 0, 0.4);
         }
 
+        /* 1. THE SOLUTION: This container now "owns" the space */
         .form-wrapper {
+            flex: 1 0 auto; /* This pushes the footer to the bottom */
             width: 100%;
             max-width: 550px;
-            padding: 0 20px 40px 20px; /* Added 40px bottom padding safety zone */
+            margin: 0 auto;
+            padding: 0 20px;
             box-sizing: border-box;
-            flex: 1 0 auto;
+            /* We set a massive min-height so the footer is never in the way */
+            min-height: 1200px; 
         }
 
         #JotFormIFrame-260985514278165 {
             width: 100% !important;
-            /* We use a large min-height to ensure the iframe has room for the checkboxes */
-            min-height: 900px !important; 
-            height: auto !important;
+            height: 100% !important; /* Take up all the room in the massive wrapper */
+            min-height: 1100px !important;
             border: none !important;
-            background: transparent !important;
         }
 
         .footer {
-            flex: 0 0 auto;
             width: 100%;
-            text-align: center;
-            padding: 0 0 60px 0; /* Tightened top padding since wrapper has bottom padding */
+            padding: 40px 0 60px 0;
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 15px;
-            z-index: 100; /* Ensures buttons stay on top */
+            background-color: #000; /* Solid background prevents visual overlap */
+            flex-shrink: 0;
         }
 
         .footer a {
@@ -78,40 +79,21 @@
             padding: 14px 28px;
             border: 1px solid rgba(164, 255, 0, 0.4);
             border-radius: 50px;
-            display: inline-block;
-            transition: all 0.4s ease;
-            width: fit-content;
-            background: rgba(0,0,0,0.8); /* Darker background to prevent transparency overlap */
+            background: rgba(0,0,0,0.9);
+            transition: 0.4s;
         }
 
-        .primary-btn {
-            animation: pulseGlow 3s infinite;
-        }
-
-        .secondary-btn {
-            color: #fff;
-            border-color: rgba(255,255,255,0.2);
-            opacity: 0.7;
-        }
-
-        .footer a:hover {
-            color: #000;
-            background: #A4FF00;
-            box-shadow: 0 0 25px rgba(164, 255, 0, 0.6);
-            border-color: #A4FF00;
-            opacity: 1;
-        }
+        .primary-btn { animation: pulseGlow 3s infinite; }
+        .secondary-btn { color: #fff; opacity: 0.6; }
 
         @keyframes pulseGlow {
-            0% { box-shadow: 0 0 5px rgba(164, 255, 0, 0.1); border-color: rgba(164, 255, 0, 0.3); }
-            50% { box-shadow: 0 0 20px rgba(164, 255, 0, 0.3); border-color: rgba(164, 255, 0, 0.6); }
-            100% { box-shadow: 0 0 5px rgba(164, 255, 0, 0.1); border-color: rgba(164, 255, 0, 0.3); }
+            0% { box-shadow: 0 0 5px rgba(164, 255, 0, 0.1); }
+            50% { box-shadow: 0 0 20px rgba(164, 255, 0, 0.3); }
+            100% { box-shadow: 0 0 5px rgba(164, 255, 0, 0.1); }
         }
 
         @media (max-width: 600px) {
-            .logo-container { padding-top: 30px; }
-            .logo { max-width: 220px; }
-            #JotFormIFrame-260985514278165 { min-height: 1100px !important; } /* More room for mobile wrapping */
+            .form-wrapper { min-height: 1400px; } /* Even more room for mobile */
         }
     </style>
 </head>
@@ -128,8 +110,7 @@
           src="https://form.jotform.com/260985514278165"
           frameborder="0"
           scrolling="no"
-          allowtransparency="true"
-          allow="geolocation; microphone; camera">
+          allowtransparency="true">
         </iframe>
     </div>
 
