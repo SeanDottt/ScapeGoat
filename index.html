@@ -45,13 +45,16 @@
             max-width: 550px;
             padding: 0 20px; 
             box-sizing: border-box;
-            flex: 0 0 auto;
+            flex: 1 0 auto; /* Allows this area to grow with the form */
+            display: flex;
+            flex-direction: column;
         }
 
-        /* Adjusted for the internal buffer you added in JotForm */
+        /* CHANGED: Switched to min-height so it can expand if needed */
         #JotFormIFrame-260985514278165 {
             width: 100% !important;
-            height: 770px !important; 
+            min-height: 770px !important; /* The "Tight" default */
+            height: auto !important;      /* The "Expand" ability */
             border: none !important;
             background: transparent !important;
         }
@@ -109,14 +112,15 @@
         @media (max-width: 600px) {
             .logo-container { padding-top: 30px; }
             .logo { max-width: 220px; }
-            #JotFormIFrame-260985514278165 { height: 820px !important; } 
+            /* Mobile adjustment */
+            #JotFormIFrame-260985514278165 { min-height: 820px !important; } 
         }
     </style>
 </head>
 <body>
 
     <div class="logo-container">
-        <img src="logo.png" class="logo" alt="Kilroy" onclick="window.location.reload();">
+        <img src="logo.png" class="logo" alt="ScapeGoat" onclick="window.location.reload();">
     </div>
 
     <div class="form-wrapper">
