@@ -25,6 +25,15 @@
             overflow-x: hidden;
         }
 
+        /* MOVES THE AI BUBBLE TO THE TOP RIGHT */
+        div[id^="jotform-agent-container"], 
+        .jotform-agent-embed-view {
+            top: 20px !important;
+            bottom: auto !important;
+            right: 20px !important;
+            z-index: 9999 !important;
+        }
+
         .logo-container {
             padding: 40px 0 20px 0;
             flex-shrink: 0;
@@ -46,11 +55,18 @@
             box-sizing: border-box;
         }
 
-        /* The iframe now handles all the buttons internally */
         #JotFormIFrame-260538594946068 {
             width: 100% !important;
             border: none !important;
             background: transparent !important;
+        }
+
+        /* Mobile specific nudge for the AI bubble */
+        @media (max-width: 600px) {
+            div[id^="jotform-agent-container"] {
+                top: 10px !important;
+                right: 10px !important;
+            }
         }
     </style>
 </head>
