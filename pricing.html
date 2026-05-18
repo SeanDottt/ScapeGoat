@@ -88,13 +88,15 @@
             box-sizing: border-box;
         }
 
-        /* The Goat Watermark / Logo positioned in the bottom-right for wrap safety */
+        /* The Brand Logo positioned in the bottom-right for wrap safety */
         .watermark-logo {
             position: absolute;
             bottom: 24px;
             right: 24px;
             height: 60px; 
-            opacity: 0.3; 
+            width: auto;
+            border-radius: 10px; /* Slight round matches app flow */
+            opacity: 0.75; 
         }
 
         /* Typography */
@@ -278,10 +280,7 @@
             <h1>Evaluate Every 3PL Opportunity. <span class="highlight-text">Stop Winning Bad Deals.</span></h1>
             <p class="subtitle">Most warehouses take on complex profiles that looked great on paper. Scapegoat introduces a repeatable qualification architecture that evaluates opportunities on real complexity, movement, and operational fit.</p>
             
-            <svg class="watermark-logo" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M20 75C20 75 22 60 25 55C28 50 35 48 40 45C45 42 43 35 40 32C37 29 32 30 30 25C28 20 33 15 38 12C43 9 48 12 52 16C56 20 55 25 58 28C61 31 68 30 72 35C76 40 75 48 72 55C69 62 70 75 70 75M25 75L28 65M65 75L62 65M42 45C42 45 48 43 52 46" stroke="#A4FF00" stroke-width="4" stroke-linecap="round"/>
-                <path d="M15 75H75" stroke="#A4FF00" stroke-width="3" stroke-linecap="round"/>
-            </svg>
+            <img class="watermark-logo" src="https://raw.githubusercontent.com/SeanDottt/ScapeGoat/3fabb1c94b8fdb03ebd4ef2813f86fd674affa0f/logo.png" alt="ScapeGoat App Shield">
         </header>
 
         <section class="grid-section">
