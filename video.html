@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1SYJXQBKTS"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-1SYJXQBKTS');
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <title>Walkthrough | ScapeGoat</title>
@@ -20,7 +28,7 @@
         /* BANNER SECTION */
         .banner-container {
             width: 100%;
-            max-width: 900px; /* Kept this restrained so the logo doesn't get pixelated */
+            max-width: 900px; 
             padding: 30px 20px 10px 20px;
             box-sizing: border-box;
             text-align: center;
@@ -34,11 +42,11 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        /* 1. ULTRA-WIDE VIDEO SECTION */
+        /* ULTRA-WIDE VIDEO SECTION */
         .video-wrapper {
             position: relative;
-            width: 98vw; /* Pushes to the very edges of the screen */
-            max-width: 1600px; /* Maximum limit for ultra-wide monitors */
+            width: 98vw; 
+            max-width: 1600px; 
             margin: 10px 0 40px 0;
             aspect-ratio: 16 / 9;
             background: #000;
@@ -117,8 +125,6 @@
     <footer class="footer">
         <a href="index.html" class="back-link">Return to Terminal</a>
     </footer>
-
-    <script src='https://cdn.jotfor.ms/agent/embedjs/019d794177f871df8f79a05cb9bfb46a7790/embed.js'></script>
 
 </body>
 </html>
