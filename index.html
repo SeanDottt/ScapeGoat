@@ -43,26 +43,47 @@
             z-index: -1;
             pointer-events: none;
             
-            /* Varied Opacity Angled Lines */
+            /* Organic Multi-Stroke Hatch Sequence (Non-Uniform Widths, Spacing & Opacity) */
             background-image: repeating-linear-gradient(
                 45deg,
-                rgba(26, 32, 44, 0.28) 0px,
-                rgba(26, 32, 44, 0.28) 1.5px,
-                transparent 1.5px,
-                transparent 11px,
-                rgba(26, 32, 44, 0.05) 11px,
-                rgba(26, 32, 44, 0.05) 12.5px,
-                transparent 12.5px,
-                transparent 22px
+                rgba(26, 32, 44, 0.22) 0px,
+                rgba(26, 32, 44, 0.22) 1.2px,
+                transparent 1.2px,
+                transparent 10px,
+
+                rgba(26, 32, 44, 0.06) 10px,
+                rgba(26, 32, 44, 0.06) 10.8px,
+                transparent 10.8px,
+                transparent 19px,
+
+                rgba(26, 32, 44, 0.18) 19px,
+                rgba(26, 32, 44, 0.18) 20.6px,
+                transparent 20.6px,
+                transparent 32px,
+
+                rgba(26, 32, 44, 0.04) 32px,
+                rgba(26, 32, 44, 0.04) 32.7px,
+                transparent 32.7px,
+                transparent 43px,
+
+                rgba(26, 32, 44, 0.25) 43px,
+                rgba(26, 32, 44, 0.25) 44.5px,
+                transparent 44.5px,
+                transparent 56px,
+
+                rgba(26, 32, 44, 0.08) 56px,
+                rgba(26, 32, 44, 0.08) 56.8px,
+                transparent 56.8px,
+                transparent 68px
             );
 
-            /* Moving Radial Wave Mask */
-            -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, rgba(0,0,0,1) 0%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0.85) 100%);
-            mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, rgba(0,0,0,1) 0%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0.85) 100%);
+            /* Smooth Radial Wave Mask */
+            -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, rgba(0,0,0,1) 0%, rgba(0,0,0,0.25) 60%, rgba(0,0,0,0.85) 100%);
+            mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, rgba(0,0,0,1) 0%, rgba(0,0,0,0.25) 60%, rgba(0,0,0,0.85) 100%);
             -webkit-mask-size: 160% 160%;
             mask-size: 160% 160%;
 
-            animation: waveMotion 12s ease-in-out infinite alternate;
+            animation: waveMotion 15s ease-in-out infinite alternate;
         }
 
         /* Undulating Wave Keyframes */
@@ -75,12 +96,12 @@
             50% {
                 -webkit-mask-position: 100% 50%;
                 mask-position: 100% 50%;
-                transform: scale(1.03) rotate(0.5deg);
+                transform: scale(1.02) rotate(0.4deg);
             }
             100% {
                 -webkit-mask-position: 30% 100%;
                 mask-position: 30% 100%;
-                transform: scale(0.98);
+                transform: scale(0.99);
             }
         }
 
