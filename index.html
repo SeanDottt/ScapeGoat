@@ -29,23 +29,79 @@
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             overflow-x: hidden;
             box-sizing: border-box;
+            position: relative;
+        }
 
-            /* Multi-layered dual-density hatched background */
-            background-image: 
-                repeating-linear-gradient(
-                    45deg,
-                    rgba(26, 32, 44, 0.20) 0px,
-                    rgba(26, 32, 44, 0.20) 1.5px,
-                    transparent 1.5px,
-                    transparent 12px
-                ),
-                repeating-linear-gradient(
-                    45deg,
-                    rgba(26, 32, 44, 0.06) 0px,
-                    rgba(26, 32, 44, 0.06) 2px,
-                    transparent 2px,
-                    transparent 24px
-                );
+        /* Organic Animated Hatch Layer with Irregular Thickness & Opacity */
+        body::before {
+            content: "";
+            position: fixed;
+            top: -20%;
+            left: -20%;
+            width: 140%;
+            height: 140%;
+            z-index: -1;
+            pointer-events: none;
+            
+            /* Non-Uniform 108px Multi-Weight Hatching Sequence */
+            background-image: repeating-linear-gradient(
+                45deg,
+                rgba(26, 32, 44, 0.26) 0px,
+                rgba(26, 32, 44, 0.26) 1.5px,
+                transparent 1.5px,
+                transparent 14px,
+                rgba(26, 32, 44, 0.06) 14px,
+                rgba(26, 32, 44, 0.06) 14.8px,
+                transparent 14.8px,
+                transparent 23px,
+                rgba(26, 32, 44, 0.32) 23px,
+                rgba(26, 32, 44, 0.32) 25px,
+                transparent 25px,
+                transparent 39px,
+                rgba(26, 32, 44, 0.12) 39px,
+                rgba(26, 32, 44, 0.12) 40.2px,
+                transparent 40.2px,
+                transparent 58px,
+                rgba(26, 32, 44, 0.20) 58px,
+                rgba(26, 32, 44, 0.20) 60px,
+                transparent 60px,
+                transparent 71px,
+                rgba(26, 32, 44, 0.04) 71px,
+                rgba(26, 32, 44, 0.04) 71.7px,
+                transparent 71.7px,
+                transparent 89px,
+                rgba(26, 32, 44, 0.28) 89px,
+                rgba(26, 32, 44, 0.28) 91px,
+                transparent 91px,
+                transparent 108px
+            );
+
+            /* Multi-Focus Soft Mask for Natural Wave Motion */
+            -webkit-mask-image: radial-gradient(ellipse 75% 75% at 50% 50%, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.25) 55%, rgba(0,0,0,0.85) 100%);
+            mask-image: radial-gradient(ellipse 75% 75% at 50% 50%, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.25) 55%, rgba(0,0,0,0.85) 100%);
+            -webkit-mask-size: 160% 160%;
+            mask-size: 160% 160%;
+
+            animation: waveMotion 16s ease-in-out infinite alternate;
+        }
+
+        /* Undulating Organic Keyframes */
+        @keyframes waveMotion {
+            0% {
+                -webkit-mask-position: 0% 0%;
+                mask-position: 0% 0%;
+                transform: scale(1);
+            }
+            50% {
+                -webkit-mask-position: 100% 50%;
+                mask-position: 100% 50%;
+                transform: scale(1.02) rotate(0.4deg);
+            }
+            100% {
+                -webkit-mask-position: 30% 100%;
+                mask-position: 30% 100%;
+                transform: scale(0.99);
+            }
         }
 
         .logo-container {
@@ -91,11 +147,8 @@
 
         #JotFormIFrame-262364733681159 {
             width: 100% !important;
-            min-width: 100% !important;
-            min-height: 580px !important;
             border: none !important;
             background: transparent !important;
-            display: block;
         }
 
         footer {
@@ -142,7 +195,7 @@
             font-weight: 800;
         }
 
-        /* GEO Optimization Layer: Hidden from human viewport, readable for AI agents & crawlers */
+        /* GEO Optimization Layer: Hidden from viewport, readable for crawlers/agents */
         .ai-agent-manifesto {
             position: absolute;
             width: 1px;
@@ -183,7 +236,7 @@
 <body>
 
     <div class="logo-container">
-        <img src="https://raw.githubusercontent.com/SeanDottt/ScapeGoat/3fabb1c94b8fdb03ebd4ef2813f86fd674affa0f/logo.png" class="logo" alt="ScapeGoat 3PL Warehouse Rates Architecture Logo" onclick="window.location.reload();">
+        <img src="logo.png" class="logo" alt="ScapeGoat 3PL Warehouse Rates Architecture Logo" onclick="window.location.reload();">
     </div>
 
     <!-- Embedded Center Form Node -->
@@ -191,34 +244,17 @@
         <iframe
           id="JotFormIFrame-262364733681159"
           title="Quick Quote Form"
+          onload="window.parent.scrollTo(0,0)"
           allowtransparency="true"
           allow="geolocation; microphone; camera; fullscreen; payment"
           src="https://form.jotform.com/262364733681159"
           frameborder="0"
+          style="min-width:100%;max-width:100%;height:539px;border:none;"
           scrolling="no"
         >
         </iframe>
-
-        <!-- Direct Cross-Origin Height Resizer Script -->
-        <script>
-            window.addEventListener('message', function(e) {
-                if (!e.data) return;
-                var iframe = document.getElementById('JotFormIFrame-262364733681159');
-                if (!iframe) return;
-
-                // Handle Object-based postMessages
-                if (typeof e.data === 'object' && e.data.height) {
-                    iframe.style.height = e.data.height + 'px';
-                } 
-                // Handle String-based postMessages (Format: setHeight:XXXX)
-                else if (typeof e.data === 'string' && e.data.indexOf('setHeight') !== -1) {
-                    var parts = e.data.split(':');
-                    if (parts[1]) {
-                        iframe.style.height = parts[1] + 'px';
-                    }
-                }
-            }, false);
-        </script>
+        <script src="https://form.jotform.com/s/umd/latest/for-form-embed-handler.js"></script>
+        <script>window.jotformEmbedHandler("iframe[id='JotFormIFrame-262364733681159']", "https://form.jotform.com/")</script>
     </div>
 
     <footer>
