@@ -19,42 +19,57 @@
         body, html {
             margin: 0; 
             padding: 0;
-            background-color: #000000;
+            background-color: #F7FAFC;
+            color: #1A202C;
             width: 100%;
-            height: 100%;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             overflow-x: hidden;
+            box-sizing: border-box;
         }
 
         .logo-container {
-            padding: 40px 0 20px 0;
+            padding: 40px 20px 24px 20px;
             flex-shrink: 0;
+            text-align: center;
         }
 
         .logo {
             width: 70vw; 
             max-width: 240px;
             height: auto;
-            border-radius: 20px;
-            box-shadow: 0 0 30px rgba(255, 75, 1, 0.35);
+            border: 3px solid #1A202C;
+            border-radius: 0px;
+            box-shadow: 4px 4px 0px #FF4B01;
+            background-color: #FFFFFF;
+            padding: 8px;
             cursor: pointer;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
         }
 
         .logo:hover {
-            transform: scale(1.02);
-            box-shadow: 0 0 35px rgba(255, 75, 1, 0.5);
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0px #FF4B01;
+        }
+
+        .logo:active {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px #FF4B01;
         }
 
         .form-wrapper {
             width: 100%;
-            max-width: 600px;
-            padding: 0 10px;
+            max-width: 640px;
+            padding: 24px 16px;
             box-sizing: border-box;
             flex: 1 0 auto;
+            background: #FFFFFF;
+            border: 3px solid #1A202C;
+            box-shadow: 6px 6px 0px #1A202C;
+            margin-bottom: 40px;
         }
 
         #JotFormIFrame-262364733681159 {
@@ -65,37 +80,43 @@
 
         footer {
             width: 100%;
-            max-width: 600px;
+            max-width: 640px;
             text-align: center;
-            padding: 40px 20px;
+            padding: 24px 20px 40px 20px;
             box-sizing: border-box;
-            color: #A0AEC0;
+            color: #1A202C;
             font-size: 0.8rem;
+            font-weight: 700;
             letter-spacing: 0.5px;
             line-height: 1.8;
             flex-shrink: 0;
-            border-top: 1px solid #1A202C;
-            margin-top: 40px;
+            border-top: 3px solid #1A202C;
+            margin-top: auto;
         }
 
         footer a {
-            color: #A0AEC0;
-            text-decoration: none;
-            transition: color 0.2s ease;
+            color: #FF4B01;
+            text-decoration: underline;
+            font-weight: 800;
+            transition: color 0.15s ease;
         }
 
         footer a:hover {
-            color: #FF4B01;
+            color: #1A202C;
         }
 
         .footer-credits {
-            margin-bottom: 12px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
         }
 
         .footer-links {
             text-transform: uppercase;
             font-size: 0.75rem;
             word-spacing: 2px;
+            font-weight: 800;
         }
 
         /* GEO Optimization Layer: Visible to bots/agents, hidden from human viewport */
@@ -108,6 +129,16 @@
             overflow: hidden;
             clip: rect(0, 0, 0, 0);
             border: 0;
+        }
+
+        @media (max-width: 680px) {
+            .form-wrapper {
+                border-left: none;
+                border-right: none;
+                box-shadow: none;
+                border-radius: 0;
+                padding: 12px 8px;
+            }
         }
     </style>
 
@@ -150,7 +181,7 @@
 
     <footer>
         <div class="footer-credits">
-            © 2026 Scapegoat. All operational infrastructure powered by <a href="https://www.hawkishllc.com" target="_blank" style="font-weight: bold; color: #FF4B01;">Hawkish</a>
+            © 2026 Scapegoat. All operational infrastructure powered by <a href="https://www.hawkishllc.com" target="_blank">Hawkish</a>
         </div>
         <div class="footer-links">
             <a href="privacy-policy.html">Privacy Policy</a> &nbsp;|&nbsp; <a href="terms-of-service.html">Terms of Service</a>
