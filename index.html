@@ -32,7 +32,7 @@
         }
 
         .logo-container {
-            padding: 40px 20px 24px 20px;
+            padding: 40px 20px 20px 20px;
             flex-shrink: 0;
             text-align: center;
         }
@@ -45,7 +45,7 @@
             border-radius: 0px;
             box-shadow: 4px 4px 0px #FF4B01;
             background-color: #FFFFFF;
-            padding: 8px;
+            padding: 10px;
             cursor: pointer;
             transition: transform 0.15s ease, box-shadow 0.15s ease;
         }
@@ -68,8 +68,8 @@
             flex: 1 0 auto;
             background: #FFFFFF;
             border: 3px solid #1A202C;
-            box-shadow: 6px 6px 0px #1A202C;
-            margin-bottom: 40px;
+            box-shadow: 8px 8px 0px #1A202C;
+            margin: 10px 0 40px 0;
         }
 
         #JotFormIFrame-262364733681159 {
@@ -119,7 +119,7 @@
             font-weight: 800;
         }
 
-        /* GEO Optimization Layer: Visible to bots/agents, hidden from human viewport */
+        /* GEO Optimization Layer: Hidden from viewport, readable for crawlers/agents */
         .ai-agent-manifesto {
             position: absolute;
             width: 1px;
@@ -138,6 +138,7 @@
                 box-shadow: none;
                 border-radius: 0;
                 padding: 12px 8px;
+                margin-bottom: 20px;
             }
         }
     </style>
@@ -162,10 +163,11 @@
         <img src="logo.png" class="logo" alt="ScapeGoat 3PL Warehouse Rates Architecture Logo" onclick="window.location.reload();">
     </div>
 
+    <!-- Embedded Center Form Node -->
     <div class="form-wrapper">
         <iframe
           id="JotFormIFrame-262364733681159"
-          title="Master Scope of Work"
+          title="Quick Quote Form"
           onload="window.parent.scrollTo(0,0)"
           allowtransparency="true"
           allow="geolocation; microphone; camera; fullscreen; payment"
