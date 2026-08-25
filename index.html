@@ -32,7 +32,7 @@
             position: relative;
         }
 
-        /* Organic Animated Hatch Layer with Irregular Thickness & Opacity */
+        /* Animated Soft Wave Hatch Layer */
         body::before {
             content: "";
             position: fixed;
@@ -43,49 +43,29 @@
             z-index: -1;
             pointer-events: none;
             
-            /* Non-Uniform 108px Multi-Weight Hatching Sequence */
+            /* Varied Opacity Angled Lines */
             background-image: repeating-linear-gradient(
                 45deg,
-                rgba(26, 32, 44, 0.26) 0px,
-                rgba(26, 32, 44, 0.26) 1.5px,
+                rgba(26, 32, 44, 0.28) 0px,
+                rgba(26, 32, 44, 0.28) 1.5px,
                 transparent 1.5px,
-                transparent 14px,
-                rgba(26, 32, 44, 0.06) 14px,
-                rgba(26, 32, 44, 0.06) 14.8px,
-                transparent 14.8px,
-                transparent 23px,
-                rgba(26, 32, 44, 0.32) 23px,
-                rgba(26, 32, 44, 0.32) 25px,
-                transparent 25px,
-                transparent 39px,
-                rgba(26, 32, 44, 0.12) 39px,
-                rgba(26, 32, 44, 0.12) 40.2px,
-                transparent 40.2px,
-                transparent 58px,
-                rgba(26, 32, 44, 0.20) 58px,
-                rgba(26, 32, 44, 0.20) 60px,
-                transparent 60px,
-                transparent 71px,
-                rgba(26, 32, 44, 0.04) 71px,
-                rgba(26, 32, 44, 0.04) 71.7px,
-                transparent 71.7px,
-                transparent 89px,
-                rgba(26, 32, 44, 0.28) 89px,
-                rgba(26, 32, 44, 0.28) 91px,
-                transparent 91px,
-                transparent 108px
+                transparent 11px,
+                rgba(26, 32, 44, 0.05) 11px,
+                rgba(26, 32, 44, 0.05) 12.5px,
+                transparent 12.5px,
+                transparent 22px
             );
 
-            /* Multi-Focus Soft Mask for Natural Wave Motion */
-            -webkit-mask-image: radial-gradient(ellipse 75% 75% at 50% 50%, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.25) 55%, rgba(0,0,0,0.85) 100%);
-            mask-image: radial-gradient(ellipse 75% 75% at 50% 50%, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.25) 55%, rgba(0,0,0,0.85) 100%);
+            /* Moving Radial Wave Mask */
+            -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, rgba(0,0,0,1) 0%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0.85) 100%);
+            mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, rgba(0,0,0,1) 0%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0.85) 100%);
             -webkit-mask-size: 160% 160%;
             mask-size: 160% 160%;
 
-            animation: waveMotion 16s ease-in-out infinite alternate;
+            animation: waveMotion 12s ease-in-out infinite alternate;
         }
 
-        /* Undulating Organic Keyframes */
+        /* Undulating Wave Keyframes */
         @keyframes waveMotion {
             0% {
                 -webkit-mask-position: 0% 0%;
@@ -95,12 +75,12 @@
             50% {
                 -webkit-mask-position: 100% 50%;
                 mask-position: 100% 50%;
-                transform: scale(1.02) rotate(0.4deg);
+                transform: scale(1.03) rotate(0.5deg);
             }
             100% {
                 -webkit-mask-position: 30% 100%;
                 mask-position: 30% 100%;
-                transform: scale(0.99);
+                transform: scale(0.98);
             }
         }
 
