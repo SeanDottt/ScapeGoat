@@ -20,12 +20,16 @@
             margin: 0; 
             padding: 0;
             background-color: #F4F7FA;
-            /* Angled Hatch Pattern Background */
+            /* Dual-Opacity Tight Hatching Pattern */
             background-image: repeating-linear-gradient(
                 45deg,
-                #D0DCE5,
-                #D0DCE5 1.5px,
-                transparent 1.5px,
+                rgba(26, 32, 44, 0.14) 0px,
+                rgba(26, 32, 44, 0.14) 1px,
+                transparent 1px,
+                transparent 6px,
+                rgba(26, 32, 44, 0.05) 6px,
+                rgba(26, 32, 44, 0.05) 7px,
+                transparent 7px,
                 transparent 12px
             );
             color: #1A202C;
