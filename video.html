@@ -16,6 +16,8 @@
     <meta name="description" content="Operational walkthrough and system architecture video guide for Scapegoat.">
     
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap');
+
         body, html {
             margin: 0; 
             padding: 0;
@@ -34,39 +36,46 @@
             overflow-x: hidden;
         }
 
-        /* SCREENSHOT-MATCHED NEO-BRUTALIST HEADER BANNER */
-        .brand-header-banner {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+        /* BRAND HEADER LINK & LAYOUT */
+        .brand-header-link {
+            text-decoration: none;
+            display: block;
             width: 100%;
             max-width: 720px;
             margin: 32px auto 16px auto;
-            padding: 14px 24px;
-            background-color: #FFFFFF;
-            border: 3.5px solid #1A202C;
-            border-left: 8px solid #FF4B01; /* Orange accent stripe */
-            box-shadow: 6px 6px 0px #1A202C;
-            box-sizing: border-box;
         }
 
-        .banner-logo {
-            height: 46px;
-            width: auto;
+        .brand-header-banner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            padding: 12px;
+            box-sizing: border-box;
             cursor: pointer;
             transition: transform 0.15s ease;
         }
 
-        .banner-logo:hover {
-            transform: scale(1.03);
+        .brand-header-banner:hover {
+            transform: translate(-2px, -2px);
         }
 
-        /* Screenshot Condensed Ultra-Bold Font Style */
+        .banner-logo {
+            height: 64px;
+            width: auto;
+            border: 3.5px solid #1A202C;
+            box-shadow: 4px 4px 0px #FF4B01;
+            background: #FFFFFF;
+            padding: 4px;
+            box-sizing: border-box;
+        }
+
+        /* CONDENSED DISPLAY SANS-SERIF TYPOGRAPHY */
         .banner-title {
-            font-family: Impact, "Arial Black", "Franklin Gothic Medium", -apple-system, sans-serif;
-            font-size: 2.1rem;
-            font-weight: 900;
-            letter-spacing: 1.5px;
+            font-family: 'Oswald', Impact, 'Arial Narrow', sans-serif;
+            font-size: 3.4rem;
+            font-weight: 700;
+            letter-spacing: 1px;
             text-transform: uppercase;
             color: #1A202C;
             line-height: 1;
@@ -149,7 +158,7 @@
             z-index: 10;
         }
 
-        /* RETURN NAVIGATION CTA */
+        /* RETURN TO HOME NAVIGATION CTA */
         .nav-btn {
             display: flex;
             align-items: center;
@@ -283,23 +292,20 @@
 
         /* MOBILE RESPONSIVE ADAPTATION (<= 768px) */
         @media (max-width: 768px) {
+            .brand-header-link {
+                margin: 16px auto 12px auto;
+            }
+
             .brand-header-banner {
-                max-width: 100%;
-                border-left: 6px solid #FF4B01;
-                border-right: none;
-                box-shadow: none;
-                border-radius: 0;
-                padding: 12px 16px;
-                margin-top: 0;
-                margin-bottom: 12px;
+                gap: 12px;
             }
 
             .banner-logo {
-                height: 38px;
+                height: 48px;
             }
 
             .banner-title {
-                font-size: 1.6rem;
+                font-size: 2.4rem;
             }
 
             .video-container {
@@ -336,16 +342,17 @@
 </head>
 <body>
 
-    <!-- SCREENSHOT-MATCHED BRAND HEADER BANNER -->
-    <div class="brand-header-banner">
-        <h1 class="banner-title">SCAPEGOAT</h1>
-        <img 
-            src="https://raw.githubusercontent.com/SeanDottt/ScapeGoat/3fabb1c94b8fdb03ebd4ef2813f86fd674affa0f/logo.png" 
-            class="banner-logo" 
-            alt="ScapeGoat Logo" 
-            onclick="window.location.href='index.html';"
-        >
-    </div>
+    <!-- BRAND HEADER (NAVIGATES HOME ON CLICK) -->
+    <a href="index.html" class="brand-header-link">
+        <div class="brand-header-banner">
+            <img 
+                src="https://raw.githubusercontent.com/SeanDottt/ScapeGoat/3fabb1c94b8fdb03ebd4ef2813f86fd674affa0f/logo.png" 
+                class="banner-logo" 
+                alt="ScapeGoat Logo"
+            >
+            <span class="banner-title">SCAPEGOAT.</span>
+        </div>
+    </a>
 
     <!-- CENTRAL VIDEO CARD CONTAINER -->
     <div class="video-container">
@@ -364,7 +371,8 @@
             </iframe>
         </div>
 
-        <a href="index.html" class="nav-btn">← RETURN TO QUOTING ENGINE</a>
+        <!-- RETURN HOME BUTTON -->
+        <a href="index.html" class="nav-btn">← RETURN TO HOME ENGINE</a>
     </div>
 
     <footer>
