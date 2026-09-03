@@ -33,21 +33,22 @@
             overflow-x: hidden;
         }
 
-        /* STANDALONE IMAGE BANNER BUTTON */
+        /* STANDALONE IMAGE BANNER BUTTON (FLUID SCALING) */
         .brand-header-link {
             text-decoration: none;
             display: block;
-            width: 100%;
-            max-width: 540px;
+            width: 90%;
+            max-width: 800px;
             margin: 32px auto 20px auto;
             box-sizing: border-box;
-            padding: 0 16px;
         }
 
         .brand-header-img {
             width: 100%;
+            max-width: 520px;
             height: auto;
             display: block;
+            margin: 0 auto;
             cursor: pointer;
             transition: transform 0.15s ease, filter 0.15s ease;
         }
@@ -61,17 +62,16 @@
             transform: translate(1px, 1px);
         }
 
-        /* CENTRAL VIDEO CARD CONTAINER */
+        /* CENTRAL VIDEO CARD CONTAINER (TIGHT FLUID FIT) */
         .video-container {
-            width: 100%;
-            max-width: 720px;
-            margin: 0 auto 20px auto;
-            padding: 32px 28px;
+            width: 90%;
+            max-width: 800px;
+            margin: 0 auto 24px auto;
+            padding: 28px 24px;
             box-sizing: border-box;
             background: #FFFFFF;
             border: 4px solid #1A202C;
             box-shadow: 8px 8px 0px #1A202C;
-            flex: 1 0 auto;
         }
 
         .header-section {
@@ -106,7 +106,7 @@
             border-radius: 2px;
         }
 
-        /* EMBEDDED VIDEO FRAMEWORK */
+        /* RESPONSIVE 16:9 SCALING VIDEO WRAPPER */
         .video-wrapper {
             position: relative;
             width: 100%; 
@@ -170,8 +170,8 @@
 
         /* UNIFIED FOOTER COMPONENT */
         footer {
-            width: 100%;
-            max-width: 720px;
+            width: 90%;
+            max-width: 800px;
             padding: 16px 20px;
             box-sizing: border-box;
             background: #FFFFFF;
@@ -273,11 +273,12 @@
         @media (max-width: 768px) {
             .brand-header-link {
                 margin: 16px auto 12px auto;
-                max-width: 100%;
+                width: 100%;
             }
 
             .video-container,
             footer {
+                width: 100%;
                 max-width: 100%;
                 border-left: none;
                 border-right: none;
@@ -296,4 +297,65 @@
             }
 
             .footer-cta-row {
-                gap: 8px
+                gap: 8px;
+            }
+
+            .footer-btn {
+                flex: 1;
+                padding: 8px;
+                font-size: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <a href="index.html" class="brand-header-link">
+        <img 
+            src="https://raw.githubusercontent.com/SeanDottt/ScapeGoat/main/screenshot-2026-09-03_14-51-26.png" 
+            alt="ScapeGoat Home" 
+            class="brand-header-img"
+        >
+    </a>
+
+    <div class="video-container">
+        <div class="header-section">
+            <h1>WALKTHROUGH DEMO</h1>
+            <div class="date-badge">SYSTEM ARCHITECTURE</div>
+        </div>
+
+        <div class="video-wrapper">
+            <div class="video-shield"></div>
+            <iframe 
+                src="https://www.youtube.com/embed/TFSboxNFcwI?rel=0&modestbranding=1&iv_load_policy=3&autoplay=0&hd=1" 
+                title="ScapeGoat Walkthrough" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <a href="index.html" class="nav-btn">← RETURN TO QUOTING ENGINE</a>
+    </div>
+
+    <footer>
+        <div class="footer-cta-row">
+            <a href="https://scapegoat3plwarehouserates.com/pricing" class="footer-btn">PRICING</a>
+            <a href="https://scapegoat3plwarehouserates.com/video" class="footer-btn">VIDEO</a>
+        </div>
+
+        <div class="footer-divider"></div>
+
+        <div class="footer-meta">
+            <div class="footer-credits">
+                © 2026 SCAPEGOAT. SYSTEMS MANAGED BY <a href="https://www.hawkishllc.com" target="_blank">HAWKISH</a>
+            </div>
+            <div class="footer-legal-links">
+                <a href="privacy-policy.html">PRIVACY POLICY</a>
+                <span class="sep">•</span>
+                <a href="terms-of-service.html">TERMS OF SERVICE</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
