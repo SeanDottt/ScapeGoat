@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google Analytics Integration -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-1SYJXQBKTS"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -36,50 +35,55 @@
             overflow-x: hidden;
         }
 
-        /* BRAND HEADER LINK & LAYOUT */
+        /* BRAND HEADER LINK & CARD LAYOUT */
         .brand-header-link {
             text-decoration: none;
             display: block;
             width: 100%;
             max-width: 720px;
-            margin: 32px auto 16px auto;
+            margin: 32px auto 20px auto;
+            box-sizing: border-box;
         }
 
         .brand-header-banner {
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 16px;
-            padding: 12px;
+            justify-content: space-between;
+            padding: 12px 20px;
+            background: #FFFFFF;
+            border: 4px solid #1A202C;
+            border-left: 12px solid #FF4B01;
+            box-shadow: 8px 8px 0px #1A202C;
             box-sizing: border-box;
             cursor: pointer;
-            transition: transform 0.15s ease;
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
         }
 
         .brand-header-banner:hover {
             transform: translate(-2px, -2px);
+            box-shadow: 10px 10px 0px #1A202C;
         }
 
-        .banner-logo {
-            height: 64px;
-            width: auto;
-            border: 3.5px solid #1A202C;
-            box-shadow: 4px 4px 0px #FF4B01;
-            background: #FFFFFF;
-            padding: 4px;
-            box-sizing: border-box;
-        }
-
-        /* CONDENSED DISPLAY SANS-SERIF TYPOGRAPHY */
+        /* CONDENSED HEADLINE SANS-SERIF TYPOGRAPHY */
         .banner-title {
-            font-family: 'Oswald', Impact, 'Arial Narrow', sans-serif;
-            font-size: 3.4rem;
+            font-family: 'Oswald', 'Arial Narrow', Impact, sans-serif;
+            font-size: 2.4rem;
             font-weight: 700;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
             color: #1A202C;
             line-height: 1;
             margin: 0;
+        }
+
+        .banner-logo {
+            height: 44px;
+            width: auto;
+            border: 2px solid #1A202C;
+            background: #1A202C;
+            padding: 2px;
+            box-sizing: border-box;
+            display: block;
         }
 
         /* CENTRAL VIDEO CARD CONTAINER */
@@ -91,7 +95,7 @@
             box-sizing: border-box;
             background: #FFFFFF;
             border: 4px solid #1A202C;
-            box-shadow: 10px 10px 0px #1A202C;
+            box-shadow: 8px 8px 0px #1A202C;
             flex: 1 0 auto;
         }
 
@@ -158,7 +162,7 @@
             z-index: 10;
         }
 
-        /* RETURN TO HOME NAVIGATION CTA */
+        /* RETURN NAVIGATION CTA */
         .nav-btn {
             display: flex;
             align-items: center;
@@ -292,40 +296,41 @@
 
         /* MOBILE RESPONSIVE ADAPTATION (<= 768px) */
         @media (max-width: 768px) {
-            .brand-header-link {
-                margin: 16px auto 12px auto;
-            }
-
-            .brand-header-banner {
-                gap: 12px;
-            }
-
-            .banner-logo {
-                height: 48px;
-            }
-
-            .banner-title {
-                font-size: 2.4rem;
-            }
-
-            .video-container {
-                max-width: 100%;
-                border-left: none;
-                border-right: none;
-                box-shadow: none;
-                border-radius: 0;
-                padding: 20px 16px;
-                margin-bottom: 12px;
-            }
-
+            .brand-header-link,
+            .video-container,
             footer {
                 max-width: 100%;
                 border-left: none;
                 border-right: none;
                 box-shadow: none;
                 border-radius: 0;
-                padding: 14px 12px;
+            }
+
+            .brand-header-link {
+                margin: 0 auto 12px auto;
+            }
+
+            .brand-header-banner {
+                border-left: 8px solid #FF4B01;
+                padding: 10px 16px;
+            }
+
+            .banner-title {
+                font-size: 1.8rem;
+            }
+
+            .banner-logo {
+                height: 36px;
+            }
+
+            .video-container {
+                padding: 20px 16px;
                 margin-bottom: 12px;
+            }
+
+            footer {
+                padding: 14px 12px;
+                margin-bottom: 0;
             }
 
             .footer-cta-row {
@@ -342,19 +347,17 @@
 </head>
 <body>
 
-    <!-- BRAND HEADER (NAVIGATES HOME ON CLICK) -->
     <a href="index.html" class="brand-header-link">
         <div class="brand-header-banner">
+            <span class="banner-title">SCAPEGOAT</span>
             <img 
                 src="https://raw.githubusercontent.com/SeanDottt/ScapeGoat/3fabb1c94b8fdb03ebd4ef2813f86fd674affa0f/logo.png" 
                 class="banner-logo" 
                 alt="ScapeGoat Logo"
             >
-            <span class="banner-title">SCAPEGOAT.</span>
         </div>
     </a>
 
-    <!-- CENTRAL VIDEO CARD CONTAINER -->
     <div class="video-container">
         <div class="header-section">
             <h1>WALKTHROUGH DEMO</h1>
@@ -371,12 +374,10 @@
             </iframe>
         </div>
 
-        <!-- RETURN HOME BUTTON -->
-        <a href="index.html" class="nav-btn">← RETURN TO HOME ENGINE</a>
+        <a href="index.html" class="nav-btn">← RETURN TO QUOTING ENGINE</a>
     </div>
 
     <footer>
-        <!-- Subtle Outline Utility Badges (Same Tab Navigation) -->
         <div class="footer-cta-row">
             <a href="https://scapegoat3plwarehouserates.com/pricing" class="footer-btn">PRICING</a>
             <a href="https://scapegoat3plwarehouserates.com/video" class="footer-btn">VIDEO</a>
@@ -384,15 +385,14 @@
 
         <div class="footer-divider"></div>
 
-        <!-- Footer Meta & Legal Links -->
         <div class="footer-meta">
             <div class="footer-credits">
-                © 2026 Scapegoat. Systems managed by <a href="https://www.hawkishllc.com" target="_blank">Hawkish</a>
+                © 2026 SCAPEGOAT. SYSTEMS MANAGED BY <a href="https://www.hawkishllc.com" target="_blank">HAWKISH</a>
             </div>
             <div class="footer-legal-links">
-                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="privacy-policy.html">PRIVACY POLICY</a>
                 <span class="sep">•</span>
-                <a href="terms-of-service.html">Terms of Service</a>
+                <a href="terms-of-service.html">TERMS OF SERVICE</a>
             </div>
         </div>
     </footer>
