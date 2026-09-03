@@ -20,7 +20,7 @@
             margin: 0;
             padding: 0;
             background-color: #F4F7FA;
-            /* Static, ultra-clean diagonal hatch pattern (8% opacity Dark Slate) */
+            /* Static diagonal hatch pattern (8% opacity Dark Slate) */
             background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M-2 18L18 -2M-2 10L10 -2M-2 2L2 -2M6 18L18 6M14 18L18 14' stroke='%231A202C' stroke-width='1.5' stroke-opacity='0.08'/%3E%3C/svg%3E");
             background-repeat: repeat;
             color: #1A202C;
@@ -63,21 +63,22 @@
             box-shadow: 2px 2px 0px #FF4B01;
         }
 
-        /* TIGHT CONTAINER FIX: Matches inner JotForm max-width (500px) */
+        /* EXPANDED LARGE CONTAINER: Scaled to 600px Max-Width */
         .form-wrapper {
             width: 100%;
-            max-width: 500px;
-            padding: 12px 8px;
+            max-width: 600px;
+            padding: 16px 12px;
             box-sizing: border-box;
             flex: 1 0 auto;
             background: #FFFFFF;
-            border: 3px solid #1A202C;
-            box-shadow: 8px 8px 0px #1A202C;
-            margin: 8px 0 20px 0;
+            border: 4px solid #1A202C;
+            box-shadow: 10px 10px 0px #1A202C;
+            margin: 12px 0 24px 0;
         }
 
         #JotFormIFrame-262364733681159 {
             width: 100% !important;
+            min-height: 680px;
             border: none !important;
             background: transparent !important;
             overflow: hidden !important;
@@ -85,7 +86,7 @@
 
         footer {
             width: 100%;
-            max-width: 500px;
+            max-width: 600px;
             text-align: center;
             padding: 16px;
             box-sizing: border-box;
@@ -112,7 +113,7 @@
         footer a:hover { color: #1A202C; }
 
         .footer-credits {
-            margin-bottom: 6px;
+            margin-bottom: 8px;
             text-transform: uppercase;
             font-size: 0.7rem;
             letter-spacing: 1px;
@@ -121,8 +122,12 @@
         .footer-links {
             text-transform: uppercase;
             font-size: 0.7rem;
-            word-spacing: 2px;
+            letter-spacing: 0.5px;
             font-weight: 800;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px 12px;
         }
 
         .ai-agent-manifesto {
@@ -136,14 +141,20 @@
             border: 0;
         }
 
-        @media (max-width: 540px) {
+        /* MOBILE RESPONSIVE ADAPTATION (<= 640px) */
+        @media (max-width: 640px) {
             .form-wrapper, footer {
+                max-width: 100%;
                 border-left: none;
                 border-right: none;
                 box-shadow: none;
                 border-radius: 0;
-                padding: 8px 4px;
+                padding: 12px 6px;
                 margin-bottom: 12px;
+            }
+
+            #JotFormIFrame-262364733681159 {
+                min-height: 820px; /* Expands height for stacked mobile navigation CTAs */
             }
         }
     </style>
@@ -168,7 +179,7 @@
         <img src="logo.png" class="logo" alt="ScapeGoat 3PL Warehouse Rates Architecture Logo" onclick="window.location.reload();">
     </div>
 
-    <!-- Compact Embedded Form Container -->
+    <!-- Expanded Large Embedded Form Container -->
     <div class="form-wrapper">
         <iframe
           id="JotFormIFrame-262364733681159"
@@ -178,7 +189,7 @@
           allow="geolocation; microphone; camera; fullscreen; payment"
           src="https://form.jotform.com/262364733681159"
           frameborder="0"
-          style="min-width:100%; max-width:100%; height:440px; border:none; overflow:hidden;"
+          style="min-width:100%; max-width:100%; height:680px; border:none; overflow:hidden;"
           scrolling="no"
         >
         </iframe>
@@ -191,7 +202,10 @@
             © 2026 Scapegoat. All operational infrastructure powered by <a href="https://www.hawkishllc.com" target="_blank">Hawkish</a>
         </div>
         <div class="footer-links">
-            <a href="privacy-policy.html">Privacy Policy</a> &nbsp;|&nbsp; <a href="terms-of-service.html">Terms of Service</a>
+            <a href="https://scapegoat3plwarehouserates.com/pricing">Pricing</a> <span>|</span>
+            <a href="https://scapegoat3plwarehouserates.com/video">Video</a> <span>|</span>
+            <a href="privacy-policy.html">Privacy Policy</a> <span>|</span>
+            <a href="terms-of-service.html">Terms of Service</a>
         </div>
     </footer>
 
