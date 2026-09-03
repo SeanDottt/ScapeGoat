@@ -35,7 +35,7 @@
             overflow-x: hidden;
         }
 
-        /* BRAND HEADER LINK & CARD LAYOUT */
+        /* BRAND HEADER LINK & LAYOUT */
         .brand-header-link {
             text-decoration: none;
             display: block;
@@ -48,42 +48,40 @@
         .brand-header-banner {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            padding: 12px 20px;
-            background: #FFFFFF;
-            border: 4px solid #1A202C;
-            border-left: 12px solid #FF4B01;
-            box-shadow: 8px 8px 0px #1A202C;
+            justify-content: center;
+            gap: 20px;
+            padding: 12px;
             box-sizing: border-box;
             cursor: pointer;
-            transition: transform 0.15s ease, box-shadow 0.15s ease;
+            transition: transform 0.15s ease;
         }
 
         .brand-header-banner:hover {
             transform: translate(-2px, -2px);
-            box-shadow: 10px 10px 0px #1A202C;
+        }
+
+        /* LOGO ICON WITH ACCENT BOX & SHADOW */
+        .banner-logo {
+            height: 72px;
+            width: auto;
+            border: 3.5px solid #1A202C;
+            box-shadow: 4px 4px 0px #FF4B01;
+            background: #1A202C;
+            padding: 2px;
+            box-sizing: border-box;
+            display: block;
         }
 
         /* CONDENSED HEADLINE SANS-SERIF TYPOGRAPHY */
         .banner-title {
             font-family: 'Oswald', 'Arial Narrow', Impact, sans-serif;
-            font-size: 2.4rem;
+            font-size: 3.6rem;
             font-weight: 700;
-            letter-spacing: 1.5px;
+            letter-spacing: 1px;
             text-transform: uppercase;
             color: #1A202C;
             line-height: 1;
             margin: 0;
-        }
-
-        .banner-logo {
-            height: 44px;
-            width: auto;
-            border: 2px solid #1A202C;
-            background: #1A202C;
-            padding: 2px;
-            box-sizing: border-box;
-            display: block;
         }
 
         /* CENTRAL VIDEO CARD CONTAINER */
@@ -296,7 +294,22 @@
 
         /* MOBILE RESPONSIVE ADAPTATION (<= 768px) */
         @media (max-width: 768px) {
-            .brand-header-link,
+            .brand-header-link {
+                margin: 16px auto 12px auto;
+            }
+
+            .brand-header-banner {
+                gap: 12px;
+            }
+
+            .banner-logo {
+                height: 48px;
+            }
+
+            .banner-title {
+                font-size: 2.4rem;
+            }
+
             .video-container,
             footer {
                 max-width: 100%;
@@ -304,23 +317,6 @@
                 border-right: none;
                 box-shadow: none;
                 border-radius: 0;
-            }
-
-            .brand-header-link {
-                margin: 0 auto 12px auto;
-            }
-
-            .brand-header-banner {
-                border-left: 8px solid #FF4B01;
-                padding: 10px 16px;
-            }
-
-            .banner-title {
-                font-size: 1.8rem;
-            }
-
-            .banner-logo {
-                height: 36px;
             }
 
             .video-container {
@@ -349,12 +345,12 @@
 
     <a href="index.html" class="brand-header-link">
         <div class="brand-header-banner">
-            <span class="banner-title">SCAPEGOAT</span>
             <img 
                 src="https://raw.githubusercontent.com/SeanDottt/ScapeGoat/3fabb1c94b8fdb03ebd4ef2813f86fd674affa0f/logo.png" 
                 class="banner-logo" 
                 alt="ScapeGoat Logo"
             >
+            <span class="banner-title">SCAPEGOAT.</span>
         </div>
     </a>
 
