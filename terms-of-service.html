@@ -16,15 +16,28 @@
     <meta name="description" content="Terms of Service governing the Scapegoat dynamic intake architecture and network lead routing system.">
     
     <style>
+        :root {
+            /* Body & UI Elements */
+            --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            
+            /* Banner & Branding Logo Text */
+            --font-display: "Oswald", "Bebas Neue", Impact, "League Gothic", "Arial Narrow Bold", sans-serif;
+            
+            --color-dark: #1A202C;
+            --color-accent: #FF4B01;
+            --color-bg: #F4F7FA;
+            --color-card: #FFFFFF;
+        }
+
         body, html {
             margin: 0; 
             padding: 0;
-            background-color: #F4F7FA;
+            background-color: var(--color-bg);
             /* Static diagonal hatch pattern (8% opacity Dark Slate) */
             background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M-2 18L18 -2M-2 10L10 -2M-2 2L2 -2M6 18L18 6M14 18L18 14' stroke='%231A202C' stroke-width='1.5' stroke-opacity='0.08'/%3E%3C/svg%3E");
             background-repeat: repeat;
-            color: #1A202C;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            color: var(--color-dark);
+            font-family: var(--font-body);
             line-height: 1.6;
             display: flex;
             flex-direction: column;
@@ -32,6 +45,7 @@
             min-height: 100vh;
             box-sizing: border-box;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
         /* NEO-BRUTALIST CONTAINER CARD */
@@ -41,9 +55,9 @@
             margin: 40px auto 20px auto;
             padding: 36px 32px;
             box-sizing: border-box;
-            background: #FFFFFF;
-            border: 4px solid #1A202C;
-            box-shadow: 10px 10px 0px #1A202C;
+            background: var(--color-card);
+            border: 4px solid var(--color-dark);
+            box-shadow: 10px 10px 0px var(--color-dark);
             flex: 1 0 auto;
         }
 
@@ -52,13 +66,14 @@
             display: inline-flex;
             align-items: center;
             padding: 8px 16px;
-            background: #FFFFFF;
-            color: #1A202C !important;
-            border: 2.5px solid #1A202C;
-            box-shadow: 3px 3px 0px #1A202C;
+            background: var(--color-card);
+            color: var(--color-dark) !important;
+            border: 2.5px solid var(--color-dark);
+            box-shadow: 3px 3px 0px var(--color-dark);
             text-decoration: none;
+            font-family: var(--font-body);
             font-size: 0.8rem;
-            font-weight: 900;
+            font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 0.8px;
             margin-bottom: 28px;
@@ -67,34 +82,38 @@
 
         .nav-btn:hover {
             transform: translate(-1px, -1px);
-            box-shadow: 4px 4px 0px #1A202C;
-            background-color: #F4F7FA;
+            box-shadow: 4px 4px 0px var(--color-dark);
+            background-color: var(--color-bg);
         }
 
         .nav-btn:active {
             transform: translate(1px, 1px);
-            box-shadow: 1px 1px 0px #1A202C;
+            box-shadow: 1px 1px 0px var(--color-dark);
         }
 
         .header-section {
-            border-bottom: 3px solid #1A202C;
+            border-bottom: 3.5px solid var(--color-dark);
             padding-bottom: 16px;
             margin-bottom: 28px;
         }
 
+        /* CONDENSED DISPLAY SANS-SERIF HEADINGS */
         h1 {
-            color: #1A202C;
-            font-size: 1.8rem;
+            color: var(--color-dark);
+            font-family: var(--font-display);
+            font-size: 2.2rem;
             font-weight: 900;
-            letter-spacing: -0.5px;
+            letter-spacing: 0.03em;
             text-transform: uppercase;
+            line-height: 1.05;
             margin: 0 0 10px 0;
         }
 
         .date-badge {
             display: inline-block;
-            background: #1A202C;
-            color: #FF4B01;
+            background: var(--color-dark);
+            color: var(--color-accent);
+            font-family: var(--font-body);
             font-size: 0.75rem;
             font-weight: 800;
             text-transform: uppercase;
@@ -104,24 +123,27 @@
         }
 
         h2 {
-            color: #1A202C;
-            font-size: 1.1rem;
+            color: var(--color-dark);
+            font-family: var(--font-display);
+            font-size: 1.4rem;
             font-weight: 900;
             text-transform: uppercase;
-            margin-top: 32px;
-            border-left: 4px solid #FF4B01;
+            letter-spacing: 0.03em;
+            margin-top: 36px;
+            border-left: 5px solid var(--color-accent);
             padding-left: 12px;
-            letter-spacing: 0.5px;
+            line-height: 1.1;
         }
 
         p, li {
             color: #2D3748;
+            font-family: var(--font-body);
             font-size: 0.95rem;
             font-weight: 500;
         }
 
         strong {
-            color: #1A202C;
+            color: var(--color-dark);
             font-weight: 800;
         }
 
@@ -139,10 +161,10 @@
             max-width: 720px;
             padding: 16px 20px;
             box-sizing: border-box;
-            background: #FFFFFF;
-            border: 4px solid #1A202C;
-            box-shadow: 8px 8px 0px #1A202C;
-            color: #1A202C;
+            background: var(--color-card);
+            border: 4px solid var(--color-dark);
+            box-shadow: 8px 8px 0px var(--color-dark);
+            color: var(--color-dark);
             flex-shrink: 0;
             margin-top: auto;
             margin-bottom: 32px;
@@ -160,21 +182,22 @@
             align-items: center;
             justify-content: center;
             padding: 5px 14px;
+            font-family: var(--font-body);
             font-size: 10px;
             font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 0.8px;
             text-decoration: none;
-            border: 1.5px solid #1A202C;
+            border: 1.5px solid var(--color-dark);
             background-color: transparent;
-            color: #1A202C !important;
+            color: var(--color-dark) !important;
             box-shadow: none;
             box-sizing: border-box;
             transition: all 0.15s ease;
         }
 
         .footer-btn:hover {
-            background-color: #1A202C;
+            background-color: var(--color-dark);
             color: #FFFFFF !important;
         }
 
@@ -194,16 +217,17 @@
         }
 
         .footer-credits {
+            font-family: var(--font-body);
             font-size: 11px;
             font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 0.8px;
-            color: #1A202C;
+            color: var(--color-dark);
             margin-bottom: 6px;
         }
 
         .footer-credits a {
-            color: #FF4B01;
+            color: var(--color-accent);
             text-decoration: underline;
             font-weight: 900;
         }
@@ -213,6 +237,7 @@
             justify-content: center;
             align-items: center;
             gap: 12px;
+            font-family: var(--font-body);
             font-size: 10px;
             font-weight: 800;
             text-transform: uppercase;
@@ -226,7 +251,7 @@
         }
 
         .footer-legal-links a:hover {
-            color: #1A202C;
+            color: var(--color-dark);
             text-decoration: underline;
         }
 
