@@ -17,55 +17,112 @@
     
     <style>
         body, html {
-            margin: 0; padding: 0;
-            background-color: #000000;
-            color: #dddddd;
+            margin: 0; 
+            padding: 0;
+            background-color: #F4F7FA;
+            /* Static diagonal hatch pattern (8% opacity Dark Slate) */
+            background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M-2 18L18 -2M-2 10L10 -2M-2 2L2 -2M6 18L18 6M14 18L18 14' stroke='%231A202C' stroke-width='1.5' stroke-opacity='0.08'/%3E%3C/svg%3E");
+            background-repeat: repeat;
+            color: #1A202C;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             line-height: 1.6;
             display: flex;
             flex-direction: column;
             align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+            overflow-x: hidden;
         }
 
+        /* NEO-BRUTALIST CONTAINER CARD */
         .container {
             width: 100%;
-            max-width: 700px;
-            padding: 40px 20px;
+            max-width: 720px;
+            margin: 40px auto 20px auto;
+            padding: 36px 32px;
             box-sizing: border-box;
+            background: #FFFFFF;
+            border: 4px solid #1A202C;
+            box-shadow: 10px 10px 0px #1A202C;
+            flex: 1 0 auto;
+        }
+
+        /* NAVIGATION BUTTON */
+        .nav-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 16px;
+            background: #FFFFFF;
+            color: #1A202C !important;
+            border: 2.5px solid #1A202C;
+            box-shadow: 3px 3px 0px #1A202C;
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 28px;
+            transition: transform 0.1s ease, box-shadow 0.1s ease, background-color 0.1s ease;
+        }
+
+        .nav-btn:hover {
+            transform: translate(-1px, -1px);
+            box-shadow: 4px 4px 0px #1A202C;
+            background-color: #F4F7FA;
+        }
+
+        .nav-btn:active {
+            transform: translate(1px, 1px);
+            box-shadow: 1px 1px 0px #1A202C;
         }
 
         .header-section {
-            border-bottom: 1px solid #222222;
-            padding-bottom: 20px;
-            margin-bottom: 30px;
+            border-bottom: 3px solid #1A202C;
+            padding-bottom: 16px;
+            margin-bottom: 28px;
         }
 
         h1 {
-            color: #ffffff;
+            color: #1A202C;
             font-size: 1.8rem;
-            letter-spacing: 1px;
+            font-weight: 900;
+            letter-spacing: -0.5px;
+            text-transform: uppercase;
             margin: 0 0 10px 0;
         }
 
-        .date {
-            color: #a4ff00;
-            font-size: 0.85rem;
+        .date-badge {
+            display: inline-block;
+            background: #1A202C;
+            color: #FF4B01;
+            font-size: 0.75rem;
+            font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 1px;
+            padding: 4px 10px;
+            border-radius: 2px;
         }
 
         h2 {
-            color: #ffffff;
-            font-size: 1.15rem;
-            margin-top: 35px;
-            border-left: 2px solid #a4ff00;
+            color: #1A202C;
+            font-size: 1.1rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-top: 32px;
+            border-left: 4px solid #FF4B01;
             padding-left: 12px;
             letter-spacing: 0.5px;
         }
 
         p, li {
-            color: #aaaaaa;
+            color: #2D3748;
             font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        strong {
+            color: #1A202C;
+            font-weight: 800;
         }
 
         ul {
@@ -76,48 +133,150 @@
             margin-bottom: 10px;
         }
 
-        .nav-link {
-            display: inline-block;
-            margin-bottom: 30px;
-            color: #888888;
-            text-decoration: none;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            transition: color 0.2s ease;
-        }
-
-        .nav-link:hover {
-            color: #a4ff00;
-        }
-
+        /* SUBTLE SECONDARY UTILITY FOOTER */
         footer {
             width: 100%;
-            text-align: center;
-            padding: 40px 0;
-            color: #555555;
-            font-size: 0.75rem;
-            border-top: 1px solid #111111;
-            margin-top: 60px;
+            max-width: 720px;
+            padding: 16px 20px;
+            box-sizing: border-box;
+            background: #FFFFFF;
+            border: 4px solid #1A202C;
+            box-shadow: 8px 8px 0px #1A202C;
+            color: #1A202C;
+            flex-shrink: 0;
+            margin-top: auto;
+            margin-bottom: 32px;
         }
 
-        footer a {
-            color: #777777;
+        .footer-cta-row {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .footer-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 5px 14px;
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
             text-decoration: none;
+            border: 1.5px solid #1A202C;
+            background-color: transparent;
+            color: #1A202C !important;
+            box-shadow: none;
+            box-sizing: border-box;
+            transition: all 0.15s ease;
         }
 
-        footer a:hover {
-            color: #a4ff00;
+        .footer-btn:hover {
+            background-color: #1A202C;
+            color: #FFFFFF !important;
+        }
+
+        .footer-btn:active {
+            transform: scale(0.97);
+        }
+
+        .footer-divider {
+            height: 1px;
+            background-color: #E2E8F0;
+            margin-bottom: 12px;
+            border: none;
+        }
+
+        .footer-meta {
+            text-align: center;
+        }
+
+        .footer-credits {
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: #1A202C;
+            margin-bottom: 6px;
+        }
+
+        .footer-credits a {
+            color: #FF4B01;
+            text-decoration: underline;
+            font-weight: 900;
+        }
+
+        .footer-legal-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        .footer-legal-links a {
+            color: #718096;
+            text-decoration: none;
+            transition: color 0.15s ease;
+        }
+
+        .footer-legal-links a:hover {
+            color: #1A202C;
+            text-decoration: underline;
+        }
+
+        .footer-legal-links .sep {
+            color: #A0AEC0;
+        }
+
+        /* MOBILE RESPONSIVE ADAPTATION (<= 768px) */
+        @media (max-width: 768px) {
+            .container {
+                max-width: 100%;
+                border-left: none;
+                border-right: none;
+                box-shadow: none;
+                border-radius: 0;
+                padding: 24px 16px;
+                margin-top: 0;
+                margin-bottom: 12px;
+            }
+
+            footer {
+                max-width: 100%;
+                border-left: none;
+                border-right: none;
+                box-shadow: none;
+                border-radius: 0;
+                padding: 14px 12px;
+                margin-bottom: 12px;
+            }
+
+            .footer-cta-row {
+                gap: 8px;
+            }
+
+            .footer-btn {
+                flex: 1;
+                padding: 8px;
+                font-size: 10px;
+            }
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <a href="index.html" class="nav-link">← Return to Engine</a>
+        <a href="index.html" class="nav-btn">← Return to Engine</a>
 
         <div class="header-section">
             <h1>SCAPEGOAT TERMS OF SERVICE</h1>
-            <div class="date">Last Updated: June 16, 2026</div>
+            <div class="date-badge">Last Updated: June 16, 2026</div>
         </div>
 
         <p>Welcome to Scapegoat. Please read these Terms of Service ("Terms") carefully before using our dynamic intake forms or rate calculation tools (collectively, the "Services") embedded on this website.</p>
@@ -148,11 +307,29 @@
 
         <h2>6. GOVERNING LAW</h2>
         <p>These Terms shall be governed by, and construed in accordance with, the laws of the State of California, without giving effect to any principles of conflicts of law. Any legal action or proceeding arising under these Terms shall be brought exclusively in the state or federal courts located in the State of California.</p>
-
-        <footer>
-            © 2026 Scapegoat. System routing mechanics managed by <a href="https://www.hawkishllc.com" target="_blank">Hawkish</a>. All Rights Reserved.
-        </footer>
     </div>
+
+    <footer>
+        <!-- Subtle Outline Utility Badges (Same Tab Navigation) -->
+        <div class="footer-cta-row">
+            <a href="https://scapegoat3plwarehouserates.com/pricing" class="footer-btn">PRICING</a>
+            <a href="https://scapegoat3plwarehouserates.com/video" class="footer-btn">VIDEO</a>
+        </div>
+
+        <div class="footer-divider"></div>
+
+        <!-- Footer Meta & Secondary Legal Links -->
+        <div class="footer-meta">
+            <div class="footer-credits">
+                © 2026 Scapegoat. System routing mechanics managed by <a href="https://www.hawkishllc.com" target="_blank">Hawkish</a>
+            </div>
+            <div class="footer-legal-links">
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <span class="sep">•</span>
+                <a href="terms-of-service.html">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
 
 </body>
 </html>
