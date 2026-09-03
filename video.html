@@ -15,8 +15,6 @@
     <meta name="description" content="Operational walkthrough and system architecture video guide for Scapegoat.">
     
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap');
-
         body, html {
             margin: 0; 
             padding: 0;
@@ -35,53 +33,32 @@
             overflow-x: hidden;
         }
 
-        /* BRAND HEADER LINK & LAYOUT */
+        /* STANDALONE IMAGE BANNER BUTTON */
         .brand-header-link {
             text-decoration: none;
             display: block;
             width: 100%;
-            max-width: 720px;
+            max-width: 540px;
             margin: 32px auto 20px auto;
             box-sizing: border-box;
+            padding: 0 16px;
         }
 
-        .brand-header-banner {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 20px;
-            padding: 12px;
-            box-sizing: border-box;
-            cursor: pointer;
-            transition: transform 0.15s ease;
-        }
-
-        .brand-header-banner:hover {
-            transform: translate(-2px, -2px);
-        }
-
-        /* LOGO ICON WITH ACCENT BOX & SHADOW */
-        .banner-logo {
-            height: 72px;
-            width: auto;
-            border: 3.5px solid #1A202C;
-            box-shadow: 4px 4px 0px #FF4B01;
-            background: #1A202C;
-            padding: 2px;
-            box-sizing: border-box;
+        .brand-header-img {
+            width: 100%;
+            height: auto;
             display: block;
+            cursor: pointer;
+            transition: transform 0.15s ease, filter 0.15s ease;
         }
 
-        /* CONDENSED HEADLINE SANS-SERIF TYPOGRAPHY */
-        .banner-title {
-            font-family: 'Oswald', 'Arial Narrow', Impact, sans-serif;
-            font-size: 3.6rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            color: #1A202C;
-            line-height: 1;
-            margin: 0;
+        .brand-header-img:hover {
+            transform: translate(-2px, -2px);
+            filter: brightness(1.03);
+        }
+
+        .brand-header-img:active {
+            transform: translate(1px, 1px);
         }
 
         /* CENTRAL VIDEO CARD CONTAINER */
@@ -296,18 +273,7 @@
         @media (max-width: 768px) {
             .brand-header-link {
                 margin: 16px auto 12px auto;
-            }
-
-            .brand-header-banner {
-                gap: 12px;
-            }
-
-            .banner-logo {
-                height: 48px;
-            }
-
-            .banner-title {
-                font-size: 2.4rem;
+                max-width: 100%;
             }
 
             .video-container,
@@ -330,68 +296,4 @@
             }
 
             .footer-cta-row {
-                gap: 8px;
-            }
-
-            .footer-btn {
-                flex: 1;
-                padding: 8px;
-                font-size: 10px;
-            }
-        }
-    </style>
-</head>
-<body>
-
-    <a href="index.html" class="brand-header-link">
-        <div class="brand-header-banner">
-            <img 
-                src="https://raw.githubusercontent.com/SeanDottt/ScapeGoat/3fabb1c94b8fdb03ebd4ef2813f86fd674affa0f/logo.png" 
-                class="banner-logo" 
-                alt="ScapeGoat Logo"
-            >
-            <span class="banner-title">SCAPEGOAT.</span>
-        </div>
-    </a>
-
-    <div class="video-container">
-        <div class="header-section">
-            <h1>WALKTHROUGH DEMO</h1>
-            <div class="date-badge">SYSTEM ARCHITECTURE</div>
-        </div>
-
-        <div class="video-wrapper">
-            <div class="video-shield"></div>
-            <iframe 
-                src="https://www.youtube.com/embed/TFSboxNFcwI?rel=0&modestbranding=1&iv_load_policy=3&autoplay=0&hd=1" 
-                title="ScapeGoat Walkthrough" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                allowfullscreen>
-            </iframe>
-        </div>
-
-        <a href="index.html" class="nav-btn">← RETURN TO QUOTING ENGINE</a>
-    </div>
-
-    <footer>
-        <div class="footer-cta-row">
-            <a href="https://scapegoat3plwarehouserates.com/pricing" class="footer-btn">PRICING</a>
-            <a href="https://scapegoat3plwarehouserates.com/video" class="footer-btn">VIDEO</a>
-        </div>
-
-        <div class="footer-divider"></div>
-
-        <div class="footer-meta">
-            <div class="footer-credits">
-                © 2026 SCAPEGOAT. SYSTEMS MANAGED BY <a href="https://www.hawkishllc.com" target="_blank">HAWKISH</a>
-            </div>
-            <div class="footer-legal-links">
-                <a href="privacy-policy.html">PRIVACY POLICY</a>
-                <span class="sep">•</span>
-                <a href="terms-of-service.html">TERMS OF SERVICE</a>
-            </div>
-        </div>
-    </footer>
-
-</body>
-</html>
+                gap: 8px
