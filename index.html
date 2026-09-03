@@ -73,7 +73,7 @@
             background: #FFFFFF;
             border: 4px solid #1A202C;
             box-shadow: 10px 10px 0px #1A202C;
-            margin: 12px 0 24px 0;
+            margin: 12px 0 20px 0;
         }
 
         #JotFormIFrame-262364733681159 {
@@ -84,54 +84,52 @@
             overflow: hidden !important;
         }
 
+        /* UPGRADED NEO-BRUTALIST UTILITY FOOTER */
         footer {
             width: 100%;
             max-width: 600px;
-            text-align: center;
-            padding: 20px 16px;
+            padding: 20px 24px;
             box-sizing: border-box;
             background: #FFFFFF;
-            border: 3px solid #1A202C;
-            box-shadow: 6px 6px 0px #1A202C;
+            border: 4px solid #1A202C;
+            box-shadow: 8px 8px 0px #1A202C;
             color: #1A202C;
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            line-height: 1.6;
             flex-shrink: 0;
             margin-top: auto;
-            margin-bottom: 24px;
+            margin-bottom: 32px;
         }
 
-        /* NEO-BRUTALIST FOOTER BUTTONS */
-        .footer-buttons {
-            display: flex;
-            gap: 12px;
-            justify-content: center;
-            margin-bottom: 16px;
+        /* Primary Action Grid */
+        .footer-cta-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin-bottom: 20px;
         }
 
         .footer-btn {
-            flex: 1;
-            padding: 12px 16px;
-            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 16px;
+            font-size: 13px;
             font-weight: 900;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.2px;
             text-decoration: none;
             border: 3px solid #1A202C;
             box-sizing: border-box;
             text-align: center;
-            transition: transform 0.15s ease, box-shadow 0.15s ease;
+            transition: transform 0.1s ease, box-shadow 0.1s ease, background-color 0.1s ease;
         }
 
-        .footer-btn-orange {
+        .footer-btn-primary {
             background-color: #FF4B01;
             color: #FFFFFF !important;
             box-shadow: 4px 4px 0px #1A202C;
         }
 
-        .footer-btn-white {
+        .footer-btn-secondary {
             background-color: #FFFFFF;
             color: #1A202C !important;
             box-shadow: 4px 4px 0px #1A202C;
@@ -142,32 +140,71 @@
             box-shadow: 6px 6px 0px #1A202C;
         }
 
+        .footer-btn-primary:hover {
+            background-color: #E03E00;
+        }
+
+        .footer-btn-secondary:hover {
+            background-color: #F7FAFC;
+        }
+
         .footer-btn:active {
             transform: translate(2px, 2px);
             box-shadow: 2px 2px 0px #1A202C;
         }
 
-        footer a:not(.footer-btn) {
+        /* Footer Divider */
+        .footer-divider {
+            height: 3px;
+            background-color: #1A202C;
+            margin-bottom: 16px;
+            border: none;
+        }
+
+        /* Meta Information */
+        .footer-meta {
+            text-align: center;
+        }
+
+        .footer-credits {
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: #1A202C;
+            margin-bottom: 8px;
+        }
+
+        .footer-credits a {
             color: #FF4B01;
             text-decoration: underline;
+            font-weight: 900;
+        }
+
+        .footer-legal-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            font-size: 10px;
             font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        .footer-legal-links a {
+            color: #718096;
+            text-decoration: none;
             transition: color 0.15s ease;
         }
 
-        footer a:not(.footer-btn):hover { color: #1A202C; }
-
-        .footer-credits {
-            margin-bottom: 8px;
-            text-transform: uppercase;
-            font-size: 0.7rem;
-            letter-spacing: 1px;
+        .footer-legal-links a:hover {
+            color: #1A202C;
+            text-decoration: underline;
         }
 
-        .footer-links {
-            text-transform: uppercase;
-            font-size: 0.7rem;
-            letter-spacing: 0.5px;
-            font-weight: 800;
+        .footer-legal-links .sep {
+            color: #A0AEC0;
         }
 
         .ai-agent-manifesto {
@@ -181,21 +218,36 @@
             border: 0;
         }
 
-        /* MOBILE RESPONSIVE ADAPTATION (<= 640px) */
-        @media (max-width: 640px) {
-            .form-wrapper, footer {
+        /* MOBILE RESPONSIVE ADAPTATION (<= 540px) */
+        @media (max-width: 540px) {
+            .form-wrapper {
                 max-width: 100%;
                 border-left: none;
                 border-right: none;
                 box-shadow: none;
                 border-radius: 0;
-                padding: 12px 8px;
+                padding: 12px 6px;
                 margin-bottom: 12px;
             }
 
-            .footer-buttons {
-                flex-direction: column;
-                gap: 8px;
+            footer {
+                max-width: 100%;
+                border-left: none;
+                border-right: none;
+                box-shadow: none;
+                border-radius: 0;
+                padding: 16px 12px;
+                margin-bottom: 12px;
+            }
+
+            .footer-cta-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .footer-btn {
+                padding: 16px;
+                font-size: 14px;
             }
 
             #JotFormIFrame-262364733681159 {
@@ -243,17 +295,24 @@
     </div>
 
     <footer>
-        <!-- PROMINENT NEO-BRUTALIST BUTTONS -->
-        <div class="footer-buttons">
-            <a href="https://scapegoat3plwarehouserates.com/pricing" class="footer-btn footer-btn-orange" target="_blank">PRICING</a>
-            <a href="https://scapegoat3plwarehouserates.com/video" class="footer-btn footer-btn-white" target="_blank">VIDEO</a>
+        <!-- Neo-Brutalist Primary Action Buttons -->
+        <div class="footer-cta-grid">
+            <a href="https://scapegoat3plwarehouserates.com/pricing" class="footer-btn footer-btn-primary" target="_blank">PRICING</a>
+            <a href="https://scapegoat3plwarehouserates.com/video" class="footer-btn footer-btn-secondary" target="_blank">VIDEO</a>
         </div>
 
-        <div class="footer-credits">
-            © 2026 Scapegoat. All operational infrastructure powered by <a href="https://www.hawkishllc.com" target="_blank">Hawkish</a>
-        </div>
-        <div class="footer-links">
-            <a href="privacy-policy.html">Privacy Policy</a> &nbsp;|&nbsp; <a href="terms-of-service.html">Terms of Service</a>
+        <div class="footer-divider"></div>
+
+        <!-- Footer Meta & Secondary Legal Links -->
+        <div class="footer-meta">
+            <div class="footer-credits">
+                © 2026 Scapegoat. All operational infrastructure powered by <a href="https://www.hawkishllc.com" target="_blank">Hawkish</a>
+            </div>
+            <div class="footer-legal-links">
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <span class="sep">•</span>
+                <a href="terms-of-service.html">Terms of Service</a>
+            </div>
         </div>
     </footer>
 
