@@ -34,41 +34,50 @@
             overflow-x: hidden;
         }
 
-        /* PRIMARY BRAND HEADER */
-        .logo-container {
-            padding: 24px 12px 12px 12px;
-            flex-shrink: 0;
-            text-align: center;
-        }
-
-        .logo {
-            width: 60vw;
-            max-width: 180px;
-            height: auto;
-            border: 3px solid #1A202C;
-            border-radius: 0px;
-            box-shadow: 4px 4px 0px #FF4B01;
+        /* SCREENSHOT-MATCHED NEO-BRUTALIST HEADER BANNER */
+        .brand-header-banner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 720px;
+            margin: 32px auto 16px auto;
+            padding: 14px 24px;
             background-color: #FFFFFF;
-            padding: 8px;
+            border: 3.5px solid #1A202C;
+            border-left: 8px solid #FF4B01; /* Orange accent stripe */
+            box-shadow: 6px 6px 0px #1A202C;
+            box-sizing: border-box;
+        }
+
+        .banner-logo {
+            height: 46px;
+            width: auto;
             cursor: pointer;
-            transition: transform 0.15s ease, box-shadow 0.15s ease;
+            transition: transform 0.15s ease;
         }
 
-        .logo:hover {
-            transform: translate(-2px, -2px);
-            box-shadow: 6px 6px 0px #FF4B01;
+        .banner-logo:hover {
+            transform: scale(1.03);
         }
 
-        .logo:active {
-            transform: translate(2px, 2px);
-            box-shadow: 2px 2px 0px #FF4B01;
+        /* Screenshot Condensed Ultra-Bold Font Style */
+        .banner-title {
+            font-family: Impact, "Arial Black", "Franklin Gothic Medium", -apple-system, sans-serif;
+            font-size: 2.1rem;
+            font-weight: 900;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #1A202C;
+            line-height: 1;
+            margin: 0;
         }
 
-        /* CENTRAL NEO-BRUTALIST CARD CONTAINER */
+        /* CENTRAL VIDEO CARD CONTAINER */
         .video-container {
             width: 100%;
             max-width: 720px;
-            margin: 12px auto 20px auto;
+            margin: 0 auto 20px auto;
             padding: 32px 28px;
             box-sizing: border-box;
             background: #FFFFFF;
@@ -90,7 +99,7 @@
 
         h1 {
             color: #1A202C;
-            font-size: 1.6rem;
+            font-size: 1.4rem;
             font-weight: 900;
             letter-spacing: -0.5px;
             text-transform: uppercase;
@@ -274,6 +283,25 @@
 
         /* MOBILE RESPONSIVE ADAPTATION (<= 768px) */
         @media (max-width: 768px) {
+            .brand-header-banner {
+                max-width: 100%;
+                border-left: 6px solid #FF4B01;
+                border-right: none;
+                box-shadow: none;
+                border-radius: 0;
+                padding: 12px 16px;
+                margin-top: 0;
+                margin-bottom: 12px;
+            }
+
+            .banner-logo {
+                height: 38px;
+            }
+
+            .banner-title {
+                font-size: 1.6rem;
+            }
+
             .video-container {
                 max-width: 100%;
                 border-left: none;
@@ -281,7 +309,6 @@
                 box-shadow: none;
                 border-radius: 0;
                 padding: 20px 16px;
-                margin-top: 0;
                 margin-bottom: 12px;
             }
 
@@ -309,8 +336,15 @@
 </head>
 <body>
 
-    <div class="logo-container">
-        <img src="logo.png" class="logo" alt="ScapeGoat Logo" onclick="window.location.href='index.html';">
+    <!-- SCREENSHOT-MATCHED BRAND HEADER BANNER -->
+    <div class="brand-header-banner">
+        <h1 class="banner-title">SCAPEGOAT</h1>
+        <img 
+            src="https://raw.githubusercontent.com/SeanDottt/ScapeGoat/3fabb1c94b8fdb03ebd4ef2813f86fd674affa0f/logo.png" 
+            class="banner-logo" 
+            alt="ScapeGoat Logo" 
+            onclick="window.location.href='index.html';"
+        >
     </div>
 
     <!-- CENTRAL VIDEO CARD CONTAINER -->
