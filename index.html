@@ -84,11 +84,11 @@
             overflow: hidden !important;
         }
 
-        /* UPGRADED NEO-BRUTALIST UTILITY FOOTER */
+        /* SUBTLE SECONDARY UTILITY FOOTER */
         footer {
             width: 100%;
             max-width: 600px;
-            padding: 20px 24px;
+            padding: 16px 20px;
             box-sizing: border-box;
             background: #FFFFFF;
             border: 4px solid #1A202C;
@@ -99,65 +99,49 @@
             margin-bottom: 32px;
         }
 
-        /* Primary Action Grid */
-        .footer-cta-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 14px;
-            margin-bottom: 20px;
+        /* Toned Down Utility Buttons */
+        .footer-cta-row {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 14px;
         }
 
         .footer-btn {
-            display: flex;
+            display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 14px 16px;
-            font-size: 13px;
-            font-weight: 900;
+            min-width: 110px;
+            padding: 8px 16px;
+            font-size: 11px;
+            font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 1.2px;
+            letter-spacing: 1px;
             text-decoration: none;
-            border: 3px solid #1A202C;
+            border: 2px solid #1A202C;
+            background-color: #FFFFFF;
+            color: #1A202C !important;
+            box-shadow: 3px 3px 0px #1A202C;
             box-sizing: border-box;
-            text-align: center;
             transition: transform 0.1s ease, box-shadow 0.1s ease, background-color 0.1s ease;
         }
 
-        .footer-btn-primary {
-            background-color: #FF4B01;
-            color: #FFFFFF !important;
-            box-shadow: 4px 4px 0px #1A202C;
-        }
-
-        .footer-btn-secondary {
-            background-color: #FFFFFF;
-            color: #1A202C !important;
-            box-shadow: 4px 4px 0px #1A202C;
-        }
-
         .footer-btn:hover {
-            transform: translate(-2px, -2px);
-            box-shadow: 6px 6px 0px #1A202C;
-        }
-
-        .footer-btn-primary:hover {
-            background-color: #E03E00;
-        }
-
-        .footer-btn-secondary:hover {
-            background-color: #F7FAFC;
+            background-color: #F4F7FA;
+            transform: translate(-1px, -1px);
+            box-shadow: 4px 4px 0px #1A202C;
         }
 
         .footer-btn:active {
-            transform: translate(2px, 2px);
-            box-shadow: 2px 2px 0px #1A202C;
+            transform: translate(1px, 1px);
+            box-shadow: 1px 1px 0px #1A202C;
         }
 
-        /* Footer Divider */
+        /* Subtle Footer Divider */
         .footer-divider {
-            height: 3px;
-            background-color: #1A202C;
-            margin-bottom: 16px;
+            height: 2px;
+            background-color: #E2E8F0;
+            margin-bottom: 12px;
             border: none;
         }
 
@@ -172,7 +156,7 @@
             text-transform: uppercase;
             letter-spacing: 0.8px;
             color: #1A202C;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         .footer-credits a {
@@ -236,18 +220,18 @@
                 border-right: none;
                 box-shadow: none;
                 border-radius: 0;
-                padding: 16px 12px;
+                padding: 14px 12px;
                 margin-bottom: 12px;
             }
 
-            .footer-cta-grid {
-                grid-template-columns: 1fr;
-                gap: 10px;
+            .footer-cta-row {
+                gap: 8px;
             }
 
             .footer-btn {
-                padding: 16px;
-                font-size: 14px;
+                flex: 1;
+                padding: 10px;
+                font-size: 11px;
             }
 
             #JotFormIFrame-262364733681159 {
@@ -295,10 +279,10 @@
     </div>
 
     <footer>
-        <!-- Neo-Brutalist Primary Action Buttons -->
-        <div class="footer-cta-grid">
-            <a href="https://scapegoat3plwarehouserates.com/pricing" class="footer-btn footer-btn-primary" target="_blank">PRICING</a>
-            <a href="https://scapegoat3plwarehouserates.com/video" class="footer-btn footer-btn-secondary" target="_blank">VIDEO</a>
+        <!-- Toned Down Secondary Action Buttons (Navigates in Same Tab) -->
+        <div class="footer-cta-row">
+            <a href="https://scapegoat3plwarehouserates.com/pricing" class="footer-btn">PRICING</a>
+            <a href="https://scapegoat3plwarehouserates.com/video" class="footer-btn">VIDEO</a>
         </div>
 
         <div class="footer-divider"></div>
@@ -306,7 +290,7 @@
         <!-- Footer Meta & Secondary Legal Links -->
         <div class="footer-meta">
             <div class="footer-credits">
-                © 2026 Scapegoat. All operational infrastructure powered by <a href="https://www.hawkishllc.com" target="_blank">Hawkish</a>
+                © 2026 Scapegoat. All operational infrastructure powered by <a href="https://www.hawkishllc.com">Hawkish</a>
             </div>
             <div class="footer-legal-links">
                 <a href="privacy-policy.html">Privacy Policy</a>
