@@ -63,25 +63,27 @@
             box-shadow: 2px 2px 0px #FF4B01;
         }
 
-        /* EXPANDED LARGE CONTAINER: Scaled to 600px Max-Width */
-        .form-wrapper {
+        /* Desktop Centered Command Frame */
+        .hwk-container-large {
             width: 100%;
             max-width: 600px;
-            padding: 16px 12px;
-            box-sizing: border-box;
-            flex: 1 0 auto;
-            background: #FFFFFF;
+            height: 920px; /* Vertical clearance for standalone hero layout */
+            margin: 30px auto;
+            padding: 24px 20px;
+            background-color: #FFFFFF;
             border: 4px solid #1A202C;
             box-shadow: 10px 10px 0px #1A202C;
-            margin: 12px 0 20px 0;
+            box-sizing: border-box;
+            overflow: hidden;
+            flex: 1 0 auto;
         }
 
-        #JotFormIFrame-262364733681159 {
+        /* Force embed iframe to fill container */
+        .hwk-container-large iframe {
             width: 100% !important;
-            min-height: 680px;
+            min-width: 100% !important;
+            height: 100% !important;
             border: none !important;
-            background: transparent !important;
-            overflow: hidden !important;
         }
 
         /* SUBTLE SECONDARY UTILITY FOOTER */
@@ -120,7 +122,7 @@
             border: 1.5px solid #1A202C;
             background-color: transparent;
             color: #1A202C !important;
-            box-shadow: none; /* Stripped offset 3D shadow completely */
+            box-shadow: none;
             box-sizing: border-box;
             transition: all 0.15s ease;
         }
@@ -199,16 +201,15 @@
             border: 0;
         }
 
-        /* MOBILE RESPONSIVE ADAPTATION (<= 540px) */
-        @media (max-width: 540px) {
-            .form-wrapper {
+        /* Mobile Screen Engine (<= 768px) */
+        @media (max-width: 768px) {
+            .hwk-container-large {
                 max-width: 100%;
-                border-left: none;
-                border-right: none;
-                box-shadow: none;
-                border-radius: 0;
-                padding: 12px 6px;
-                margin-bottom: 12px;
+                margin: 12px 0;
+                padding: 12px 8px;
+                height: 980px;
+                border-width: 3px;
+                box-shadow: 5px 5px 0px #1A202C;
             }
 
             footer {
@@ -229,10 +230,6 @@
                 flex: 1;
                 padding: 8px;
                 font-size: 10px;
-            }
-
-            #JotFormIFrame-262364733681159 {
-                min-height: 820px;
             }
         }
     </style>
@@ -257,22 +254,17 @@
         <img src="logo.png" class="logo" alt="ScapeGoat 3PL Warehouse Rates Architecture Logo" onclick="window.location.reload();">
     </div>
 
-    <!-- Expanded Large Embedded Form Container -->
-    <div class="form-wrapper">
-        <iframe
-          id="JotFormIFrame-262364733681159"
-          title="ScapeGoat v.2"
-          onload="window.parent.scrollTo(0,0)"
-          allowtransparency="true"
-          allow="geolocation; microphone; camera; fullscreen; payment"
-          src="https://form.jotform.com/262364733681159"
-          frameborder="0"
-          style="min-width:100%; max-width:100%; height:680px; border:none; overflow:hidden;"
-          scrolling="no"
-        >
-        </iframe>
-        <script src="https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js"></script>
-        <script>window.jotformEmbedHandler("iframe[id='JotFormIFrame-262364733681159']", "https://form.jotform.com/")</script>
+    <!-- HAWKISH QUOTE ENGINE - LARGE HERO / STANDALONE EMBED -->
+    <div class="hwk-container-large">
+      <iframe
+        id="JotFormIFrame-262497228954168"
+        title="Hawkish Quote Engine Large"
+        src="https://form.jotform.com/262497228954168?nojump"
+        allowtransparency="true"
+        frameborder="0"
+        scrolling="no"
+        style="width: 100%; min-width: 100%; height: 100%; border: none;"
+      ></iframe>
     </div>
 
     <footer>
