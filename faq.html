@@ -22,7 +22,7 @@
   body, html {
     margin: 0;
     padding: 0;
-    /* Drafting Paper / Light Sand Outer Canvas */
+    /* Drafting Paper Outer Canvas */
     background-color: #EBE5D9;
     /* Industrial Diagonal Hatch Texture (8% Opacity Slate) */
     background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M-2 18L18 -2M-2 10L10 -2M-2 2L2 -2M6 18L18 6M14 18L18 14' stroke='%231A202C' stroke-width='1.5' stroke-opacity='0.08'/%3E%3C/svg%3E");
@@ -42,7 +42,7 @@
 
   /* 
    * NEO-BRUTALIST POSTER CARD 
-   * Light Sand card canvas (#FAF6EE), crisp 2px border, inner double-border ring, bottom-right offset shadow.
+   * Pure White container canvas (#FFFFFF), crisp 2px border, inner double-border ring, bottom-right offset shadow.
    */
   .poster-card {
     width: 100%;
@@ -50,12 +50,13 @@
     min-height: 780px;
     aspect-ratio: 16 / 9;
     margin-bottom: 60px;
-    background: #FAF6EE;
+    background: #FFFFFF; /* Pure White Card Container */
     border: 2px solid #1A202C;
     padding: 44px;
     display: flex;
     flex-direction: column;
     position: relative;
+    overflow: hidden; /* Prevents screenshot elements from going off page */
     page-break-after: always;
     break-after: page;
   }
@@ -140,6 +141,7 @@
     grid-template-columns: 0.85fr 1.15fr;
     gap: 36px;
     flex: 1;
+    min-height: 0; /* Ensures children shrink properly without overflow */
     align-items: stretch;
     position: relative;
     z-index: 11;
@@ -196,7 +198,7 @@
     transition: transform 0.1s ease;
   }
 
-  /* RIGHT PANEL: SCREENSHOT TERMINAL WINDOW (Boards 1 & 2) */
+  /* RIGHT PANEL: SCREENSHOT TERMINAL WINDOW (Boards 1 & 2 - Strict Containment) */
   .image-panel {
     background: #1A202C;
     border: 2px solid #1A202C;
@@ -206,16 +208,19 @@
     justify-content: center;
     padding: 12px;
     box-sizing: border-box;
-    min-height: 400px;
+    max-height: 100%;
+    min-height: 0;
+    overflow: hidden;
   }
 
   .image-panel.shade-orange { box-shadow: 10px 10px 0px #FF4B01; }
   .image-panel.shade-black { box-shadow: 10px 10px 0px #1A202C; }
 
   .image-panel img.main-event {
-    width: 100%;
-    height: 100%;
-    max-height: 500px;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
     object-fit: contain;
     object-position: center;
     background: #FFFFFF;
@@ -283,6 +288,7 @@
       padding: 28px 20px 32px 20px;
       margin-bottom: 40px;
       border-width: 2px;
+      overflow: visible;
     }
 
     .poster-card.shade-orange { box-shadow: 8px 8px 0px #FF4B01; }
@@ -353,7 +359,8 @@
     }
 
     .image-panel {
-      min-height: 280px;
+      min-height: auto;
+      max-height: 400px;
       padding: 8px;
     }
 
@@ -361,7 +368,9 @@
     .image-panel.shade-black { box-shadow: 6px 6px 0px #1A202C; }
 
     .image-panel img.main-event {
-      max-height: 380px;
+      max-height: 360px;
+      width: 100%;
+      height: auto;
     }
 
     .composite-container {
@@ -400,7 +409,7 @@
     }
     .deck-container { padding: 0 !important; }
     .poster-card {
-      background: #FAF6EE !important;
+      background: #FFFFFF !important;
       width: calc(11in - 40px) !important; 
       height: calc(8.5in - 40px) !important;
       max-width: none !important; 
