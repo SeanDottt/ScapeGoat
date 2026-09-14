@@ -39,11 +39,7 @@
     align-items: center;
   }
 
-  /* 
-   * NEO-BRUTALIST POSTER CARD (16:9 SLIDE PROPORTION)
-   * Framed like the Scapegoat Logo: 
-   * Outer Black Border -> White Gap -> Inner Black Border -> Heavy Drop Shadow 
-   */
+  /* NEO-BRUTALIST POSTER CARD */
   .poster-card {
     width: 100%;
     max-width: 1320px;
@@ -184,18 +180,21 @@
     margin-right: 8px;
     margin-bottom: 8px;
     box-sizing: border-box;
+    min-height: 400px;
   }
 
   .image-panel.shade-orange { box-shadow: 12px 12px 0px #FF4B01; }
   .image-panel.shade-black { box-shadow: 12px 12px 0px #1A202C; }
 
-  /* Fully contained image scaling */
+  /* Image scaling & Broken Image Protection */
   .image-panel img.main-event {
     width: 100%;
     height: 100%;
+    max-height: 520px;
     object-fit: contain;
     object-position: center;
     background: #FFFFFF;
+    display: block;
   }
 
   /* OVERFLOW ALLOWED PANEL FOR BOARD 3 COMPOSITE STACK */
@@ -210,6 +209,7 @@
   .composite-container {
     width: 100%;
     height: 100%;
+    min-height: 400px;
     position: relative;
   }
 
@@ -225,6 +225,7 @@
     box-shadow: 10px 10px 0px #1A202C;
     background: #FFFFFF;
     z-index: 1;
+    display: block;
   }
 
   .guardrails-doc {
@@ -238,6 +239,7 @@
     box-shadow: -10px 10px 0px #FF4B01;
     background: #FFFFFF;
     z-index: 2;
+    display: block;
   }
 
   /* TACTILE CTA BUTTON */
@@ -258,7 +260,7 @@
     transition: transform 0.1s ease;
   }
 
-  /* PERFECT LANDSCAPE PAPER FIT */
+  /* PRINT STYLES */
   @media print {
     body, html { 
       background: #FFFFFF !important; 
@@ -286,7 +288,7 @@
 
 <div class="deck-container">
 
-  <!-- SLIDE 1: FORMFILL (ORANGE SHADE) -->
+  <!-- SLIDE 1: FORMFILL -->
   <div class="poster-card shade-orange">
     <div class="header">
       <div class="brand-group">
@@ -297,22 +299,22 @@
     </div>
 
     <div class="content-split">
-      <!-- Copy Panel -->
       <div class="text-panel">
         <h2>Stop Waste-of-Time Leads <span class="highlight">Before They Touch Your Floor.</span></h2>
         <p>Most intake forms are a waste of paper. FormFill was built from five years of real warehouse headaches to pull out the truth about a prospect's inventory, order volume, and prep needs before you waste an hour on the phone with them.</p>
         <div class="btn-orange">STOP BAD LEADS EARLY</div>
       </div>
 
-      <!-- Screenshot Panel (Contained) -->
       <div class="image-panel shade-black">
-        <img src="screenshot-2026-09-14_10-28-08.png" class="main-event" alt="FormFill Interface Screenshot">
+        <img src="screenshot-2026-09-14_10-28-08.png" 
+             onerror="if(!this.dataset.fallback){this.dataset.fallback=true; this.src='Pasted image 20260914102820.png';}" 
+             class="main-event" 
+             alt="FormFill Interface Screenshot">
       </div>
     </div>
   </div>
 
-
-  <!-- SLIDE 2: THE BRIEF (BLACK SHADE) -->
+  <!-- SLIDE 2: THE BRIEF -->
   <div class="poster-card shade-black">
     <div class="header">
       <div class="brand-group">
@@ -323,22 +325,22 @@
     </div>
 
     <div class="content-split">
-      <!-- Copy Panel -->
       <div class="text-panel">
         <h2>Pallet Space is Money. <span class="highlight">Stop Letting Prospects Waste It.</span></h2>
         <p>You only have so many rack spots in your building. The Brief takes what a prospect says they will ship and turns it into exact Revenue Per Pallet, showing you instantly if their business actually makes you money.</p>
         <div class="btn-orange">CHECK YOUR RACK VALUE</div>
       </div>
 
-      <!-- Screenshot Panel (Contained) -->
       <div class="image-panel shade-orange">
-        <img src="screenshot-2026-09-14_10-30-17.png" class="main-event" alt="Opportunity Brief Screenshot">
+        <img src="screenshot-2026-09-14_10-30-17.png" 
+             onerror="if(!this.dataset.fallback){this.dataset.fallback=true; this.src='Pasted image 20260914103028.png';}" 
+             class="main-event" 
+             alt="Opportunity Brief Screenshot">
       </div>
     </div>
   </div>
 
-
-  <!-- SLIDE 3: THE QUOTE (ORANGE SHADE) -->
+  <!-- SLIDE 3: THE QUOTE -->
   <div class="poster-card shade-orange">
     <div class="header">
       <div class="brand-group">
@@ -349,18 +351,22 @@
     </div>
 
     <div class="content-split">
-      <!-- Copy Panel -->
       <div class="text-panel">
         <h2>Quote to Hit Your Target, <span class="highlight">Not to Win a Haggling Match.</span></h2>
         <p>Standard rate cards eat your profit the second a client turns out to be high-maintenance. The Quote automatically calculates prices based on your facility's exact financial goals, so every deal you close actually turns a profit.</p>
         <div class="btn-orange">PROTECT YOUR PROFITS</div>
       </div>
 
-      <!-- Screenshot Panel (Overflow Allowed for Composite Stack) -->
       <div class="image-panel overflow-allowed">
         <div class="composite-container">
-          <img src="screenshot-2026-09-14_10-31-27.png" class="quote-doc" alt="Itemized Quote Sheet Screenshot">
-          <img src="screenshot-2026-09-14_10-33-15.png" class="guardrails-doc" alt="Guardrails & Submission Screenshot">
+          <img src="screenshot-2026-09-14_10-31-27.png" 
+               onerror="if(!this.dataset.fallback){this.dataset.fallback=true; this.src='Pasted image 20260914103250.png';}" 
+               class="quote-doc" 
+               alt="Itemized Quote Sheet Screenshot">
+          <img src="screenshot-2026-09-14_10-33-15.png" 
+               onerror="if(!this.dataset.fallback){this.dataset.fallback=true; this.src='Pasted image 20260914103321.png';}" 
+               class="guardrails-doc" 
+               alt="Guardrails & Submission Screenshot">
         </div>
       </div>
     </div>
