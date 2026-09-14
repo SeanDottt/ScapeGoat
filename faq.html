@@ -41,7 +41,7 @@
 
   /* 
    * NEO-BRUTALIST POSTER CARD 
-   * Thin outer border, thick bottom-right shadow, inner frame ring.
+   * Clean border, bold alternating offset shadow.
    */
   .poster-card {
     width: 100%;
@@ -50,26 +50,13 @@
     aspect-ratio: 16 / 9;
     margin-bottom: 60px;
     background: #FFFFFF;
-    border: 2px solid #1A202C;
-    padding: 48px;
+    border: 4px solid #1A202C;
+    padding: 44px;
     display: flex;
     flex-direction: column;
     position: relative;
     page-break-after: always;
     break-after: page;
-  }
-
-  /* Inner concentric thin frame */
-  .poster-card::before {
-    content: "";
-    position: absolute;
-    top: 8px;
-    left: 8px;
-    right: 8px;
-    bottom: 8px;
-    border: 2px solid #1A202C;
-    pointer-events: none;
-    z-index: 10;
   }
 
   /* Bottom Right Only Shadows */
@@ -78,36 +65,35 @@
 
   /* TOP HEADER BANNER */
   .header {
-    border-bottom: 2px solid #1A202C;
+    border-bottom: 4px solid #1A202C;
     padding-bottom: 16px;
     margin-bottom: 32px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: relative;
-    z-index: 11;
   }
 
   .brand-group {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 20px;
   }
 
-  /* Tripled Logo Size (No extra borders since baked into logo.png) */
+  /* Tripled Logo Size with Industrial Shadow/Border */
   .brand-logo {
     height: 90px;
     width: auto;
     object-fit: contain;
-    border: none;
-    box-shadow: none;
-    background: transparent;
+    border: 4px solid #1A202C;
+    box-shadow: 8px 8px 0px #FF4B01;
+    background: #FFFFFF;
+    padding: 6px;
   }
 
   .brand-title {
     font-family: 'Oswald', Impact, sans-serif;
     font-size: 52px;
-    font-weight: 800;
+    font-weight: 900;
     letter-spacing: 1.5px;
     text-transform: uppercase;
     color: #1A202C;
@@ -124,12 +110,12 @@
     color: #FFFFFF;
     font-family: 'Oswald', Impact, sans-serif;
     font-size: 22px;
-    font-weight: 700;
+    font-weight: 800;
     padding: 8px 20px;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    border: 2px solid #1A202C;
-    box-shadow: 6px 6px 0px #FF4B01;
+    border: 3px solid #1A202C;
+    box-shadow: 5px 5px 0px #FF4B01;
   }
 
   /* ASYMMETRICAL SPLIT LAYOUT */
@@ -139,8 +125,6 @@
     gap: 40px;
     flex: 1;
     align-items: stretch;
-    position: relative;
-    z-index: 11;
   }
 
   /* LEFT PANEL: AGGRESSIVE COPY */
@@ -154,7 +138,7 @@
   .text-panel h2 {
     font-family: 'Oswald', Impact, sans-serif;
     font-size: 48px;
-    font-weight: 800;
+    font-weight: 900;
     text-transform: uppercase;
     color: #1A202C;
     line-height: 1.05;
@@ -168,7 +152,7 @@
 
   .text-panel p {
     font-size: 20px;
-    font-weight: 600;
+    font-weight: 700;
     color: #2D3748;
     line-height: 1.5;
     margin: 0 0 36px 0;
@@ -176,19 +160,19 @@
     padding-left: 16px;
   }
 
-  /* TACTILE CTA BUTTON (Thin Border, Heavy Shadow) */
+  /* TACTILE CTA BUTTON */
   .btn-orange {
     align-self: flex-start;
     background: #FF4B01;
     color: #FFFFFF;
     font-family: 'Oswald', Impact, sans-serif;
     font-size: 24px;
-    font-weight: 700;
+    font-weight: 900;
     text-transform: uppercase;
     text-align: center;
     letter-spacing: 1.5px;
-    border: 2px solid #1A202C;
-    box-shadow: 10px 10px 0px #1A202C;
+    border: 4px solid #1A202C;
+    box-shadow: 8px 8px 0px #1A202C;
     padding: 16px 32px;
     cursor: pointer;
     transition: transform 0.1s ease;
@@ -197,7 +181,7 @@
   /* RIGHT PANEL: SCREENSHOT TERMINAL WINDOW (Boards 1 & 2) */
   .image-panel {
     background: #1A202C;
-    border: 2px solid #1A202C;
+    border: 4px solid #1A202C;
     position: relative;
     display: flex;
     align-items: center;
@@ -209,8 +193,8 @@
     min-height: 400px;
   }
 
-  .image-panel.shade-orange { box-shadow: 14px 14px 0px #FF4B01; }
-  .image-panel.shade-black { box-shadow: 14px 14px 0px #1A202C; }
+  .image-panel.shade-orange { box-shadow: 12px 12px 0px #FF4B01; }
+  .image-panel.shade-black { box-shadow: 12px 12px 0px #1A202C; }
 
   .image-panel img.main-event {
     width: 100%;
@@ -246,10 +230,10 @@
     left: 0;
     width: 85%;
     height: 95%;
-    object-fit: cover;     /* Forces the image to zoom in and fill the height */
+    object-fit: cover; /* Forces the image to zoom in and fill the height */
     object-position: top center; /* Anchors the zoom to the top of the document */
-    border: 2px solid #1A202C;
-    box-shadow: 14px 14px 0px #1A202C;
+    border: 4px solid #1A202C;
+    box-shadow: 12px 12px 0px #1A202C;
     background: #FFFFFF;
     z-index: 1;
     display: block;
@@ -263,8 +247,8 @@
     width: 85%;
     height: auto;
     object-fit: contain;
-    border: 2px solid #1A202C;
-    box-shadow: 14px 14px 0px #FF4B01;
+    border: 4px solid #1A202C;
+    box-shadow: 10px 10px 0px #FF4B01;
     background: #FFFFFF;
     z-index: 2;
     display: block;
