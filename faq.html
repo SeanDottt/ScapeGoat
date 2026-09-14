@@ -41,7 +41,7 @@
 
   /* 
    * NEO-BRUTALIST POSTER CARD (16:9 SLIDE PROPORTION)
-   * Framed exactly like the Scapegoat Logo: 
+   * Framed like the Scapegoat Logo: 
    * Outer Black Border -> White Gap -> Inner Black Border -> Heavy Drop Shadow 
    */
   .poster-card {
@@ -75,42 +75,42 @@
       16px 16px 0px #1A202C;
   }
 
-  /* TOP HEADER BANNER */
+  /* TOP HEADER BANNER WITH SCAPEGOAT LOGO BRANDING */
   .header {
     border-bottom: 4px solid #1A202C;
     padding-bottom: 16px;
     margin-bottom: 32px;
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: center;
   }
 
   .brand-group {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 16px;
   }
 
   .brand-logo {
-    height: 64px;
+    height: 52px;
     width: auto;
     border: 3px solid #1A202C;
     box-shadow: 4px 4px 0px #FF4B01;
     background: #FFFFFF;
-    padding: 4px;
+    padding: 3px;
     border-radius: 0px;
     object-fit: contain;
   }
 
-  .title-group h1 {
+  .brand-title {
     font-family: 'Oswald', Impact, sans-serif;
-    font-size: 32px;
+    font-size: 38px;
     font-weight: 900;
+    letter-spacing: 1px;
     text-transform: uppercase;
-    color: #718096;
-    margin: 0 0 4px 0;
-    letter-spacing: 2px;
+    color: #1A202C;
     line-height: 1;
+    margin: 0;
   }
 
   .brand-badge {
@@ -126,11 +126,11 @@
     box-shadow: 4px 4px 0px #FF4B01;
   }
 
-  /* ASYMMETRICAL SPLIT LAYOUT (TEXT VS SCREENSHOT) */
+  /* ASYMMETRICAL SPLIT LAYOUT */
   .content-split {
     display: grid;
-    grid-template-columns: 0.8fr 1.2fr;
-    gap: 40px;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 36px;
     flex: 1;
     align-items: stretch;
   }
@@ -140,12 +140,12 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-left: 12px; /* Clears the inset inner border */
+    padding-left: 8px;
   }
 
   .text-panel h2 {
     font-family: 'Oswald', Impact, sans-serif;
-    font-size: 48px;
+    font-size: 46px;
     font-weight: 900;
     text-transform: uppercase;
     color: #1A202C;
@@ -159,63 +159,80 @@
   }
 
   .text-panel p {
-    font-size: 20px;
+    font-size: 19px;
     font-weight: 700;
     color: #2D3748;
     line-height: 1.5;
-    margin: 0 0 40px 0;
+    margin: 0 0 36px 0;
     border-left: 4px solid #FF4B01;
     padding-left: 16px;
   }
 
-  /* RIGHT PANEL: SCREENSHOT MAIN EVENT */
+  /* RIGHT PANEL: SCREENSHOT CONTAINED TERMINAL WINDOW */
   .image-panel {
     background: #1A202C;
     border: 5px solid #1A202C;
     position: relative;
-    overflow: hidden;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
-    margin-right: 12px; /* Clears the inset inner border */
-    margin-bottom: 12px;
+    padding: 12px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    box-sizing: border-box;
   }
 
   .image-panel.shade-orange { box-shadow: 12px 12px 0px #FF4B01; }
   .image-panel.shade-black { box-shadow: 12px 12px 0px #1A202C; }
 
+  /* Fully contained image scaling */
   .image-panel img.main-event {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    object-position: top center;
+    object-fit: contain;
+    object-position: center;
+    background: #FFFFFF;
   }
 
-  /* SLIDE 3 COMPOSITE LOGIC */
+  /* OVERFLOW ALLOWED PANEL FOR BOARD 3 COMPOSITE STACK */
+  .image-panel.overflow-allowed {
+    background: transparent;
+    border: none;
+    padding: 0;
+    box-shadow: none;
+    overflow: visible;
+  }
+
   .composite-container {
     width: 100%;
     height: 100%;
     position: relative;
-    background: #E2E8F0;
   }
 
   .quote-doc {
     position: absolute;
-    top: -5%;
-    left: 4%;
-    width: 65%;
-    border: 3px solid #1A202C;
+    top: 0;
+    left: 0;
+    width: 75%;
+    height: auto;
+    max-height: 90%;
+    object-fit: contain;
+    border: 4px solid #1A202C;
     box-shadow: 10px 10px 0px #1A202C;
+    background: #FFFFFF;
     z-index: 1;
   }
 
   .guardrails-doc {
     position: absolute;
-    bottom: 5%;
+    bottom: -2%;
     right: -2%;
-    width: 75%;
+    width: 78%;
+    height: auto;
+    object-fit: contain;
     border: 4px solid #1A202C;
-    box-shadow: -10px -10px 0px #FF4B01;
+    box-shadow: -10px 10px 0px #FF4B01;
+    background: #FFFFFF;
     z-index: 2;
   }
 
@@ -225,14 +242,14 @@
     background: #FF4B01;
     color: #FFFFFF;
     font-family: 'Oswald', Impact, sans-serif;
-    font-size: 26px;
+    font-size: 24px;
     font-weight: 900;
     text-transform: uppercase;
     text-align: center;
     letter-spacing: 1.5px;
     border: 4px solid #1A202C;
     box-shadow: 8px 8px 0px #1A202C;
-    padding: 20px 32px;
+    padding: 18px 30px;
     cursor: pointer;
     transition: transform 0.1s ease;
   }
@@ -249,7 +266,6 @@
       padding: 0 !important; 
     }
     .poster-card {
-      /* Shrinks the card slightly so the 16px shadow fits on the physical page */
       width: calc(11in - 40px) !important; 
       height: calc(8.5in - 40px) !important;
       max-width: none !important; 
@@ -266,14 +282,12 @@
 
 <div class="deck-container">
 
-  <!-- BOARD 1: FORMFILL (ORANGE SHADE) -->
+  <!-- SLIDE 1: FORMFILL (ORANGE SHADE) -->
   <div class="poster-card shade-orange">
     <div class="header">
       <div class="brand-group">
         <img src="https://raw.githubusercontent.com/SeanDottt/ScapeGoat/main/Gemini_Generated_Image_5d4qz5d4qz5d4qz5.jpeg" alt="Scapegoat Logo" class="brand-logo">
-        <div class="title-group">
-          <h1>BOARD 1: FORMFILL</h1>
-        </div>
+        <span class="brand-title">SCAPEGOAT.</span>
       </div>
       <div class="brand-badge">HAWKISH v1</div>
     </div>
@@ -286,7 +300,7 @@
         <div class="btn-orange">STOP BAD LEADS EARLY</div>
       </div>
 
-      <!-- Screenshot Panel (Opposite Shade for Contrast) -->
+      <!-- Screenshot Panel (Contained) -->
       <div class="image-panel shade-black">
         <img src="Pasted%20image%2020260914102820.png" class="main-event" alt="FormFill Interface Screenshot">
       </div>
@@ -294,14 +308,12 @@
   </div>
 
 
-  <!-- BOARD 2: THE BRIEF (BLACK SHADE) -->
+  <!-- SLIDE 2: THE BRIEF (BLACK SHADE) -->
   <div class="poster-card shade-black">
     <div class="header">
       <div class="brand-group">
         <img src="https://raw.githubusercontent.com/SeanDottt/ScapeGoat/main/Gemini_Generated_Image_5d4qz5d4qz5d4qz5.jpeg" alt="Scapegoat Logo" class="brand-logo">
-        <div class="title-group">
-          <h1>BOARD 2: THE BRIEF</h1>
-        </div>
+        <span class="brand-title">SCAPEGOAT.</span>
       </div>
       <div class="brand-badge">ESCAPE NAPKIN MATH</div>
     </div>
@@ -314,7 +326,7 @@
         <div class="btn-orange">CHECK YOUR RACK VALUE</div>
       </div>
 
-      <!-- Screenshot Panel (Opposite Shade for Contrast) -->
+      <!-- Screenshot Panel (Contained) -->
       <div class="image-panel shade-orange">
         <img src="Pasted%20image%2020260914103028.png" class="main-event" alt="Opportunity Brief Screenshot">
       </div>
@@ -322,14 +334,12 @@
   </div>
 
 
-  <!-- BOARD 3: THE QUOTE (ORANGE SHADE) -->
+  <!-- SLIDE 3: THE QUOTE (ORANGE SHADE) -->
   <div class="poster-card shade-orange">
     <div class="header">
       <div class="brand-group">
         <img src="https://raw.githubusercontent.com/SeanDottt/ScapeGoat/main/Gemini_Generated_Image_5d4qz5d4qz5d4qz5.jpeg" alt="Scapegoat Logo" class="brand-logo">
-        <div class="title-group">
-          <h1>BOARD 3: THE QUOTE</h1>
-        </div>
+        <span class="brand-title">SCAPEGOAT.</span>
       </div>
       <div class="brand-badge">MARGIN LOCK</div>
     </div>
@@ -342,8 +352,8 @@
         <div class="btn-orange">PROTECT YOUR PROFITS</div>
       </div>
 
-      <!-- Screenshot Panel (Composite Logic) -->
-      <div class="image-panel shade-black">
+      <!-- Screenshot Panel (Overflow Allowed for Composite Stack) -->
+      <div class="image-panel overflow-allowed">
         <div class="composite-container">
           <img src="Pasted%20image%2020260914103250.png" class="quote-doc" alt="Itemized Quote Sheet Screenshot">
           <img src="Pasted%20image%2020260914103321.png" class="guardrails-doc" alt="Guardrails & Submission Screenshot">
