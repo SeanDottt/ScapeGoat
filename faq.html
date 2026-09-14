@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Scapegoat / Hawkish - Industrial Terminal Deck</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700;800;900&family=Space+Grotesk:wght@500;700;800;900&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;700;800;900&family=Space+Grotesk:wght@500;700;800;900&display=swap');
 
   /* Landscape Printing Setup */
   @page {
@@ -39,7 +39,10 @@
     align-items: center;
   }
 
-  /* NEO-BRUTALIST POSTER CARD */
+  /* 
+   * NEO-BRUTALIST POSTER CARD 
+   * Thin outer border, thick bottom-right shadow, inner frame ring.
+   */
   .poster-card {
     width: 100%;
     max-width: 1320px;
@@ -47,8 +50,8 @@
     aspect-ratio: 16 / 9;
     margin-bottom: 60px;
     background: #FFFFFF;
-    border: 4px solid #1A202C;
-    padding: 44px;
+    border: 2px solid #1A202C;
+    padding: 48px;
     display: flex;
     flex-direction: column;
     position: relative;
@@ -56,29 +59,33 @@
     break-after: page;
   }
 
-  /* ALTERNATING SHADOW THEMES */
-  .poster-card.shade-orange {
-    box-shadow: 
-      inset 0 0 0 8px #FFFFFF, 
-      inset 0 0 0 12px #1A202C, 
-      16px 16px 0px #FF4B01;
+  /* Inner concentric thin frame */
+  .poster-card::before {
+    content: "";
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+    border: 2px solid #1A202C;
+    pointer-events: none;
+    z-index: 10;
   }
 
-  .poster-card.shade-black {
-    box-shadow: 
-      inset 0 0 0 8px #FFFFFF, 
-      inset 0 0 0 12px #1A202C, 
-      16px 16px 0px #1A202C;
-  }
+  /* Bottom Right Only Shadows */
+  .poster-card.shade-orange { box-shadow: 16px 16px 0px #FF4B01; }
+  .poster-card.shade-black { box-shadow: 16px 16px 0px #1A202C; }
 
-  /* TOP HEADER BANNER WITH PRODUCT SUFFIX LOGO */
+  /* TOP HEADER BANNER */
   .header {
-    border-bottom: 4px solid #1A202C;
+    border-bottom: 2px solid #1A202C;
     padding-bottom: 16px;
     margin-bottom: 32px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
+    z-index: 11;
   }
 
   .brand-group {
@@ -87,22 +94,21 @@
     gap: 16px;
   }
 
+  /* Tripled Logo Size (No extra borders since baked into logo.png) */
   .brand-logo {
-    height: 56px;
+    height: 90px;
     width: auto;
-    border: 3px solid #1A202C;
-    box-shadow: 4px 4px 0px #FF4B01;
-    background: #FFFFFF;
-    padding: 3px;
-    border-radius: 0px;
     object-fit: contain;
+    border: none;
+    box-shadow: none;
+    background: transparent;
   }
 
   .brand-title {
     font-family: 'Oswald', Impact, sans-serif;
-    font-size: 42px;
-    font-weight: 900;
-    letter-spacing: 1px;
+    font-size: 52px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
     color: #1A202C;
     line-height: 1;
@@ -118,21 +124,23 @@
     color: #FFFFFF;
     font-family: 'Oswald', Impact, sans-serif;
     font-size: 22px;
-    font-weight: 800;
-    padding: 8px 18px;
+    font-weight: 700;
+    padding: 8px 20px;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    border-radius: 0px;
-    box-shadow: 4px 4px 0px #FF4B01;
+    border: 2px solid #1A202C;
+    box-shadow: 6px 6px 0px #FF4B01;
   }
 
   /* ASYMMETRICAL SPLIT LAYOUT */
   .content-split {
     display: grid;
     grid-template-columns: 0.85fr 1.15fr;
-    gap: 36px;
+    gap: 40px;
     flex: 1;
     align-items: stretch;
+    position: relative;
+    z-index: 11;
   }
 
   /* LEFT PANEL: AGGRESSIVE COPY */
@@ -145,8 +153,8 @@
 
   .text-panel h2 {
     font-family: 'Oswald', Impact, sans-serif;
-    font-size: 46px;
-    font-weight: 900;
+    font-size: 48px;
+    font-weight: 800;
     text-transform: uppercase;
     color: #1A202C;
     line-height: 1.05;
@@ -159,8 +167,8 @@
   }
 
   .text-panel p {
-    font-size: 19px;
-    font-weight: 700;
+    font-size: 20px;
+    font-weight: 600;
     color: #2D3748;
     line-height: 1.5;
     margin: 0 0 36px 0;
@@ -168,42 +176,60 @@
     padding-left: 16px;
   }
 
-  /* RIGHT PANEL: SCREENSHOT CONTAINED TERMINAL WINDOW */
+  /* TACTILE CTA BUTTON (Thin Border, Heavy Shadow) */
+  .btn-orange {
+    align-self: flex-start;
+    background: #FF4B01;
+    color: #FFFFFF;
+    font-family: 'Oswald', Impact, sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 1.5px;
+    border: 2px solid #1A202C;
+    box-shadow: 10px 10px 0px #1A202C;
+    padding: 16px 32px;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+  }
+
+  /* RIGHT PANEL: SCREENSHOT TERMINAL WINDOW (Boards 1 & 2) */
   .image-panel {
     background: #1A202C;
-    border: 5px solid #1A202C;
+    border: 2px solid #1A202C;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 12px;
-    margin-right: 8px;
-    margin-bottom: 8px;
+    padding: 16px;
+    margin-right: 12px;
+    margin-bottom: 12px;
     box-sizing: border-box;
     min-height: 400px;
   }
 
-  .image-panel.shade-orange { box-shadow: 12px 12px 0px #FF4B01; }
-  .image-panel.shade-black { box-shadow: 12px 12px 0px #1A202C; }
+  .image-panel.shade-orange { box-shadow: 14px 14px 0px #FF4B01; }
+  .image-panel.shade-black { box-shadow: 14px 14px 0px #1A202C; }
 
-  /* Image scaling & Broken Image Protection */
   .image-panel img.main-event {
     width: 100%;
     height: 100%;
-    max-height: 520px;
+    max-height: 500px;
     object-fit: contain;
     object-position: center;
     background: #FFFFFF;
     display: block;
   }
 
-  /* OVERFLOW ALLOWED PANEL FOR BOARD 3 COMPOSITE STACK */
-  .image-panel.overflow-allowed {
+  /* RIGHT PANEL: SLIDE 3 COMPOSITE (No dark background, zoomed layout) */
+  .image-panel.composite-panel {
     background: transparent;
     border: none;
     padding: 0;
     box-shadow: none;
     overflow: visible;
+    margin-right: 0;
   }
 
   .composite-container {
@@ -213,54 +239,38 @@
     position: relative;
   }
 
+  /* Zoomed-in tall document filling the left/back */
   .quote-doc {
     position: absolute;
-    top: 0;
+    top: -2%;
     left: 0;
-    width: 75%;
-    height: auto;
-    max-height: 90%;
-    object-fit: contain;
-    border: 4px solid #1A202C;
-    box-shadow: 10px 10px 0px #1A202C;
+    width: 85%;
+    height: 95%;
+    object-fit: cover;     /* Forces the image to zoom in and fill the height */
+    object-position: top center; /* Anchors the zoom to the top of the document */
+    border: 2px solid #1A202C;
+    box-shadow: 14px 14px 0px #1A202C;
     background: #FFFFFF;
     z-index: 1;
     display: block;
   }
 
+  /* Overlapping front document */
   .guardrails-doc {
     position: absolute;
-    bottom: -2%;
+    bottom: -5%;
     right: -2%;
-    width: 78%;
+    width: 85%;
     height: auto;
     object-fit: contain;
-    border: 4px solid #1A202C;
-    box-shadow: -10px 10px 0px #FF4B01;
+    border: 2px solid #1A202C;
+    box-shadow: 14px 14px 0px #FF4B01;
     background: #FFFFFF;
     z-index: 2;
     display: block;
   }
 
-  /* TACTILE CTA BUTTON */
-  .btn-orange {
-    align-self: flex-start;
-    background: #FF4B01;
-    color: #FFFFFF;
-    font-family: 'Oswald', Impact, sans-serif;
-    font-size: 24px;
-    font-weight: 900;
-    text-transform: uppercase;
-    text-align: center;
-    letter-spacing: 1.5px;
-    border: 4px solid #1A202C;
-    box-shadow: 8px 8px 0px #1A202C;
-    padding: 18px 30px;
-    cursor: pointer;
-    transition: transform 0.1s ease;
-  }
-
-  /* PRINT STYLES */
+  /* PERFECT LANDSCAPE PAPER FIT */
   @media print {
     body, html { 
       background: #FFFFFF !important; 
@@ -268,16 +278,14 @@
       padding: 0 !important;
       margin: 0 !important;
     }
-    .deck-container { 
-      padding: 0 !important; 
-    }
+    .deck-container { padding: 0 !important; }
     .poster-card {
       width: calc(11in - 40px) !important; 
       height: calc(8.5in - 40px) !important;
       max-width: none !important; 
       min-height: 0 !important;
       margin: 20px !important; 
-      padding: 44px !important;
+      padding: 48px !important;
       page-break-after: always !important;
       break-after: page !important;
     }
@@ -292,8 +300,8 @@
   <div class="poster-card shade-orange">
     <div class="header">
       <div class="brand-group">
-        <img src="https://raw.githubusercontent.com/SeanDottt/ScapeGoat/main/Gemini_Generated_Image_5d4qz5d4qz5d4qz5.jpeg" alt="Scapegoat Logo" class="brand-logo">
-        <h1 class="brand-title">SCAPEGOAT.<span class="sub-product">Formfill</span></h1>
+        <img src="logo.png" alt="Scapegoat Logo" class="brand-logo">
+        <h1 class="brand-title">SCAPEGOAT.<span class="sub-product">FORMFILL</span></h1>
       </div>
       <div class="brand-badge">HAWKISH v1</div>
     </div>
@@ -306,10 +314,7 @@
       </div>
 
       <div class="image-panel shade-black">
-        <img src="screenshot-2026-09-14_10-28-08.png" 
-             onerror="if(!this.dataset.fallback){this.dataset.fallback=true; this.src='Pasted image 20260914102820.png';}" 
-             class="main-event" 
-             alt="FormFill Interface Screenshot">
+        <img src="screenshot-2026-09-14_10-28-08.png" class="main-event" alt="FormFill Interface Screenshot">
       </div>
     </div>
   </div>
@@ -318,8 +323,8 @@
   <div class="poster-card shade-black">
     <div class="header">
       <div class="brand-group">
-        <img src="https://raw.githubusercontent.com/SeanDottt/ScapeGoat/main/Gemini_Generated_Image_5d4qz5d4qz5d4qz5.jpeg" alt="Scapegoat Logo" class="brand-logo">
-        <h1 class="brand-title">SCAPEGOAT.<span class="sub-product">Brief</span></h1>
+        <img src="logo.png" alt="Scapegoat Logo" class="brand-logo">
+        <h1 class="brand-title">SCAPEGOAT.<span class="sub-product">BRIEF</span></h1>
       </div>
       <div class="brand-badge">ESCAPE NAPKIN MATH</div>
     </div>
@@ -332,10 +337,7 @@
       </div>
 
       <div class="image-panel shade-orange">
-        <img src="screenshot-2026-09-14_10-30-17.png" 
-             onerror="if(!this.dataset.fallback){this.dataset.fallback=true; this.src='Pasted image 20260914103028.png';}" 
-             class="main-event" 
-             alt="Opportunity Brief Screenshot">
+        <img src="screenshot-2026-09-14_10-30-17.png" class="main-event" alt="Opportunity Brief Screenshot">
       </div>
     </div>
   </div>
@@ -344,8 +346,8 @@
   <div class="poster-card shade-orange">
     <div class="header">
       <div class="brand-group">
-        <img src="https://raw.githubusercontent.com/SeanDottt/ScapeGoat/main/Gemini_Generated_Image_5d4qz5d4qz5d4qz5.jpeg" alt="Scapegoat Logo" class="brand-logo">
-        <h1 class="brand-title">SCAPEGOAT.<span class="sub-product">Quote</span></h1>
+        <img src="logo.png" alt="Scapegoat Logo" class="brand-logo">
+        <h1 class="brand-title">SCAPEGOAT.<span class="sub-product">QUOTE</span></h1>
       </div>
       <div class="brand-badge">MARGIN LOCK</div>
     </div>
@@ -357,16 +359,10 @@
         <div class="btn-orange">PROTECT YOUR PROFITS</div>
       </div>
 
-      <div class="image-panel overflow-allowed">
+      <div class="image-panel composite-panel">
         <div class="composite-container">
-          <img src="screenshot-2026-09-14_10-31-27.png" 
-               onerror="if(!this.dataset.fallback){this.dataset.fallback=true; this.src='Pasted image 20260914103250.png';}" 
-               class="quote-doc" 
-               alt="Itemized Quote Sheet Screenshot">
-          <img src="screenshot-2026-09-14_10-33-15.png" 
-               onerror="if(!this.dataset.fallback){this.dataset.fallback=true; this.src='Pasted image 20260914103321.png';}" 
-               class="guardrails-doc" 
-               alt="Guardrails & Submission Screenshot">
+          <img src="screenshot-2026-09-14_10-31-27.png" class="quote-doc" alt="Itemized Quote Sheet Screenshot">
+          <img src="screenshot-2026-09-14_10-33-15.png" class="guardrails-doc" alt="Guardrails & Submission Screenshot">
         </div>
       </div>
     </div>
