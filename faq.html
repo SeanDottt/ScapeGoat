@@ -22,7 +22,7 @@
   body, html {
     margin: 0;
     padding: 0;
-    /* Light Sand / Drafting Paper Background */
+    /* Drafting Paper / Light Sand Outer Canvas */
     background-color: #EBE5D9;
     /* Industrial Diagonal Hatch Texture (8% Opacity Slate) */
     background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M-2 18L18 -2M-2 10L10 -2M-2 2L2 -2M6 18L18 6M14 18L18 14' stroke='%231A202C' stroke-width='1.5' stroke-opacity='0.08'/%3E%3C/svg%3E");
@@ -42,7 +42,7 @@
 
   /* 
    * NEO-BRUTALIST POSTER CARD 
-   * Clean border, bold alternating offset shadow.
+   * Light Sand card canvas (#FAF6EE), crisp 2px border, inner double-border ring, bottom-right offset shadow.
    */
   .poster-card {
     width: 100%;
@@ -50,8 +50,8 @@
     min-height: 780px;
     aspect-ratio: 16 / 9;
     margin-bottom: 60px;
-    background: #FFFFFF;
-    border: 4px solid #1A202C;
+    background: #FAF6EE;
+    border: 2px solid #1A202C;
     padding: 44px;
     display: flex;
     flex-direction: column;
@@ -60,40 +60,55 @@
     break-after: page;
   }
 
+  /* Thin Concentric Inner Frame Ring */
+  .poster-card::before {
+    content: "";
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+    border: 2px solid #1A202C;
+    pointer-events: none;
+    z-index: 10;
+  }
+
   /* Bottom Right Only Shadows */
-  .poster-card.shade-orange { box-shadow: 16px 16px 0px #FF4B01; }
-  .poster-card.shade-black { box-shadow: 16px 16px 0px #1A202C; }
+  .poster-card.shade-orange { box-shadow: 14px 14px 0px #FF4B01; }
+  .poster-card.shade-black { box-shadow: 14px 14px 0px #1A202C; }
 
   /* TOP HEADER BANNER */
   .header {
-    border-bottom: 4px solid #1A202C;
+    border-bottom: 2px solid #1A202C;
     padding-bottom: 16px;
     margin-bottom: 32px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
+    z-index: 11;
   }
 
   .brand-group {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 16px;
   }
 
-  /* Tripled Logo Size with Industrial Shadow/Border */
+  /* Tripled Logo Size with Thin 2px Frame & Safety Orange Shadow */
   .brand-logo {
-    height: 90px;
+    height: 80px;
     width: auto;
     object-fit: contain;
-    border: 4px solid #1A202C;
-    box-shadow: 8px 8px 0px #FF4B01;
+    border: 2px solid #1A202C;
+    box-shadow: 6px 6px 0px #FF4B01;
     background: #FFFFFF;
     padding: 6px;
   }
 
   .brand-title {
     font-family: 'Oswald', Impact, sans-serif;
-    font-size: 52px;
+    font-size: 46px;
     font-weight: 900;
     letter-spacing: 1.5px;
     text-transform: uppercase;
@@ -110,12 +125,12 @@
     background: #1A202C;
     color: #FFFFFF;
     font-family: 'Oswald', Impact, sans-serif;
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 800;
-    padding: 8px 20px;
+    padding: 8px 18px;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    border: 3px solid #1A202C;
+    border: 2px solid #1A202C;
     box-shadow: 5px 5px 0px #FF4B01;
   }
 
@@ -123,12 +138,14 @@
   .content-split {
     display: grid;
     grid-template-columns: 0.85fr 1.15fr;
-    gap: 40px;
+    gap: 36px;
     flex: 1;
     align-items: stretch;
+    position: relative;
+    z-index: 11;
   }
 
-  /* LEFT PANEL: AGGRESSIVE COPY */
+  /* LEFT PANEL: COPY ENGINE */
   .text-panel {
     display: flex;
     flex-direction: column;
@@ -138,7 +155,7 @@
 
   .text-panel h2 {
     font-family: 'Oswald', Impact, sans-serif;
-    font-size: 48px;
+    font-size: 44px;
     font-weight: 900;
     text-transform: uppercase;
     color: #1A202C;
@@ -152,29 +169,29 @@
   }
 
   .text-panel p {
-    font-size: 20px;
+    font-size: 19px;
     font-weight: 700;
     color: #2D3748;
     line-height: 1.5;
     margin: 0 0 36px 0;
-    border-left: 4px solid #FF4B01;
+    border-left: 3px solid #FF4B01;
     padding-left: 16px;
   }
 
-  /* TACTILE CTA BUTTON */
+  /* TACTILE CTA BUTTON (Crisp 2px Frame) */
   .btn-orange {
     align-self: flex-start;
     background: #FF4B01;
     color: #FFFFFF;
     font-family: 'Oswald', Impact, sans-serif;
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 900;
     text-transform: uppercase;
     text-align: center;
     letter-spacing: 1.5px;
-    border: 4px solid #1A202C;
+    border: 2px solid #1A202C;
     box-shadow: 8px 8px 0px #1A202C;
-    padding: 16px 32px;
+    padding: 16px 30px;
     cursor: pointer;
     transition: transform 0.1s ease;
   }
@@ -182,20 +199,18 @@
   /* RIGHT PANEL: SCREENSHOT TERMINAL WINDOW (Boards 1 & 2) */
   .image-panel {
     background: #1A202C;
-    border: 4px solid #1A202C;
+    border: 2px solid #1A202C;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 16px;
-    margin-right: 12px;
-    margin-bottom: 12px;
+    padding: 12px;
     box-sizing: border-box;
     min-height: 400px;
   }
 
-  .image-panel.shade-orange { box-shadow: 12px 12px 0px #FF4B01; }
-  .image-panel.shade-black { box-shadow: 12px 12px 0px #1A202C; }
+  .image-panel.shade-orange { box-shadow: 10px 10px 0px #FF4B01; }
+  .image-panel.shade-black { box-shadow: 10px 10px 0px #1A202C; }
 
   .image-panel img.main-event {
     width: 100%;
@@ -204,17 +219,17 @@
     object-fit: contain;
     object-position: center;
     background: #FFFFFF;
+    border: 2px solid #1A202C;
     display: block;
   }
 
-  /* RIGHT PANEL: SLIDE 3 COMPOSITE (No dark background, zoomed layout) */
+  /* RIGHT PANEL: SLIDE 3 COMPOSITE */
   .image-panel.composite-panel {
     background: transparent;
     border: none;
     padding: 0;
     box-shadow: none;
     overflow: visible;
-    margin-right: 0;
   }
 
   .composite-container {
@@ -224,23 +239,21 @@
     position: relative;
   }
 
-  /* Zoomed-in tall document filling the left/back */
   .quote-doc {
     position: absolute;
     top: -2%;
     left: 0;
     width: 85%;
     height: 95%;
-    object-fit: cover; /* Forces the image to zoom in and fill the height */
-    object-position: top center; /* Anchors the zoom to the top of the document */
-    border: 4px solid #1A202C;
-    box-shadow: 12px 12px 0px #1A202C;
+    object-fit: cover;
+    object-position: top center;
+    border: 2px solid #1A202C;
+    box-shadow: 10px 10px 0px #1A202C;
     background: #FFFFFF;
     z-index: 1;
     display: block;
   }
 
-  /* Overlapping front document */
   .guardrails-doc {
     position: absolute;
     bottom: -5%;
@@ -248,14 +261,136 @@
     width: 85%;
     height: auto;
     object-fit: contain;
-    border: 4px solid #1A202C;
+    border: 2px solid #1A202C;
     box-shadow: 10px 10px 0px #FF4B01;
     background: #FFFFFF;
     z-index: 2;
     display: block;
   }
 
-  /* PERFECT LANDSCAPE PAPER FIT */
+  /* ==========================================================================
+     MOBILE RESPONSIVE ADAPTATION ENGINE (<= 860PX)
+     ========================================================================== */
+  @media (max-width: 860px) {
+    .deck-container {
+      padding: 16px 10px;
+    }
+
+    .poster-card {
+      aspect-ratio: auto;
+      min-height: 0;
+      height: auto;
+      padding: 28px 20px 32px 20px;
+      margin-bottom: 40px;
+      border-width: 2px;
+    }
+
+    .poster-card.shade-orange { box-shadow: 8px 8px 0px #FF4B01; }
+    .poster-card.shade-black { box-shadow: 8px 8px 0px #1A202C; }
+
+    .poster-card::before {
+      top: 5px;
+      left: 5px;
+      right: 5px;
+      bottom: 5px;
+    }
+
+    .header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 24px;
+      padding-bottom: 14px;
+    }
+
+    .brand-group {
+      gap: 12px;
+    }
+
+    .brand-logo {
+      height: 56px;
+      box-shadow: 4px 4px 0px #FF4B01;
+      padding: 4px;
+    }
+
+    .brand-title {
+      font-size: 30px;
+    }
+
+    .brand-badge {
+      font-size: 16px;
+      padding: 6px 14px;
+      align-self: flex-start;
+      box-shadow: 4px 4px 0px #FF4B01;
+    }
+
+    .content-split {
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+
+    .text-panel {
+      padding-left: 0;
+    }
+
+    .text-panel h2 {
+      font-size: 32px;
+      margin-bottom: 16px;
+    }
+
+    .text-panel p {
+      font-size: 16px;
+      margin-bottom: 24px;
+      border-left-width: 3px;
+      padding-left: 12px;
+    }
+
+    .btn-orange {
+      width: 100%;
+      font-size: 20px;
+      padding: 14px 20px;
+      box-shadow: 6px 6px 0px #1A202C;
+    }
+
+    .image-panel {
+      min-height: 280px;
+      padding: 8px;
+    }
+
+    .image-panel.shade-orange { box-shadow: 6px 6px 0px #FF4B01; }
+    .image-panel.shade-black { box-shadow: 6px 6px 0px #1A202C; }
+
+    .image-panel img.main-event {
+      max-height: 380px;
+    }
+
+    .composite-container {
+      min-height: 340px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .quote-doc {
+      position: relative;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: auto;
+      max-height: none;
+      box-shadow: 6px 6px 0px #1A202C;
+    }
+
+    .guardrails-doc {
+      position: relative;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      box-shadow: 6px 6px 0px #FF4B01;
+    }
+  }
+
+  /* PRINT STYLES FOR LANDSCAPE HARDCOPY */
   @media print {
     body, html { 
       background: #FFFFFF !important; 
@@ -265,12 +400,13 @@
     }
     .deck-container { padding: 0 !important; }
     .poster-card {
+      background: #FAF6EE !important;
       width: calc(11in - 40px) !important; 
       height: calc(8.5in - 40px) !important;
       max-width: none !important; 
       min-height: 0 !important;
       margin: 20px !important; 
-      padding: 48px !important;
+      padding: 44px !important;
       page-break-after: always !important;
       break-after: page !important;
     }
