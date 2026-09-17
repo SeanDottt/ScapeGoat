@@ -45,27 +45,56 @@
             padding: 28px 12px 16px 12px;
             flex-shrink: 0;
             text-align: center;
+            width: 100%;
         }
 
+        /* Shared Logo Base Properties */
         .logo {
+            border-radius: 0px;
+            background-color: #FFFFFF;
+            cursor: pointer;
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+            margin: 0 auto;
+        }
+
+        /* DESKTOP WIDE LOGO */
+        .logo-desktop {
+            width: 90vw;
+            max-width: 900px;
+            height: auto;
+            border: 4px solid #1A202C;
+            box-shadow: 10px 10px 0px #FF4B01;
+            padding: 0;
+            display: block;
+        }
+
+        .logo-desktop:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 12px 12px 0px #FF4B01;
+        }
+
+        .logo-desktop:active {
+            transform: translate(2px, 2px);
+            box-shadow: 4px 4px 0px #FF4B01;
+        }
+
+        /* MOBILE ORIGINAL LOGO (Hidden on Desktop) */
+        .logo-mobile {
             width: 60vw;
             max-width: 180px;
             height: auto;
             border: 3px solid #1A202C;
-            border-radius: 0px;
             box-shadow: 4px 4px 0px #FF4B01;
-            background-color: #FFFFFF;
             padding: 8px;
-            cursor: pointer;
-            transition: transform 0.15s ease, box-shadow 0.15s ease;
+            display: none;
         }
 
-        .logo:hover {
+        .logo-mobile:hover {
             transform: translate(-2px, -2px);
             box-shadow: 6px 6px 0px #FF4B01;
         }
 
-        .logo:active {
+        .logo-mobile:active {
             transform: translate(2px, 2px);
             box-shadow: 2px 2px 0px #FF4B01;
         }
@@ -280,11 +309,19 @@
                 background-image: none !important;
             }
 
+            /* Display Swapping for the Logos */
+            .logo-desktop {
+                display: none !important;
+            }
+            .logo-mobile {
+                display: block !important;
+            }
+
             .split-wrapper {
                 grid-template-columns: 1fr;
                 gap: 20px;
                 padding: 0 12px;
-                margin: 12px auto 20px auto;
+                margin: 0px auto 20px auto;
             }
 
             .info-deck-card {
@@ -341,7 +378,11 @@
 <body>
 
     <div class="logo-container">
-        <img src="Gemini_Generated_Image_5d4qz5d4qz5d4qz5.jpeg" class="logo" alt="ScapeGoat 3PL Warehouse Rates Architecture Logo" onclick="window.location.reload();">
+        <!-- Desktop Wide Image -->
+        <img src="Gemini_Generated_Image_5d4qz5d4qz5d4qz5.jpeg" class="logo logo-desktop" alt="ScapeGoat Wide Logo" onclick="window.location.reload();">
+        
+        <!-- Mobile Original Image -->
+        <img src="logo.png" class="logo logo-mobile" alt="ScapeGoat Square Logo" onclick="window.location.reload();">
     </div>
 
     <!-- MAIN TWO-COLUMN CONTAINER (Left: Info Tile, Right: Form Container) -->
@@ -358,7 +399,7 @@
             <div class="info-block">
                 <h3 class="info-title">How do you <span class="highlight">Sign up?</span></h3>
                 <!-- The #bottom hash targets an element with id="bottom" on your FAQ page -->
-                <a href="https://scapegoat3plwarehouserates.com/faq#bottom" class="info-btn">SIGN UP DETAILS</a>
+                <a href="https://scapegoat3plwarehouserates.com/faq.html#bottom" class="info-btn">SIGN UP DETAILS</a>
             </div>
 
             <div class="info-block">
