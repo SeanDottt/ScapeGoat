@@ -240,9 +240,10 @@
             }
 
             h1 { 
-                font-size: clamp(24px, 7vw, 32px);
-                word-wrap: break-word;
+                /* Removed aggressive word-break to stop the squished character chopping */
+                font-size: clamp(24px, 7vw, 34px);
                 overflow-wrap: break-word;
+                line-height: 1.15;
             }
 
             .price-tag { font-size: 3.6rem; }
@@ -274,7 +275,8 @@
 
         <!-- TOP TILE -->
         <header class="sleek-banner">
-            <h1>Get a custom SCAPEGOAT.<span class="sub-accent">Formfill Match your warehouses aesthetics.</span></h1>
+            <!-- Formfill moved outside the span so SCAPEGOAT.Formfill acts as one brand block -->
+            <h1>Get a custom SCAPEGOAT.Formfill <span class="sub-accent">Match your warehouses aesthetics.</span></h1>
             
             <img class="watermark-logo" src="https://raw.githubusercontent.com/SeanDottt/ScapeGoat/3fabb1c94b8fdb03ebd4ef2813f86fd674affa0f/logo.png" alt="ScapeGoat App Shield">
         </header>
