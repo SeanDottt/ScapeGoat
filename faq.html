@@ -1,608 +1,608 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Scapegoat / Hawkish - Industrial Terminal Deck</title>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;700;800;900&family=Space+Grotesk:wght@500;700;800;900&display=swap');
-
-  /* Landscape Printing Setup */
-  @page {
-    size: 11in 8.5in landscape;
-    margin: 0;
-  }
-
-  * {
-    box-sizing: border-box;
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
-  }
-
-  html {
-    scroll-behavior: smooth;
-  }
-
-  body, html {
-    margin: 0;
-    padding: 0;
-    /* Drafting Paper Outer Canvas */
-    background-color: #EBE5D9;
-    /* Industrial Diagonal Hatch Texture (8% Opacity Slate) */
-    background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M-2 18L18 -2M-2 10L10 -2M-2 2L2 -2M6 18L18 6M14 18L18 14' stroke='%231A202C' stroke-width='1.5' stroke-opacity='0.08'/%3E%3C/svg%3E");
-    background-repeat: repeat;
-    font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
-    color: #1A202C;
-    line-height: 1.4;
-    overflow-x: hidden;
-  }
-
-  .deck-container {
-    width: 100%;
-    padding: 40px 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  /* 
-   * NEO-BRUTALIST POSTER CARD 
-   * Pure White container canvas (#FFFFFF), crisp 2px border, inner double-border ring, bottom-right offset shadow.
-   */
-  .poster-card {
-    width: 100%;
-    max-width: 1320px;
-    min-height: 780px;
-    aspect-ratio: 16 / 9;
-    margin-bottom: 60px;
-    background: #FFFFFF; /* Pure White Card Container */
-    border: 2px solid #1A202C;
-    padding: 44px;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    overflow: hidden; /* Prevents screenshot elements from going off page */
-    page-break-after: always;
-    break-after: page;
-  }
-
-  /* Thin Concentric Inner Frame Ring */
-  .poster-card::before {
-    content: "";
-    position: absolute;
-    top: 8px;
-    left: 8px;
-    right: 8px;
-    bottom: 8px;
-    border: 2px solid #1A202C;
-    pointer-events: none;
-    z-index: 10;
-  }
-
-  /* Bottom Right Only Shadows */
-  .poster-card.shade-orange { box-shadow: 14px 14px 0px #FF4B01; }
-  .poster-card.shade-black { box-shadow: 14px 14px 0px #1A202C; }
-
-  /* TOP HEADER BANNER */
-  .header {
-    border-bottom: 2px solid #1A202C;
-    padding-bottom: 16px;
-    margin-bottom: 32px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-    z-index: 11;
-  }
-
-  .brand-group {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
-
-  /* Tripled Logo Size with Thin 2px Frame & Safety Orange Shadow */
-  .brand-logo {
-    height: 80px;
-    width: auto;
-    object-fit: contain;
-    border: 2px solid #1A202C;
-    box-shadow: 6px 6px 0px #FF4B01;
-    background: #FFFFFF;
-    padding: 6px;
-  }
-
-  .brand-title {
-    font-family: 'Oswald', Impact, sans-serif;
-    font-size: 46px;
-    font-weight: 900;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: #1A202C;
-    line-height: 1;
-    margin: 0;
-  }
-
-  .brand-title .sub-product {
-    color: #FF4B01;
-  }
-
-  .brand-badge {
-    background: #1A202C;
-    color: #FFFFFF;
-    font-family: 'Oswald', Impact, sans-serif;
-    font-size: 20px;
-    font-weight: 800;
-    padding: 8px 18px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    border: 2px solid #1A202C;
-    box-shadow: 5px 5px 0px #FF4B01;
-  }
-
-  /* ASYMMETRICAL SPLIT LAYOUT */
-  .content-split {
-    display: grid;
-    grid-template-columns: 0.85fr 1.15fr;
-    gap: 36px;
-    flex: 1;
-    min-height: 0; /* Ensures children shrink properly without overflow */
-    align-items: stretch;
-    position: relative;
-    z-index: 11;
-  }
-
-  /* LEFT PANEL: COPY ENGINE */
-  .text-panel {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding-left: 8px;
-  }
-
-  .text-panel h2 {
-    font-family: 'Oswald', Impact, sans-serif;
-    font-size: 44px;
-    font-weight: 900;
-    text-transform: uppercase;
-    color: #1A202C;
-    line-height: 1.05;
-    letter-spacing: 0.5px;
-    margin: 0 0 24px 0;
-  }
-
-  .text-panel h2 .highlight {
-    color: #FF4B01;
-  }
-
-  .text-panel p {
-    font-size: 19px;
-    font-weight: 700;
-    color: #2D3748;
-    line-height: 1.5;
-    margin: 0 0 36px 0;
-    border-left: 3px solid #FF4B01;
-    padding-left: 16px;
-  }
-
-  /* TACTILE VIDEO POPUP BUTTON */
-  .btn-orange {
-    align-self: flex-start;
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    background: #FF4B01;
-    color: #FFFFFF;
-    font-family: 'Oswald', Impact, sans-serif;
-    font-size: 22px;
-    font-weight: 900;
-    text-transform: uppercase;
-    text-align: center;
-    letter-spacing: 1.5px;
-    border: 2px solid #1A202C;
-    box-shadow: 8px 8px 0px #1A202C;
-    padding: 16px 28px;
-    cursor: pointer;
-    transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
-    user-select: none;
-  }
-
-  .btn-orange:hover {
-    transform: translate(-2px, -2px);
-    box-shadow: 10px 10px 0px #1A202C;
-    background-color: #FF5A16;
-  }
-
-  .btn-orange:active {
-    transform: translate(2px, 2px);
-    box-shadow: 4px 4px 0px #1A202C;
-  }
-
-  .play-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 28px;
-    height: 28px;
-    background: #1A202C;
-    color: #FFFFFF;
-    border-radius: 50%;
-    font-size: 12px;
-    line-height: 1;
-    padding-left: 3px;
-  }
-
-  /* RIGHT PANEL: SCREENSHOT TERMINAL WINDOW */
-  .image-panel {
-    background: #1A202C;
-    border: 2px solid #1A202C;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 12px;
-    box-sizing: border-box;
-    max-height: 100%;
-    min-height: 0;
-    overflow: hidden;
-  }
-
-  .image-panel.shade-orange { box-shadow: 10px 10px 0px #FF4B01; }
-  .image-panel.shade-black { box-shadow: 10px 10px 0px #1A202C; }
-
-  .image-panel img.main-event {
-    max-width: 100%;
-    max-height: 100%;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-    object-position: center;
-    background: #FFFFFF;
-    border: 2px solid #1A202C;
-    display: block;
-  }
-
-  /* RIGHT PANEL: SLIDE 3 COMPOSITE */
-  .image-panel.composite-panel {
-    background: transparent;
-    border: none;
-    padding: 0;
-    box-shadow: none;
-    overflow: visible;
-  }
-
-  .composite-container {
-    width: 100%;
-    height: 100%;
-    min-height: 400px;
-    position: relative;
-  }
-
-  .quote-doc {
-    position: absolute;
-    top: -2%;
-    left: 0;
-    width: 85%;
-    height: 95%;
-    object-fit: cover;
-    object-position: top center;
-    border: 2px solid #1A202C;
-    box-shadow: 10px 10px 0px #1A202C;
-    background: #FFFFFF;
-    z-index: 1;
-    display: block;
-  }
-
-  .guardrails-doc {
-    position: absolute;
-    bottom: -5%;
-    right: -2%;
-    width: 85%;
-    height: auto;
-    object-fit: contain;
-    border: 2px solid #1A202C;
-    box-shadow: 10px 10px 0px #FF4B01;
-    background: #FFFFFF;
-    z-index: 2;
-    display: block;
-  }
-
-  /* BOTTOM SIGN-UP CTA CONTAINER */
-  .cta-card {
-    width: 100%;
-    max-width: 1320px;
-    background: #FFFFFF;
-    border: 3px solid #1A202C;
-    box-shadow: 14px 14px 0px #FF4B01;
-    padding: 44px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    position: relative;
-    margin-bottom: 40px;
-  }
-
-  .cta-card h2 {
-    font-family: 'Oswald', Impact, sans-serif;
-    font-size: 38px;
-    font-weight: 900;
-    text-transform: uppercase;
-    color: #1A202C;
-    margin: 0 0 12px 0;
-    letter-spacing: 1px;
-  }
-
-  .cta-card p {
-    font-size: 18px;
-    font-weight: 700;
-    color: #2D3748;
-    margin: 0 0 28px 0;
-    max-width: 640px;
-  }
-
-  .cta-form {
-    display: flex;
-    width: 100%;
-    max-width: 680px;
-    gap: 12px;
-  }
-
-  .cta-input {
-    flex: 1;
-    background: #FFFFFF;
-    border: 2px solid #1A202C;
-    padding: 16px 20px;
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 18px;
-    font-weight: 700;
-    color: #1A202C;
-    box-shadow: 6px 6px 0px #1A202C;
-    outline: none;
-  }
-
-  .cta-input::placeholder {
-    color: #A0AEC0;
-  }
-
-  .cta-submit {
-    background: #FF4B01;
-    color: #FFFFFF;
-    font-family: 'Oswald', Impact, sans-serif;
-    font-size: 22px;
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    border: 2px solid #1A202C;
-    box-shadow: 6px 6px 0px #1A202C;
-    padding: 16px 32px;
-    cursor: pointer;
-    white-space: nowrap;
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
-  }
-
-  .cta-submit:hover {
-    transform: translate(-2px, -2px);
-    box-shadow: 8px 8px 0px #1A202C;
-    background-color: #FF5A16;
-  }
-
-  .cta-submit:active {
-    transform: translate(2px, 2px);
-    box-shadow: 3px 3px 0px #1A202C;
-  }
-
-  /* FOOTER BACK LINK */
-  .footer {
-    flex-shrink: 0;
-    width: 100%;
-    padding: 20px 0 60px 0;
-    display: flex;
-    justify-content: center;
-  }
-
-  .back-link {
-    color: #1A202C;
-    text-decoration: none;
-    font-family: 'Oswald', Impact, sans-serif;
-    font-size: 0.9rem;
-    font-weight: 900;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 14px 32px;
-    border: 3px solid #1A202C;
-    border-radius: 0px;
-    background: #FFFFFF;
-    box-shadow: 4px 4px 0px #1A202C;
-    transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease, color 0.15s ease;
-  }
-
-  .back-link:hover {
-    color: #FFFFFF;
-    background-color: #FF4B01;
-    box-shadow: 6px 6px 0px #1A202C;
-    transform: translate(-2px, -2px);
-  }
-
-  .back-link:active {
-    transform: translate(2px, 2px);
-    box-shadow: 2px 2px 0px #1A202C;
-  }
-
-  /* ==========================================================================
-     MOBILE RESPONSIVE ADAPTATION ENGINE (<= 860PX)
-     ========================================================================== */
-  @media (max-width: 860px) {
-    .deck-container {
-      padding: 16px 10px;
-    }
-
-    .poster-card {
-      aspect-ratio: auto;
-      min-height: 0;
-      height: auto;
-      padding: 28px 20px 32px 20px;
-      margin-bottom: 40px;
-      border-width: 2px;
-      overflow: visible;
-    }
-
-    .poster-card.shade-orange { box-shadow: 8px 8px 0px #FF4B01; }
-    .poster-card.shade-black { box-shadow: 8px 8px 0px #1A202C; }
-
-    .poster-card::before {
-      top: 5px;
-      left: 5px;
-      right: 5px;
-      bottom: 5px;
-    }
-
-    .header {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 14px;
-      margin-bottom: 24px;
-      padding-bottom: 14px;
-    }
-
-    .brand-group {
-      gap: 12px;
-      flex-wrap: wrap; /* Keeps elements from breaking outside */
-    }
-
-    .brand-logo {
-      height: 56px;
-      box-shadow: 4px 4px 0px #FF4B01;
-      padding: 4px;
-    }
-
-    .brand-title {
-      font-size: clamp(24px, 7vw, 36px);
-      word-wrap: break-word;
-      overflow-wrap: break-word;
-      line-height: 1.1;
-      max-width: 100%;
-    }
-
-    .brand-badge {
-      font-size: 16px;
-      padding: 6px 14px;
-      align-self: flex-start;
-      box-shadow: 4px 4px 0px #FF4B01;
-    }
-
-    .content-split {
-      grid-template-columns: 1fr;
-      gap: 28px;
-    }
-
-    .text-panel {
-      padding-left: 0;
-    }
-
-    .text-panel h2 {
-      font-size: 32px;
-      margin-bottom: 16px;
-    }
-
-    .text-panel p {
-      font-size: 16px;
-      margin-bottom: 24px;
-      border-left-width: 3px;
-      padding-left: 12px;
-    }
-
-    .btn-orange {
-      width: 100%;
-      font-size: 20px;
-      padding: 14px 20px;
-      justify-content: center;
-      box-shadow: 6px 6px 0px #1A202C;
-    }
-
-    .image-panel {
-      min-height: auto;
-      max-height: none; 
-      padding: 12px;
-    }
-
-    .image-panel.shade-orange { box-shadow: 6px 6px 0px #FF4B01; }
-    .image-panel.shade-black { box-shadow: 6px 6px 0px #1A202C; }
-
-    .image-panel img.main-event {
-      max-height: none; 
-      width: 100%;
-      height: auto;
-    }
-
-    .composite-container {
-      min-height: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .quote-doc {
-      position: relative;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: auto;
-      max-height: none;
-      box-shadow: 6px 6px 0px #1A202C;
-    }
-
-    .guardrails-doc {
-      position: relative;
-      bottom: auto;
-      right: auto;
-      width: 100%;
-      box-shadow: 6px 6px 0px #FF4B01;
-      margin-top: -20px; 
-    }
-
-    .cta-card {
-      padding: 28px 16px;
-      box-shadow: 8px 8px 0px #FF4B01;
-    }
-
-    .cta-card h2 {
-      font-size: 28px;
-    }
-
-    .cta-form {
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .cta-submit {
-      width: 100%;
-    }
-  }
-
-  /* PRINT STYLES FOR LANDSCAPE HARDCOPY */
-  @media print {
-    body, html { 
-      background: #FFFFFF !important; 
-      background-image: none !important; 
-      padding: 0 !important;
-      margin: 0 !important;
-    }
-    .deck-container { padding: 0 !important; }
-    .poster-card {
-      background: #FFFFFF !important;
-      width: calc(11in - 40px) !important; 
-      height: calc(8.5in - 40px) !important;
-      max-width: none !important; 
-      min-height: 0 !important;
-      margin: 20px !important; 
-      padding: 44px !important;
-      page-break-after: always !important;
-      break-after: page !important;
-    }
-    .cta-card, .footer { display: none !important; }
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scapegoat / Hawkish - Industrial Terminal Deck</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;700;800;900&family=Space+Grotesk:wght@500;700;800;900&display=swap');
+
+      /* Landscape Printing Setup */
+      @page {
+        size: 11in 8.5in landscape;
+        margin: 0;
+      }
+
+      * {
+        box-sizing: border-box;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body, html {
+        margin: 0;
+        padding: 0;
+        /* Drafting Paper Outer Canvas */
+        background-color: #EBE5D9;
+        /* Industrial Diagonal Hatch Texture (8% Opacity Slate) */
+        background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M-2 18L18 -2M-2 10L10 -2M-2 2L2 -2M6 18L18 6M14 18L18 14' stroke='%231A202C' stroke-width='1.5' stroke-opacity='0.08'/%3E%3C/svg%3E");
+        background-repeat: repeat;
+        font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+        color: #1A202C;
+        line-height: 1.4;
+        overflow-x: hidden;
+      }
+
+      .deck-container {
+        width: 100%;
+        padding: 40px 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      /* 
+       * NEO-BRUTALIST POSTER CARD 
+       * Pure White container canvas (#FFFFFF), crisp 2px border, inner double-border ring, bottom-right offset shadow.
+       */
+      .poster-card {
+        width: 100%;
+        max-width: 1320px;
+        min-height: 780px;
+        aspect-ratio: 16 / 9;
+        margin-bottom: 60px;
+        background: #FFFFFF; /* Pure White Card Container */
+        border: 2px solid #1A202C;
+        padding: 44px;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        overflow: hidden; /* Prevents screenshot elements from going off page */
+        page-break-after: always;
+        break-after: page;
+      }
+
+      /* Thin Concentric Inner Frame Ring */
+      .poster-card::before {
+        content: "";
+        position: absolute;
+        top: 8px;
+        left: 8px;
+        right: 8px;
+        bottom: 8px;
+        border: 2px solid #1A202C;
+        pointer-events: none;
+        z-index: 10;
+      }
+
+      /* Bottom Right Only Shadows */
+      .poster-card.shade-orange { box-shadow: 14px 14px 0px #FF4B01; }
+      .poster-card.shade-black { box-shadow: 14px 14px 0px #1A202C; }
+
+      /* TOP HEADER BANNER */
+      .header {
+        border-bottom: 2px solid #1A202C;
+        padding-bottom: 16px;
+        margin-bottom: 32px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        z-index: 11;
+      }
+
+      .brand-group {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+
+      /* Tripled Logo Size with Thin 2px Frame & Safety Orange Shadow */
+      .brand-logo {
+        height: 80px;
+        width: auto;
+        object-fit: contain;
+        border: 2px solid #1A202C;
+        box-shadow: 6px 6px 0px #FF4B01;
+        background: #FFFFFF;
+        padding: 6px;
+      }
+
+      .brand-title {
+        font-family: 'Oswald', Impact, sans-serif;
+        font-size: 46px;
+        font-weight: 900;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: #1A202C;
+        line-height: 1;
+        margin: 0;
+      }
+
+      .brand-title .sub-product {
+        color: #FF4B01;
+      }
+
+      .brand-badge {
+        background: #1A202C;
+        color: #FFFFFF;
+        font-family: 'Oswald', Impact, sans-serif;
+        font-size: 20px;
+        font-weight: 800;
+        padding: 8px 18px;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        border: 2px solid #1A202C;
+        box-shadow: 5px 5px 0px #FF4B01;
+      }
+
+      /* ASYMMETRICAL SPLIT LAYOUT */
+      .content-split {
+        display: grid;
+        grid-template-columns: 0.85fr 1.15fr;
+        gap: 36px;
+        flex: 1;
+        min-height: 0; /* Ensures children shrink properly without overflow */
+        align-items: stretch;
+        position: relative;
+        z-index: 11;
+      }
+
+      /* LEFT PANEL: COPY ENGINE */
+      .text-panel {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-left: 8px;
+      }
+
+      .text-panel h2 {
+        font-family: 'Oswald', Impact, sans-serif;
+        font-size: 44px;
+        font-weight: 900;
+        text-transform: uppercase;
+        color: #1A202C;
+        line-height: 1.05;
+        letter-spacing: 0.5px;
+        margin: 0 0 24px 0;
+      }
+
+      .text-panel h2 .highlight {
+        color: #FF4B01;
+      }
+
+      .text-panel p {
+        font-size: 19px;
+        font-weight: 700;
+        color: #2D3748;
+        line-height: 1.5;
+        margin: 0 0 36px 0;
+        border-left: 3px solid #FF4B01;
+        padding-left: 16px;
+      }
+
+      /* TACTILE VIDEO POPUP BUTTON */
+      .btn-orange {
+        align-self: flex-start;
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        background: #FF4B01;
+        color: #FFFFFF;
+        font-family: 'Oswald', Impact, sans-serif;
+        font-size: 22px;
+        font-weight: 900;
+        text-transform: uppercase;
+        text-align: center;
+        letter-spacing: 1.5px;
+        border: 2px solid #1A202C;
+        box-shadow: 8px 8px 0px #1A202C;
+        padding: 16px 28px;
+        cursor: pointer;
+        transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+        user-select: none;
+      }
+
+      .btn-orange:hover {
+        transform: translate(-2px, -2px);
+        box-shadow: 10px 10px 0px #1A202C;
+        background-color: #FF5A16;
+      }
+
+      .btn-orange:active {
+        transform: translate(2px, 2px);
+        box-shadow: 4px 4px 0px #1A202C;
+      }
+
+      .play-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 28px;
+        height: 28px;
+        background: #1A202C;
+        color: #FFFFFF;
+        border-radius: 50%;
+        font-size: 12px;
+        line-height: 1;
+        padding-left: 3px;
+      }
+
+      /* RIGHT PANEL: SCREENSHOT TERMINAL WINDOW */
+      .image-panel {
+        background: #1A202C;
+        border: 2px solid #1A202C;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 12px;
+        box-sizing: border-box;
+        max-height: 100%;
+        min-height: 0;
+        overflow: hidden;
+      }
+
+      .image-panel.shade-orange { box-shadow: 10px 10px 0px #FF4B01; }
+      .image-panel.shade-black { box-shadow: 10px 10px 0px #1A202C; }
+
+      .image-panel img.main-event {
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        object-position: center;
+        background: #FFFFFF;
+        border: 2px solid #1A202C;
+        display: block;
+      }
+
+      /* RIGHT PANEL: SLIDE 3 COMPOSITE */
+      .image-panel.composite-panel {
+        background: transparent;
+        border: none;
+        padding: 0;
+        box-shadow: none;
+        overflow: visible;
+      }
+
+      .composite-container {
+        width: 100%;
+        height: 100%;
+        min-height: 400px;
+        position: relative;
+      }
+
+      .quote-doc {
+        position: absolute;
+        top: -2%;
+        left: 0;
+        width: 85%;
+        height: 95%;
+        object-fit: cover;
+        object-position: top center;
+        border: 2px solid #1A202C;
+        box-shadow: 10px 10px 0px #1A202C;
+        background: #FFFFFF;
+        z-index: 1;
+        display: block;
+      }
+
+      .guardrails-doc {
+        position: absolute;
+        bottom: -5%;
+        right: -2%;
+        width: 85%;
+        height: auto;
+        object-fit: contain;
+        border: 2px solid #1A202C;
+        box-shadow: 10px 10px 0px #FF4B01;
+        background: #FFFFFF;
+        z-index: 2;
+        display: block;
+      }
+
+      /* BOTTOM SIGN-UP CTA CONTAINER */
+      .cta-card {
+        width: 100%;
+        max-width: 1320px;
+        background: #FFFFFF;
+        border: 3px solid #1A202C;
+        box-shadow: 14px 14px 0px #FF4B01;
+        padding: 44px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        position: relative;
+        margin-bottom: 40px;
+      }
+
+      .cta-card h2 {
+        font-family: 'Oswald', Impact, sans-serif;
+        font-size: 38px;
+        font-weight: 900;
+        text-transform: uppercase;
+        color: #1A202C;
+        margin: 0 0 12px 0;
+        letter-spacing: 1px;
+      }
+
+      .cta-card p {
+        font-size: 18px;
+        font-weight: 700;
+        color: #2D3748;
+        margin: 0 0 28px 0;
+        max-width: 720px;
+      }
+
+      .cta-form {
+        display: flex;
+        width: 100%;
+        max-width: 680px;
+        gap: 12px;
+      }
+
+      .cta-input {
+        flex: 1;
+        background: #FFFFFF;
+        border: 2px solid #1A202C;
+        padding: 16px 20px;
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 18px;
+        font-weight: 700;
+        color: #1A202C;
+        box-shadow: 6px 6px 0px #1A202C;
+        outline: none;
+      }
+
+      .cta-input::placeholder {
+        color: #A0AEC0;
+      }
+
+      .cta-submit {
+        background: #FF4B01;
+        color: #FFFFFF;
+        font-family: 'Oswald', Impact, sans-serif;
+        font-size: 22px;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        border: 2px solid #1A202C;
+        box-shadow: 6px 6px 0px #1A202C;
+        padding: 16px 32px;
+        cursor: pointer;
+        white-space: nowrap;
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+      }
+
+      .cta-submit:hover {
+        transform: translate(-2px, -2px);
+        box-shadow: 8px 8px 0px #1A202C;
+        background-color: #FF5A16;
+      }
+
+      .cta-submit:active {
+        transform: translate(2px, 2px);
+        box-shadow: 3px 3px 0px #1A202C;
+      }
+
+      /* FOOTER BACK LINK */
+      .footer {
+        flex-shrink: 0;
+        width: 100%;
+        padding: 20px 0 60px 0;
+        display: flex;
+        justify-content: center;
+      }
+
+      .back-link {
+        color: #1A202C;
+        text-decoration: none;
+        font-family: 'Oswald', Impact, sans-serif;
+        font-size: 0.9rem;
+        font-weight: 900;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 14px 32px;
+        border: 3px solid #1A202C;
+        border-radius: 0px;
+        background: #FFFFFF;
+        box-shadow: 4px 4px 0px #1A202C;
+        transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease, color 0.15s ease;
+      }
+
+      .back-link:hover {
+        color: #FFFFFF;
+        background-color: #FF4B01;
+        box-shadow: 6px 6px 0px #1A202C;
+        transform: translate(-2px, -2px);
+      }
+
+      .back-link:active {
+        transform: translate(2px, 2px);
+        box-shadow: 2px 2px 0px #1A202C;
+      }
+
+      /* ==========================================================================
+         MOBILE RESPONSIVE ADAPTATION ENGINE (<= 860PX)
+         ========================================================================== */
+      @media (max-width: 860px) {
+        .deck-container {
+          padding: 16px 10px;
+        }
+
+        .poster-card {
+          aspect-ratio: auto;
+          min-height: 0;
+          height: auto;
+          padding: 28px 20px 32px 20px;
+          margin-bottom: 40px;
+          border-width: 2px;
+          overflow: visible;
+        }
+
+        .poster-card.shade-orange { box-shadow: 8px 8px 0px #FF4B01; }
+        .poster-card.shade-black { box-shadow: 8px 8px 0px #1A202C; }
+
+        .poster-card::before {
+          top: 5px;
+          left: 5px;
+          right: 5px;
+          bottom: 5px;
+        }
+
+        .header {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 14px;
+          margin-bottom: 24px;
+          padding-bottom: 14px;
+        }
+
+        .brand-group {
+          gap: 12px;
+          flex-wrap: wrap; /* Keeps elements from breaking outside */
+        }
+
+        .brand-logo {
+          height: 56px;
+          box-shadow: 4px 4px 0px #FF4B01;
+          padding: 4px;
+        }
+
+        .brand-title {
+          font-size: clamp(24px, 7vw, 36px);
+          word-wrap: break-word;
+          overflow-wrap: break-word;
+          line-height: 1.1;
+          max-width: 100%;
+        }
+
+        .brand-badge {
+          font-size: 16px;
+          padding: 6px 14px;
+          align-self: flex-start;
+          box-shadow: 4px 4px 0px #FF4B01;
+        }
+
+        .content-split {
+          grid-template-columns: 1fr;
+          gap: 28px;
+        }
+
+        .text-panel {
+          padding-left: 0;
+        }
+
+        .text-panel h2 {
+          font-size: 32px;
+          margin-bottom: 16px;
+        }
+
+        .text-panel p {
+          font-size: 16px;
+          margin-bottom: 24px;
+          border-left-width: 3px;
+          padding-left: 12px;
+        }
+
+        .btn-orange {
+          width: 100%;
+          font-size: 20px;
+          padding: 14px 20px;
+          justify-content: center;
+          box-shadow: 6px 6px 0px #1A202C;
+        }
+
+        .image-panel {
+          min-height: auto;
+          max-height: none; 
+          padding: 12px;
+        }
+
+        .image-panel.shade-orange { box-shadow: 6px 6px 0px #FF4B01; }
+        .image-panel.shade-black { box-shadow: 6px 6px 0px #1A202C; }
+
+        .image-panel img.main-event {
+          max-height: none; 
+          width: 100%;
+          height: auto;
+        }
+
+        .composite-container {
+          min-height: auto;
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+        }
+
+        .quote-doc {
+          position: relative;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: auto;
+          max-height: none;
+          box-shadow: 6px 6px 0px #1A202C;
+        }
+
+        .guardrails-doc {
+          position: relative;
+          bottom: auto;
+          right: auto;
+          width: 100%;
+          box-shadow: 6px 6px 0px #FF4B01;
+          margin-top: -20px; 
+        }
+
+        .cta-card {
+          padding: 28px 16px;
+          box-shadow: 8px 8px 0px #FF4B01;
+        }
+
+        .cta-card h2 {
+          font-size: 28px;
+        }
+
+        .cta-form {
+          flex-direction: column;
+          gap: 16px;
+        }
+
+        .cta-submit {
+          width: 100%;
+        }
+      }
+
+      /* PRINT STYLES FOR LANDSCAPE HARDCOPY */
+      @media print {
+        body, html { 
+          background: #FFFFFF !important; 
+          background-image: none !important; 
+          padding: 0 !important;
+          margin: 0 !important;
+        }
+        .deck-container { padding: 0 !important; }
+        .poster-card {
+          background: #FFFFFF !important;
+          width: calc(11in - 40px) !important; 
+          height: calc(8.5in - 40px) !important;
+          max-width: none !important; 
+          min-height: 0 !important;
+          margin: 20px !important; 
+          padding: 44px !important;
+          page-break-after: always !important;
+          break-after: page !important;
+        }
+        .cta-card, .footer { display: none !important; }
+      }
+    </style>
 </head>
 <body>
 
@@ -683,7 +683,7 @@
   <!-- BOTTOM SIGN-UP CTA (TARGETED BY #BOTTOM) -->
   <div class="cta-card" id="bottom">
     <h2>GET STARTED WITH SCAPEGOAT</h2>
-    <p>Enter your work email address below to request a access demo and lock in your rate architecture.</p>
+    <p>No 30-minute slide decks. No pushy salespeople. Just your custom SCAPEGOAT.formfill sent straight to your inbox from rates@hawkishllc.com</p>
     
     <form class="cta-form" action="mailto:Josh@hawkishllc.com,Sean@hawkishllc.com?subject=Scapegoat%20Sign%20Up" method="post" enctype="text/plain">
       <input type="email" name="Email" class="cta-input" placeholder="Enter your email address..." required>
