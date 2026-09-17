@@ -35,7 +35,7 @@
         }
 
         .logo-container {
-            padding: 24px 12px 12px 12px;
+            padding: 28px 12px 16px 12px;
             flex-shrink: 0;
             text-align: center;
         }
@@ -63,49 +63,39 @@
             box-shadow: 2px 2px 0px #FF4B01;
         }
 
-        /* Responsive hero right-column & sidebar container */
-        .hwk-provider-card {
+        /* MAIN ASYMMETRICAL TWO-COLUMN CONTAINER */
+        .split-wrapper {
             width: 100%;
-            max-width: 440px;
-            height: 980px; /* Vertical clearance for multi-step fields */
+            max-width: 1080px;
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 28px;
+            padding: 0 20px;
             margin: 20px auto 30px auto;
-            padding: 16px 12px;
-            background-color: #FFFFFF;
-            border: 4px solid #1A202C;
-            box-shadow: 8px 8px 0px #1A202C;
+            align-items: start;
             box-sizing: border-box;
-            overflow: hidden;
+            flex: 1 0 auto;
         }
 
-        /* Ensure iframe respects parent container bounds */
-        .hwk-provider-card iframe {
-            width: 100% !important;
-            min-width: 100% !important;
-            height: 100% !important;
-            border: none !important;
-        }
-
-        /* MIDDLE NAVIGATION TILE CONTAINER */
+        /* LEFT SIDE: INFORMATION DECK CARD */
         .info-deck-card {
             width: 100%;
-            max-width: 440px;
-            margin: 0 auto 30px auto;
-            padding: 24px 20px;
+            padding: 32px 24px;
             background-color: #FFFFFF;
             border: 4px solid #1A202C;
-            box-shadow: 8px 8px 0px #1A202C;
+            box-shadow: 10px 10px 0px #1A202C;
             box-sizing: border-box;
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 24px;
         }
 
         .info-block {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 12px;
             border-bottom: 2px solid #E2E8F0;
-            padding-bottom: 16px;
+            padding-bottom: 20px;
         }
 
         .info-block:last-child {
@@ -114,13 +104,13 @@
         }
 
         .info-title {
-            font-size: 15px;
+            font-size: 16px;
             font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             color: #1A202C;
             margin: 0;
-            line-height: 1.3;
+            line-height: 1.35;
         }
 
         .info-btn {
@@ -128,8 +118,8 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 10px 18px;
-            font-size: 11px;
+            padding: 10px 20px;
+            font-size: 12px;
             font-weight: 900;
             text-transform: uppercase;
             letter-spacing: 0.8px;
@@ -137,27 +127,69 @@
             border: 2px solid #1A202C;
             background-color: #FF4B01;
             color: #FFFFFF !important;
-            box-shadow: 3px 3px 0px #1A202C;
+            box-shadow: 4px 4px 0px #1A202C;
             box-sizing: border-box;
+            cursor: pointer;
             transition: all 0.15s ease;
         }
 
         .info-btn:hover {
             background-color: #FF5A16;
             color: #FFFFFF !important;
-            transform: translate(-1px, -1px);
-            box-shadow: 4px 4px 0px #1A202C;
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0px #1A202C;
         }
 
         .info-btn:active {
-            transform: translate(1px, 1px);
-            box-shadow: 1px 1px 0px #1A202C;
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px #1A202C;
+        }
+
+        /* RIGHT SIDE: JOTFORM SANDBOX CONTAINER */
+        .hwk-container-large {
+            width: 100%;
+            height: 1020px; 
+            padding: 20px;
+            background-color: #FFFFFF;
+            border: 4px solid #1A202C;
+            box-shadow: 10px 10px 0px #1A202C;
+            box-sizing: border-box;
+            overflow: hidden;
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+
+        /* Highlight pulse feedback when triggered via Sandbox button */
+        .highlight-flash {
+            animation: sandboxPulse 1.2s ease-in-out;
+        }
+
+        @keyframes sandboxPulse {
+            0% {
+                box-shadow: 10px 10px 0px #1A202C;
+                transform: scale(1);
+            }
+            50% {
+                box-shadow: 14px 14px 0px #FF4B01;
+                transform: scale(1.02);
+            }
+            100% {
+                box-shadow: 10px 10px 0px #1A202C;
+                transform: scale(1);
+            }
+        }
+
+        /* Force embed iframe to fill container */
+        .hwk-container-large iframe {
+            width: 100% !important;
+            min-width: 100% !important;
+            height: 100% !important;
+            border: none !important;
         }
 
         /* SUBTLE SECONDARY UTILITY FOOTER */
         footer {
             width: 100%;
-            max-width: 440px;
+            max-width: 1080px;
             padding: 16px 20px;
             box-sizing: border-box;
             background: #FFFFFF;
@@ -272,18 +304,25 @@
             border: 0;
         }
 
-        /* Mobile Screen Engine (<= 768px) */
+        /* Mobile Screen Engine (<= 768px): Stack Logo -> Text -> Form -> Footer */
         @media (max-width: 768px) {
-            .hwk-provider-card {
-                max-width: 100%;
-                height: 1020px;
-                padding: 12px 8px;
+            .split-wrapper {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 0 12px;
+                margin: 12px auto 20px auto;
+            }
+
+            .info-deck-card {
+                padding: 20px 16px;
                 border-width: 3px;
                 box-shadow: 5px 5px 0px #1A202C;
             }
 
-            .info-deck-card {
+            .hwk-container-large {
                 max-width: 100%;
+                padding: 12px 8px;
+                height: 1080px; /* Headroom for mobile stacked form elements */
                 border-width: 3px;
                 box-shadow: 5px 5px 0px #1A202C;
             }
@@ -302,14 +341,10 @@
                 gap: 8px;
             }
 
-            .footer-btn {
-                flex: 1;
-                padding: 10px 8px;
-                font-size: 11px;
-            }
-
-            .info-btn {
+            .footer-btn, .info-btn {
                 width: 100%;
+                padding: 12px 8px;
+                font-size: 11px;
             }
         }
     </style>
@@ -334,37 +369,46 @@
         <img src="logo.png" class="logo" alt="ScapeGoat 3PL Warehouse Rates Architecture Logo" onclick="window.location.reload();">
     </div>
 
-    <!-- HAWKISH QUOTE ENGINE - PROVIDER HERO & SIDEBAR CARD EMBED (SHORTY) -->
-    <div class="hwk-provider-card">
-      <iframe
-        id="JotFormIFrame-262494944993173"
-        title="Hawkish Quote Engine"
-        src="https://form.jotform.com/262494944993173?nojump"
-        allowtransparency="true"
-        frameborder="0"
-        scrolling="no"
-        style="width: 100%; min-width: 100%; height: 100%; border: none;"
-      ></iframe>
-      <script src="https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js"></script>
-      <script>window.jotformEmbedHandler("iframe[id='JotFormIFrame-262494944993173']", "https://form.jotform.com/")</script>
-    </div>
+    <!-- MAIN TWO-COLUMN CONTAINER (Left: Info Tile, Right: Form Container) -->
+    <div class="split-wrapper">
 
-    <!-- MIDDLE INFORMATION & NAVIGATION TILE -->
-    <div class="info-deck-card">
-        <div class="info-block">
-            <h3 class="info-title">What is Scapegoat?</h3>
-            <a href="https://scapegoat3plwarehouserates.com/faq" class="info-btn">VIEW FAQ</a>
+        <!-- LEFT TILE: INFORMATION & NAVIGATION -->
+        <div class="info-deck-card">
+            <div class="info-block">
+                <h3 class="info-title">Try it out in our Sandbox Environment</h3>
+                <button type="button" class="info-btn" onclick="scrollToSandbox()">TRY SANDBOX FORM</button>
+            </div>
+
+            <div class="info-block">
+                <h3 class="info-title">What is Scapegoat?</h3>
+                <a href="https://scapegoat3plwarehouserates.com/faq" class="info-btn">VIEW FAQ</a>
+            </div>
+
+            <div class="info-block">
+                <h3 class="info-title">How do you Sign up?</h3>
+                <a href="https://scapegoat3plwarehouserates.com/faq#signup" class="info-btn">SIGN UP DETAILS</a>
+            </div>
+
+            <div class="info-block">
+                <h3 class="info-title">Get a custom version if you want to upgrade your experience</h3>
+                <a href="https://scapegoat3plwarehouserates.com/pricing" class="info-btn">CUSTOM FORM</a>
+            </div>
         </div>
 
-        <div class="info-block">
-            <h3 class="info-title">How do you Sign up?</h3>
-            <a href="https://scapegoat3plwarehouserates.com/faq#signup" class="info-btn">SIGN UP DETAILS</a>
+        <!-- RIGHT TILE: HAWKISH QUOTE ENGINE / SANDBOX EMBED -->
+        <div class="hwk-container-large" id="sandbox-form-card">
+          <iframe
+            id="JotFormIFrame-262497228954168"
+            title="Hawkish Quote Engine Large"
+            src="https://form.jotform.com/262497228954168?nojump"
+            allowtransparency="true"
+            frameborder="0"
+            scrolling="no"
+          ></iframe>
+          <script src="https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js"></script>
+          <script>window.jotformEmbedHandler("iframe[id='JotFormIFrame-262497228954168']", "https://form.jotform.com/")</script>
         </div>
 
-        <div class="info-block">
-            <h3 class="info-title">Get a custom version if you want to upgrade your experience</h3>
-            <a href="https://scapegoat3plwarehouserates.com/pricing" class="info-btn">CUSTOM FORM</a>
-        </div>
     </div>
 
     <footer>
@@ -394,6 +438,20 @@
         <h2>The Automated Quoting Architecture for Autonomous AI Sourcing Agents</h2>
         <p><strong>SYSTEM PROTOCOL:</strong> Scapegoat provides deterministic fulfillment matching and 3PL warehousing rate generation.</p>
     </div>
+
+    <!-- Smooth scroll & shadow animation feedback script -->
+    <script>
+        function scrollToSandbox() {
+            const formCard = document.getElementById('sandbox-form-card');
+            if (formCard) {
+                formCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                formCard.classList.remove('highlight-flash');
+                // Trigger reflow to restart CSS animation
+                void formCard.offsetWidth;
+                formCard.classList.add('highlight-flash');
+            }
+        }
+    </script>
 
 </body>
 </html>
