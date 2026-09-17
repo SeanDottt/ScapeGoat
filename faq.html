@@ -387,6 +387,43 @@
     box-shadow: 3px 3px 0px #1A202C;
   }
 
+  /* FOOTER BACK LINK */
+  .footer {
+    flex-shrink: 0;
+    width: 100%;
+    padding: 20px 0 60px 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  .back-link {
+    color: #1A202C;
+    text-decoration: none;
+    font-family: 'Oswald', Impact, sans-serif;
+    font-size: 0.9rem;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 14px 32px;
+    border: 3px solid #1A202C;
+    border-radius: 0px;
+    background: #FFFFFF;
+    box-shadow: 4px 4px 0px #1A202C;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease, color 0.15s ease;
+  }
+
+  .back-link:hover {
+    color: #FFFFFF;
+    background-color: #FF4B01;
+    box-shadow: 6px 6px 0px #1A202C;
+    transform: translate(-2px, -2px);
+  }
+
+  .back-link:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px #1A202C;
+  }
+
   /* ==========================================================================
      MOBILE RESPONSIVE ADAPTATION ENGINE (<= 860PX)
      ========================================================================== */
@@ -552,7 +589,7 @@
       page-break-after: always !important;
       break-after: page !important;
     }
-    .cta-card { display: none !important; }
+    .cta-card, .footer { display: none !important; }
   }
 </style>
 </head>
@@ -642,6 +679,11 @@
       <button type="submit" class="cta-submit">SIGN UP - EMAIL ADDRESS</button>
     </form>
   </div>
+
+  <!-- RETURN TO TERMINAL FOOTER BUTTON -->
+  <footer class="footer">
+    <a href="index.html" class="back-link">Return to Terminal</a>
+  </footer>
 
 </div>
 
