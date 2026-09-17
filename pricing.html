@@ -12,15 +12,15 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <title>SCAPEGOAT.os | 3PL Warehouse Rates & Optimization</title>
-    <meta name="description" content="Get SCAPEGOAT.os. A flat-fee 3PL Optimization Blueprint featuring precision lead filtering, dynamic quoting, and opportunity evaluation for regional warehouses.">
+    <title>SCAPEGOAT.os | Custom Formfill</title>
+    <meta name="description" content="Get SCAPEGOAT.os. Custom Formfill integration featuring precision lead filtering and opportunity evaluation for regional warehouses.">
     
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "WebApplication",
       "name": "SCAPEGOAT.os",
-      "alternateName": "3PL Optimization Blueprint",
+      "alternateName": "Custom Formfill",
       "description": "A standalone diagnostic framework and flat-fee performance application designed to dynamically quote 3PL opportunities, guard topline revenue, and grade lead quality.",
       "url": "https://scapegoat3plwarehouserates.com/pricing.html",
       "applicationCategory": "BusinessApplication",
@@ -93,7 +93,7 @@
             box-sizing: border-box;
         }
 
-        /* Banner Component */
+        /* Top Banner Component */
         .sleek-banner {
             position: relative;
             width: 100%;
@@ -151,106 +151,7 @@
             margin: 0;
         }
 
-        /* Grid Section */
-        .grid-section {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 28px;
-        }
-
-        .card {
-            background-color: var(--color-card);
-            border: 3.5px solid var(--color-dark);
-            border-radius: 0px;
-            box-shadow: 6px 6px 0px var(--color-dark);
-            padding: 30px;
-            box-sizing: border-box;
-        }
-
-        .card h2 {
-            margin-top: 0;
-            font-family: var(--font-display);
-            font-size: 1.8rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 0.03em;
-            margin-bottom: 18px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            line-height: 1.1;
-        }
-
-        .card ul {
-            padding-left: 20px;
-            margin: 0;
-        }
-
-        .card li {
-            margin-bottom: 12px;
-            line-height: 1.5;
-            color: var(--color-dark);
-            font-family: var(--font-body);
-            font-weight: 700;
-            font-size: 0.95rem;
-        }
-
-        /* Cures Section */
-        .cures-section {
-            background-color: var(--color-card);
-            border: 3.5px solid var(--color-dark);
-            border-radius: 0px;
-            box-shadow: 6px 6px 0px var(--color-dark);
-            padding: 36px;
-            box-sizing: border-box;
-        }
-
-        .cures-section h2 {
-            margin-top: 0;
-            font-family: var(--font-display);
-            font-size: 2rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 0.03em;
-            color: var(--color-dark);
-            margin-bottom: 24px;
-            line-height: 1.1;
-        }
-
-        .cures-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 24px;
-        }
-
-        .cure-item {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-            border-left: 5px solid var(--color-accent);
-            padding-left: 14px;
-        }
-
-        .cure-item strong {
-            color: var(--color-dark);
-            font-family: var(--font-display);
-            font-size: 1.35rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 0.03em;
-            line-height: 1.1;
-        }
-
-        .cure-item p {
-            margin: 0;
-            color: #2D3748;
-            font-family: var(--font-body);
-            font-size: 0.95rem;
-            line-height: 1.5;
-            font-weight: 700;
-        }
-
-        /* Embedded Form Container */
+        /* Embedded Form Container (Bottom Tile) */
         .form-container {
             background-color: var(--color-card);
             border: 3.5px solid var(--color-dark);
@@ -280,11 +181,11 @@
             color: var(--color-dark);
             font-family: var(--font-display);
             font-weight: 800;
-            font-size: 1rem;
+            font-size: 1.1rem;
             text-transform: uppercase;
             letter-spacing: 0.08em;
             background: var(--color-bg);
-            padding: 6px 14px;
+            padding: 6px 16px;
             border: 2px solid var(--color-dark);
             display: inline-block;
         }
@@ -334,9 +235,6 @@
 
         /* Responsive Breakpoints */
         @media (max-width: 768px) {
-            .grid-section, .cures-grid {
-                grid-template-columns: 1fr;
-            }
             h1 { font-size: 2.2rem; }
             .price-tag { font-size: 3.6rem; }
             .watermark-logo { display: none; }
@@ -359,6 +257,7 @@
 
     <div class="page-container">
 
+        <!-- TOP TILE -->
         <header class="sleek-banner">
             <h1>Evaluate Every 3PL Opportunity. <span class="highlight-text">Stop Winning Bad Deals.</span></h1>
             <p class="subtitle">Most warehouses take on complex profiles that looked great on paper. SCAPEGOAT.<span class="sub-accent">os</span> introduces a repeatable qualification framework that evaluates opportunities on real complexity, movement, and operational fit.</p>
@@ -366,52 +265,10 @@
             <img class="watermark-logo" src="https://raw.githubusercontent.com/SeanDottt/ScapeGoat/3fabb1c94b8fdb03ebd4ef2813f86fd674affa0f/logo.png" alt="ScapeGoat App Shield">
         </header>
 
-        <section class="grid-section">
-            <div class="card">
-                <h2 style="color: #E53E3E;">The Standard Trajectory</h2>
-                <ul>
-                    <li><strong>Blanket Rates:</strong> Generalized pricing models that ignore account complexity.</li>
-                    <li><strong>Operational Delays:</strong> Sales waiting on busy operations teams just to quote business.</li>
-                    <li><strong>Zero Paper Trails:</strong> No audit trail to evaluate how an account was priced.</li>
-                    <li><strong>Blind Selection:</strong> No system to compare incoming opportunities.</li>
-                </ul>
-            </div>
-            <div class="card" style="border-color: #1A202C; box-shadow: 6px 6px 0px #FF4B01;">
-                <h2 style="color: #FF4B01;">SCAPEGOAT.<span class="sub-accent">os</span></h2>
-                <ul>
-                    <li><strong>Dynamic Quoting:</strong> Precision custom-pricing based on operational realities.</li>
-                    <li><strong>Revenue Guardrails:</strong> Minimum revenue discipline enforced against space and labor.</li>
-                    <li><strong>Lead Quality Grading:</strong> Instant evaluation of complexity, revenue, and fit.</li>
-                    <li><strong>Owner Independence:</strong> Moves quoting away from the owner’s tribal knowledge.</li>
-                </ul>
-            </div>
-        </section>
-
-        <section class="cures-section">
-            <h2>Commercial Imperatives Cured by SCAPEGOAT.<span class="sub-accent">os</span></h2>
-            <div class="cures-grid">
-                <div class="cure-item">
-                    <strong>Bad Leads &amp; Underpriced Accounts</strong>
-                    <p>Filters out vague, incomplete opportunities. Stops you from winning deals that look good on paper but underperform in execution.</p>
-                </div>
-                <div class="cure-item">
-                    <strong>Poor Operational Fit &amp; Friction</strong>
-                    <p>Identifies whether an account actually belongs in the building before it creates labor bottlenecks or broken sales promises.</p>
-                </div>
-                <div class="cure-item">
-                    <strong>Slow &amp; Inconsistent Quoting</strong>
-                    <p>Standardizes and accelerates your entire pricing flow without sacrificing strict commercial discipline or pricing control.</p>
-                </div>
-                <div class="cure-item">
-                    <strong>Revenue Discipline &amp; Blind Splitting</strong>
-                    <p>Enforces minimum revenue floors to justify space, while turning unhandleable deals into monetizable referrals instead of dead leads.</p>
-                </div>
-            </div>
-        </section>
-
+        <!-- BOTTOM TILE -->
         <section class="form-container">
             <div class="form-header">
-                <span class="price-sub">The 3PL Optimization Blueprint</span>
+                <span class="price-sub">Custom Formfill</span>
                 <div class="price-tag">$2,000</div>
                 <p class="subtitle" style="margin: 0 auto;">One-time flat fee. Zero billing surprises. Input your parameters below to establish your custom qualification terminal.</p>
             </div>
