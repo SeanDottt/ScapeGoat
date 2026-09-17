@@ -61,7 +61,10 @@
         .logo-desktop {
             width: 90vw;
             max-width: 900px;
-            height: auto;
+            /* Forces a tight, horizontal rectangle and crops the baked-in top/bottom white space */
+            aspect-ratio: 3.5 / 1;
+            object-fit: cover;
+            object-position: center;
             border: 4px solid #1A202C;
             box-shadow: 10px 10px 0px #FF4B01;
             padding: 0;
@@ -378,7 +381,7 @@
 <body>
 
     <div class="logo-container">
-        <!-- Desktop Wide Image -->
+        <!-- Desktop Wide Image (Cropped tight to a rectangle) -->
         <img src="Gemini_Generated_Image_5d4qz5d4qz5d4qz5.jpeg" class="logo logo-desktop" alt="ScapeGoat Wide Logo" onclick="window.location.reload();">
         
         <!-- Mobile Original Image -->
