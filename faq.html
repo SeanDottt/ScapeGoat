@@ -180,9 +180,12 @@
     padding-left: 16px;
   }
 
-  /* TACTILE CTA BUTTON (Crisp 2px Frame) */
+  /* TACTILE VIDEO POPUP BUTTON */
   .btn-orange {
     align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
     background: #FF4B01;
     color: #FFFFFF;
     font-family: 'Oswald', Impact, sans-serif;
@@ -193,9 +196,35 @@
     letter-spacing: 1.5px;
     border: 2px solid #1A202C;
     box-shadow: 8px 8px 0px #1A202C;
-    padding: 16px 30px;
+    padding: 16px 28px;
     cursor: pointer;
-    transition: transform 0.1s ease;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+    user-select: none;
+  }
+
+  .btn-orange:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 10px 10px 0px #1A202C;
+    background-color: #FF5A16;
+  }
+
+  .btn-orange:active {
+    transform: translate(2px, 2px);
+    box-shadow: 4px 4px 0px #1A202C;
+  }
+
+  .play-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: #1A202C;
+    color: #FFFFFF;
+    border-radius: 50%;
+    font-size: 12px;
+    line-height: 1;
+    padding-left: 3px; /* Centers play triangle visually */
   }
 
   /* RIGHT PANEL: SCREENSHOT TERMINAL WINDOW (Boards 1 & 2 - Strict Containment) */
@@ -355,6 +384,7 @@
       width: 100%;
       font-size: 20px;
       padding: 14px 20px;
+      justify-content: center;
       box-shadow: 6px 6px 0px #1A202C;
     }
 
@@ -440,7 +470,7 @@
       <div class="text-panel">
         <h2>Stop Waste-of-Time Leads <span class="highlight">Before They Touch Your Floor.</span></h2>
         <p>Most intake forms are a waste of paper. FormFill was built 10 years of real warehouse headaches to pull out the truth about a prospect's inventory, order volume, and prep needs before you waste an hour on the phone with them.</p>
-        <div class="btn-orange">STOP MISMATCHED LEADS EARLY</div>
+        <div class="btn-orange">SEE HOW IT WORKS <span class="play-icon">▶</span></div>
       </div>
 
       <div class="image-panel shade-black">
@@ -463,7 +493,7 @@
       <div class="text-panel">
         <h2>Pallet Space is Money. <span class="highlight">Stop Letting Mismatch Opportunities Waste It.</span></h2>
         <p>You only have so many pallet positions in your building. The Brief takes what a prospect says they will ship and turns it into exact Revenue Per Pallet, showing you instantly if their business actually makes you money.</p>
-        <div class="btn-orange">CHECK YOUR PALLET VALUE</div>
+        <div class="btn-orange">SEE HOW IT WORKS <span class="play-icon">▶</span></div>
       </div>
 
       <div class="image-panel shade-orange">
@@ -486,7 +516,7 @@
       <div class="text-panel">
         <h2>Quote to Hit Your Target, <span class="highlight">Not to Win a Haggling Match.</span></h2>
         <p>Standard rate cards eat your profit the second a client turns out to be high-maintenance. The Quote automatically calculates prices based on your facility's exact financial goals, so every deal you close actually turns a profit.</p>
-        <div class="btn-orange">PROTECT YOUR PROFITS</div>
+        <div class="btn-orange">SEE HOW IT WORKS <span class="play-icon">▶</span></div>
       </div>
 
       <div class="image-panel composite-panel">
