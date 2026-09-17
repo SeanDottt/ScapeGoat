@@ -63,33 +63,101 @@
             box-shadow: 2px 2px 0px #FF4B01;
         }
 
-        /* Desktop Centered Command Frame */
-        .hwk-container-large {
+        /* Responsive hero right-column & sidebar container */
+        .hwk-provider-card {
             width: 100%;
-            max-width: 600px;
-            height: 1020px; 
-            margin: 30px auto;
-            padding: 24px 20px;
+            max-width: 440px;
+            height: 980px; /* Vertical clearance for multi-step fields */
+            margin: 20px auto 30px auto;
+            padding: 16px 12px;
             background-color: #FFFFFF;
             border: 4px solid #1A202C;
-            box-shadow: 10px 10px 0px #1A202C;
+            box-shadow: 8px 8px 0px #1A202C;
             box-sizing: border-box;
             overflow: hidden;
-            flex: 1 0 auto;
         }
 
-        /* Force embed iframe to fill container */
-        .hwk-container-large iframe {
+        /* Ensure iframe respects parent container bounds */
+        .hwk-provider-card iframe {
             width: 100% !important;
             min-width: 100% !important;
             height: 100% !important;
             border: none !important;
         }
 
+        /* MIDDLE NAVIGATION TILE CONTAINER */
+        .info-deck-card {
+            width: 100%;
+            max-width: 440px;
+            margin: 0 auto 30px auto;
+            padding: 24px 20px;
+            background-color: #FFFFFF;
+            border: 4px solid #1A202C;
+            box-shadow: 8px 8px 0px #1A202C;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .info-block {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            border-bottom: 2px solid #E2E8F0;
+            padding-bottom: 16px;
+        }
+
+        .info-block:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .info-title {
+            font-size: 15px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #1A202C;
+            margin: 0;
+            line-height: 1.3;
+        }
+
+        .info-btn {
+            align-self: flex-start;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 18px;
+            font-size: 11px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            text-decoration: none;
+            border: 2px solid #1A202C;
+            background-color: #FF4B01;
+            color: #FFFFFF !important;
+            box-shadow: 3px 3px 0px #1A202C;
+            box-sizing: border-box;
+            transition: all 0.15s ease;
+        }
+
+        .info-btn:hover {
+            background-color: #FF5A16;
+            color: #FFFFFF !important;
+            transform: translate(-1px, -1px);
+            box-shadow: 4px 4px 0px #1A202C;
+        }
+
+        .info-btn:active {
+            transform: translate(1px, 1px);
+            box-shadow: 1px 1px 0px #1A202C;
+        }
+
         /* SUBTLE SECONDARY UTILITY FOOTER */
         footer {
             width: 100%;
-            max-width: 600px;
+            max-width: 440px;
             padding: 16px 20px;
             box-sizing: border-box;
             background: #FFFFFF;
@@ -206,11 +274,16 @@
 
         /* Mobile Screen Engine (<= 768px) */
         @media (max-width: 768px) {
-            .hwk-container-large {
+            .hwk-provider-card {
                 max-width: 100%;
-                margin: 12px 0;
+                height: 1020px;
                 padding: 12px 8px;
-                height: 1080px; /* Headroom for mobile stacked elements */
+                border-width: 3px;
+                box-shadow: 5px 5px 0px #1A202C;
+            }
+
+            .info-deck-card {
+                max-width: 100%;
                 border-width: 3px;
                 box-shadow: 5px 5px 0px #1A202C;
             }
@@ -233,6 +306,10 @@
                 flex: 1;
                 padding: 10px 8px;
                 font-size: 11px;
+            }
+
+            .info-btn {
+                width: 100%;
             }
         }
     </style>
@@ -257,19 +334,37 @@
         <img src="logo.png" class="logo" alt="ScapeGoat 3PL Warehouse Rates Architecture Logo" onclick="window.location.reload();">
     </div>
 
-    <!-- HAWKISH QUOTE ENGINE - LARGE HERO / STANDALONE EMBED -->
-    <div class="hwk-container-large">
+    <!-- HAWKISH QUOTE ENGINE - PROVIDER HERO & SIDEBAR CARD EMBED (SHORTY) -->
+    <div class="hwk-provider-card">
       <iframe
-        id="JotFormIFrame-262497228954168"
-        title="Hawkish Quote Engine Large"
-        src="https://form.jotform.com/262497228954168?nojump"
+        id="JotFormIFrame-262494944993173"
+        title="Hawkish Quote Engine"
+        src="https://form.jotform.com/262494944993173?nojump"
         allowtransparency="true"
         frameborder="0"
         scrolling="no"
         style="width: 100%; min-width: 100%; height: 100%; border: none;"
       ></iframe>
       <script src="https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js"></script>
-      <script>window.jotformEmbedHandler("iframe[id='JotFormIFrame-262497228954168']", "https://form.jotform.com/")</script>
+      <script>window.jotformEmbedHandler("iframe[id='JotFormIFrame-262494944993173']", "https://form.jotform.com/")</script>
+    </div>
+
+    <!-- MIDDLE INFORMATION & NAVIGATION TILE -->
+    <div class="info-deck-card">
+        <div class="info-block">
+            <h3 class="info-title">What is Scapegoat?</h3>
+            <a href="https://scapegoat3plwarehouserates.com/faq" class="info-btn">VIEW FAQ</a>
+        </div>
+
+        <div class="info-block">
+            <h3 class="info-title">How do you Sign up?</h3>
+            <a href="https://scapegoat3plwarehouserates.com/faq#signup" class="info-btn">SIGN UP DETAILS</a>
+        </div>
+
+        <div class="info-block">
+            <h3 class="info-title">Get a custom version if you want to upgrade your experience</h3>
+            <a href="https://scapegoat3plwarehouserates.com/pricing" class="info-btn">CUSTOM FORM</a>
+        </div>
     </div>
 
     <footer>
