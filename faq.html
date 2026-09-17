@@ -1,649 +1,291 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Scapegoat / Hawkish - Industrial Terminal Deck</title>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;700;800;900&family=Space+Grotesk:wght@500;700;800;900&display=swap');
+    <!-- Google Analytics Integration -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1SYJXQBKTS"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-1SYJXQBKTS');
+    </script>
 
-  /* Landscape Printing Setup */
-  @page {
-    size: 11in 8.5in landscape;
-    margin: 0;
-  }
-
-  * {
-    box-sizing: border-box;
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
-  }
-
-  body, html {
-    margin: 0;
-    padding: 0;
-    /* Drafting Paper Outer Canvas */
-    background-color: #EBE5D9;
-    /* Industrial Diagonal Hatch Texture (8% Opacity Slate) */
-    background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M-2 18L18 -2M-2 10L10 -2M-2 2L2 -2M6 18L18 6M14 18L18 14' stroke='%231A202C' stroke-width='1.5' stroke-opacity='0.08'/%3E%3C/svg%3E");
-    background-repeat: repeat;
-    font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
-    color: #1A202C;
-    line-height: 1.4;
-  }
-
-  .deck-container {
-    width: 100%;
-    padding: 40px 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  /* 
-   * NEO-BRUTALIST POSTER CARD 
-   * Pure White container canvas (#FFFFFF), crisp 2px border, inner double-border ring, bottom-right offset shadow.
-   */
-  .poster-card {
-    width: 100%;
-    max-width: 1320px;
-    min-height: 780px;
-    aspect-ratio: 16 / 9;
-    margin-bottom: 60px;
-    background: #FFFFFF; /* Pure White Card Container */
-    border: 2px solid #1A202C;
-    padding: 44px;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    overflow: hidden; /* Prevents screenshot elements from going off page */
-    page-break-after: always;
-    break-after: page;
-  }
-
-  /* Thin Concentric Inner Frame Ring */
-  .poster-card::before {
-    content: "";
-    position: absolute;
-    top: 8px;
-    left: 8px;
-    right: 8px;
-    bottom: 8px;
-    border: 2px solid #1A202C;
-    pointer-events: none;
-    z-index: 10;
-  }
-
-  /* Bottom Right Only Shadows */
-  .poster-card.shade-orange { box-shadow: 14px 14px 0px #FF4B01; }
-  .poster-card.shade-black { box-shadow: 14px 14px 0px #1A202C; }
-
-  /* TOP HEADER BANNER */
-  .header {
-    border-bottom: 2px solid #1A202C;
-    padding-bottom: 16px;
-    margin-bottom: 32px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-    z-index: 11;
-  }
-
-  .brand-group {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
-
-  /* Tripled Logo Size with Thin 2px Frame & Safety Orange Shadow */
-  .brand-logo {
-    height: 80px;
-    width: auto;
-    object-fit: contain;
-    border: 2px solid #1A202C;
-    box-shadow: 6px 6px 0px #FF4B01;
-    background: #FFFFFF;
-    padding: 6px;
-  }
-
-  .brand-title {
-    font-family: 'Oswald', Impact, sans-serif;
-    font-size: 46px;
-    font-weight: 900;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: #1A202C;
-    line-height: 1;
-    margin: 0;
-  }
-
-  .brand-title .sub-product {
-    color: #FF4B01;
-  }
-
-  .brand-badge {
-    background: #1A202C;
-    color: #FFFFFF;
-    font-family: 'Oswald', Impact, sans-serif;
-    font-size: 20px;
-    font-weight: 800;
-    padding: 8px 18px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    border: 2px solid #1A202C;
-    box-shadow: 5px 5px 0px #FF4B01;
-  }
-
-  /* ASYMMETRICAL SPLIT LAYOUT */
-  .content-split {
-    display: grid;
-    grid-template-columns: 0.85fr 1.15fr;
-    gap: 36px;
-    flex: 1;
-    min-height: 0; /* Ensures children shrink properly without overflow */
-    align-items: stretch;
-    position: relative;
-    z-index: 11;
-  }
-
-  /* LEFT PANEL: COPY ENGINE */
-  .text-panel {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding-left: 8px;
-  }
-
-  .text-panel h2 {
-    font-family: 'Oswald', Impact, sans-serif;
-    font-size: 44px;
-    font-weight: 900;
-    text-transform: uppercase;
-    color: #1A202C;
-    line-height: 1.05;
-    letter-spacing: 0.5px;
-    margin: 0 0 24px 0;
-  }
-
-  .text-panel h2 .highlight {
-    color: #FF4B01;
-  }
-
-  .text-panel p {
-    font-size: 19px;
-    font-weight: 700;
-    color: #2D3748;
-    line-height: 1.5;
-    margin: 0 0 36px 0;
-    border-left: 3px solid #FF4B01;
-    padding-left: 16px;
-  }
-
-  /* TACTILE VIDEO POPUP BUTTON */
-  .btn-orange {
-    align-self: flex-start;
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    background: #FF4B01;
-    color: #FFFFFF;
-    font-family: 'Oswald', Impact, sans-serif;
-    font-size: 22px;
-    font-weight: 900;
-    text-transform: uppercase;
-    text-align: center;
-    letter-spacing: 1.5px;
-    border: 2px solid #1A202C;
-    box-shadow: 8px 8px 0px #1A202C;
-    padding: 16px 28px;
-    cursor: pointer;
-    transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
-    user-select: none;
-  }
-
-  .btn-orange:hover {
-    transform: translate(-2px, -2px);
-    box-shadow: 10px 10px 0px #1A202C;
-    background-color: #FF5A16;
-  }
-
-  .btn-orange:active {
-    transform: translate(2px, 2px);
-    box-shadow: 4px 4px 0px #1A202C;
-  }
-
-  .play-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 28px;
-    height: 28px;
-    background: #1A202C;
-    color: #FFFFFF;
-    border-radius: 50%;
-    font-size: 12px;
-    line-height: 1;
-    padding-left: 3px;
-  }
-
-  /* RIGHT PANEL: SCREENSHOT TERMINAL WINDOW */
-  .image-panel {
-    background: #1A202C;
-    border: 2px solid #1A202C;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 12px;
-    box-sizing: border-box;
-    max-height: 100%;
-    min-height: 0;
-    overflow: hidden;
-  }
-
-  .image-panel.shade-orange { box-shadow: 10px 10px 0px #FF4B01; }
-  .image-panel.shade-black { box-shadow: 10px 10px 0px #1A202C; }
-
-  .image-panel img.main-event {
-    max-width: 100%;
-    max-height: 100%;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-    object-position: center;
-    background: #FFFFFF;
-    border: 2px solid #1A202C;
-    display: block;
-  }
-
-  /* RIGHT PANEL: SLIDE 3 COMPOSITE */
-  .image-panel.composite-panel {
-    background: transparent;
-    border: none;
-    padding: 0;
-    box-shadow: none;
-    overflow: visible;
-  }
-
-  .composite-container {
-    width: 100%;
-    height: 100%;
-    min-height: 400px;
-    position: relative;
-  }
-
-  .quote-doc {
-    position: absolute;
-    top: -2%;
-    left: 0;
-    width: 85%;
-    height: 95%;
-    object-fit: cover;
-    object-position: top center;
-    border: 2px solid #1A202C;
-    box-shadow: 10px 10px 0px #1A202C;
-    background: #FFFFFF;
-    z-index: 1;
-    display: block;
-  }
-
-  .guardrails-doc {
-    position: absolute;
-    bottom: -5%;
-    right: -2%;
-    width: 85%;
-    height: auto;
-    object-fit: contain;
-    border: 2px solid #1A202C;
-    box-shadow: 10px 10px 0px #FF4B01;
-    background: #FFFFFF;
-    z-index: 2;
-    display: block;
-  }
-
-  /* BOTTOM SIGN-UP CTA CONTAINER */
-  .cta-card {
-    width: 100%;
-    max-width: 1320px;
-    background: #FFFFFF;
-    border: 3px solid #1A202C;
-    box-shadow: 14px 14px 0px #FF4B01;
-    padding: 44px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    position: relative;
-    margin-bottom: 40px;
-  }
-
-  .cta-card h2 {
-    font-family: 'Oswald', Impact, sans-serif;
-    font-size: 38px;
-    font-weight: 900;
-    text-transform: uppercase;
-    color: #1A202C;
-    margin: 0 0 12px 0;
-    letter-spacing: 1px;
-  }
-
-  .cta-card p {
-    font-size: 18px;
-    font-weight: 700;
-    color: #2D3748;
-    margin: 0 0 28px 0;
-    max-width: 640px;
-  }
-
-  .cta-form {
-    display: flex;
-    width: 100%;
-    max-width: 680px;
-    gap: 12px;
-  }
-
-  .cta-input {
-    flex: 1;
-    background: #FFFFFF;
-    border: 2px solid #1A202C;
-    padding: 16px 20px;
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 18px;
-    font-weight: 700;
-    color: #1A202C;
-    box-shadow: 6px 6px 0px #1A202C;
-    outline: none;
-  }
-
-  .cta-input::placeholder {
-    color: #A0AEC0;
-  }
-
-  .cta-submit {
-    background: #FF4B01;
-    color: #FFFFFF;
-    font-family: 'Oswald', Impact, sans-serif;
-    font-size: 22px;
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    border: 2px solid #1A202C;
-    box-shadow: 6px 6px 0px #1A202C;
-    padding: 16px 32px;
-    cursor: pointer;
-    white-space: nowrap;
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
-  }
-
-  .cta-submit:hover {
-    transform: translate(-2px, -2px);
-    box-shadow: 8px 8px 0px #1A202C;
-    background-color: #FF5A16;
-  }
-
-  .cta-submit:active {
-    transform: translate(2px, 2px);
-    box-shadow: 3px 3px 0px #1A202C;
-  }
-
-  /* ==========================================================================
-     MOBILE RESPONSIVE ADAPTATION ENGINE (<= 860PX)
-     ========================================================================== */
-  @media (max-width: 860px) {
-    .deck-container {
-      padding: 16px 10px;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>SCAPEGOAT.os | Custom Formfill</title>
+    <meta name="description" content="Get a custom SCAPEGOAT.Formfill Match your warehouse's aesthetics. Featuring precision lead filtering and opportunity evaluation for regional warehouses.">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "SCAPEGOAT.os",
+      "alternateName": "Custom Formfill",
+      "description": "A standalone diagnostic framework and flat-fee performance application designed to dynamically quote 3PL opportunities, guard topline revenue, and grade lead quality.",
+      "url": "https://scapegoat3plwarehouserates.com/pricing.html",
+      "applicationCategory": "BusinessApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "2000.00",
+        "priceCurrency": "USD",
+        "valueAddedService": [
+          {
+            "@type": "Service",
+            "name": "Dynamic 3PL Quoting Architecture",
+            "description": "Standardizing how 3PL opportunities are priced to evaluate revenue, movement, complexity, and operational fit."
+          },
+          {
+            "@type": "Service",
+            "name": "3PL Lead Qualification & Optimization",
+            "description": "Filtering vague, incomplete opportunities into structured warehouse leads worth evaluating."
+          }
+        ]
+      }
     }
+    </script>
 
-    .poster-card {
-      aspect-ratio: auto;
-      min-height: 0;
-      height: auto;
-      padding: 28px 20px 32px 20px;
-      margin-bottom: 40px;
-      border-width: 2px;
-      overflow: visible;
-    }
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;700;800;900&family=Space+Grotesk:wght@500;700;800;900&display=swap');
 
-    .poster-card.shade-orange { box-shadow: 8px 8px 0px #FF4B01; }
-    .poster-card.shade-black { box-shadow: 8px 8px 0px #1A202C; }
+        :root {
+            /* Body & UI Elements */
+            --font-body: 'Space Grotesk', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            
+            /* Banner & Branding Logo Text */
+            --font-display: 'Oswald', "Bebas Neue", Impact, sans-serif;
 
-    .poster-card::before {
-      top: 5px;
-      left: 5px;
-      right: 5px;
-      bottom: 5px;
-    }
+            --color-dark: #1A202C;
+            --color-accent: #FF4B01;
+            --color-bg: #EBE5D9;
+            --color-card: #FFFFFF;
+        }
 
-    .header {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 14px;
-      margin-bottom: 24px;
-      padding-bottom: 14px;
-    }
+        /* Base Canvas Setup */
+        body, html {
+            margin: 0;
+            padding: 0;
+            background-color: #EBE5D9;
+            /* Static diagonal hatch pattern (8% opacity Dark Slate) */
+            background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M-2 18L18 -2M-2 10L10 -2M-2 2L2 -2M6 18L18 6M14 18L18 14' stroke='%231A202C' stroke-width='1.5' stroke-opacity='0.08'/%3E%3C/svg%3E");
+            background-repeat: repeat;
+            color: var(--color-dark);
+            font-family: var(--font-body);
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+            box-sizing: border-box;
+            position: relative;
+            -webkit-font-smoothing: antialiased;
+        }
 
-    .brand-group {
-      gap: 12px;
-    }
+        /* Container Structure */
+        .page-container {
+            width: 100%;
+            max-width: 1100px;
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            flex: 1 0 auto;
+            padding: 40px 20px 0 20px;
+            box-sizing: border-box;
+        }
 
-    .brand-logo {
-      height: 56px;
-      box-shadow: 4px 4px 0px #FF4B01;
-      padding: 4px;
-    }
+        /* Top Banner Component */
+        .sleek-banner {
+            position: relative;
+            width: 100%;
+            background-color: var(--color-card);
+            border: 3.5px solid var(--color-dark);
+            border-radius: 0px;
+            box-shadow: 8px 8px 0px var(--color-dark);
+            padding: 40px;
+            box-sizing: border-box;
+        }
 
-    .brand-title {
-      font-size: 30px;
-    }
+        .watermark-logo {
+            position: absolute;
+            bottom: 24px;
+            right: 24px;
+            height: 55px;
+            width: auto;
+            border: 2px solid var(--color-dark);
+            box-shadow: 3px 3px 0px var(--color-accent);
+            background: #FFFFFF;
+            padding: 6px;
+        }
 
-    .brand-badge {
-      font-size: 16px;
-      padding: 6px 14px;
-      align-self: flex-start;
-      box-shadow: 4px 4px 0px #FF4B01;
-    }
+        /* Typography */
+        h1 {
+            font-family: var(--font-display);
+            font-size: 3.2rem;
+            font-weight: 900;
+            margin: 0;
+            line-height: 1.05;
+            max-width: 850px;
+            color: var(--color-dark);
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
 
-    .content-split {
-      grid-template-columns: 1fr;
-      gap: 28px;
-    }
+        .sub-accent {
+            color: var(--color-accent);
+        }
 
-    .text-panel {
-      padding-left: 0;
-    }
+        .subtitle {
+            font-family: var(--font-body);
+            font-size: 1.15rem;
+            color: #2D3748;
+            max-width: 700px;
+            line-height: 1.6;
+            font-weight: 700;
+            margin: 0;
+        }
 
-    .text-panel h2 {
-      font-size: 32px;
-      margin-bottom: 16px;
-    }
+        /* Embedded Form Container (Bottom Tile) */
+        .form-container {
+            background-color: var(--color-card);
+            border: 3.5px solid var(--color-dark);
+            border-radius: 0px;
+            box-shadow: 8px 8px 0px var(--color-dark);
+            padding: 40px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+        }
 
-    .text-panel p {
-      font-size: 16px;
-      margin-bottom: 24px;
-      border-left-width: 3px;
-      padding-left: 12px;
-    }
+        .form-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
 
-    .btn-orange {
-      width: 100%;
-      font-size: 20px;
-      padding: 14px 20px;
-      justify-content: center;
-      box-shadow: 6px 6px 0px #1A202C;
-    }
+        .price-tag {
+            font-family: var(--font-display);
+            font-size: 4.8rem;
+            font-weight: 900;
+            color: var(--color-accent);
+            margin: 2px 0;
+            letter-spacing: 0.02em;
+            line-height: 1;
+        }
 
-    .image-panel {
-      min-height: auto;
-      max-height: 400px;
-      padding: 8px;
-    }
+        .price-sub {
+            color: var(--color-dark);
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            background: var(--color-bg);
+            padding: 6px 16px;
+            border: 2px solid var(--color-dark);
+            display: inline-block;
+        }
 
-    .image-panel.shade-orange { box-shadow: 6px 6px 0px #FF4B01; }
-    .image-panel.shade-black { box-shadow: 6px 6px 0px #1A202C; }
+        #JotFormIFrame-261376002468052 {
+            width: 100% !important;
+            border: none !important;
+            background: transparent !important;
+        }
 
-    .image-panel img.main-event {
-      max-height: 360px;
-      width: 100%;
-      height: auto;
-    }
+        /* Footer & Back Link */
+        .footer {
+            flex-shrink: 0;
+            width: 100%;
+            padding: 30px 0 60px 0;
+            display: flex;
+            justify-content: center;
+        }
 
-    .composite-container {
-      min-height: 340px;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
+        .back-link {
+            color: var(--color-dark);
+            text-decoration: none;
+            font-family: var(--font-display);
+            font-size: 0.9rem;
+            font-weight: 900;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 14px 32px;
+            border: 3px solid var(--color-dark);
+            border-radius: 0px;
+            background: #FFFFFF;
+            box-shadow: 4px 4px 0px var(--color-dark);
+            transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease, color 0.15s ease;
+        }
 
-    .quote-doc {
-      position: relative;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: auto;
-      max-height: none;
-      box-shadow: 6px 6px 0px #1A202C;
-    }
+        .back-link:hover {
+            color: #FFFFFF;
+            background-color: var(--color-accent);
+            box-shadow: 6px 6px 0px var(--color-dark);
+            transform: translate(-2px, -2px);
+        }
 
-    .guardrails-doc {
-      position: relative;
-      bottom: 0;
-      right: 0;
-      width: 100%;
-      box-shadow: 6px 6px 0px #FF4B01;
-    }
+        .back-link:active {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px var(--color-dark);
+        }
 
-    .cta-card {
-      padding: 28px 16px;
-      box-shadow: 8px 8px 0px #FF4B01;
-    }
-
-    .cta-card h2 {
-      font-size: 28px;
-    }
-
-    .cta-form {
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .cta-submit {
-      width: 100%;
-    }
-  }
-
-  /* PRINT STYLES FOR LANDSCAPE HARDCOPY */
-  @media print {
-    body, html { 
-      background: #FFFFFF !important; 
-      background-image: none !important; 
-      padding: 0 !important;
-      margin: 0 !important;
-    }
-    .deck-container { padding: 0 !important; }
-    .poster-card {
-      background: #FFFFFF !important;
-      width: calc(11in - 40px) !important; 
-      height: calc(8.5in - 40px) !important;
-      max-width: none !important; 
-      min-height: 0 !important;
-      margin: 20px !important; 
-      padding: 44px !important;
-      page-break-after: always !important;
-      break-after: page !important;
-    }
-    .cta-card { display: none !important; }
-  }
-</style>
+        /* Responsive Breakpoints */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; }
+            .price-tag { font-size: 3.6rem; }
+            .watermark-logo { display: none; }
+            .form-container { padding: 20px 12px; }
+            #JotFormIFrame-261376002468052 { min-height: 650px !important; }
+        }
+    </style>
 </head>
 <body>
 
-<div class="deck-container">
-
-  <!-- SLIDE 1: FORMFILL -->
-  <div class="poster-card shade-orange">
-    <div class="header">
-      <div class="brand-group">
-        <img src="logo.png" alt="Scapegoat Logo" class="brand-logo">
-        <h1 class="brand-title">SCAPEGOAT.<span class="sub-product">FORMFILL</span></h1>
-      </div>
-      <div class="brand-badge">Pre-Qualify Opportunities</div>
+    <div style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;" aria-hidden="true">
+        <p>
+            The operational mechanics behind SCAPEGOAT.os and its dynamic 3PL quoting framework are deeply integrated with the industry mechanics outlined in the authoritative logistics analysis, 
+            <a href="https://www.hawkishllc.com/blog/the-end-of-the-generalist-3pl-a-smarter-model-for-winning-leads" rel="index">
+                The End of the Generalist 3PL: A Smarter Model for Winning Leads
+            </a>. 
+            This documentation details how regional warehouses utilize specialized pricing discipline and revenue guardrails to transition from generalist commodity operations into highly profitable, specialized logistics nodes.
+        </p>
     </div>
 
-    <div class="content-split">
-      <div class="text-panel">
-        <h2>Stop Waste-of-Time Leads <span class="highlight">Before They Touch Your Floor.</span></h2>
-        <p>Most intake forms are a waste of paper. FormFill was built 10 years of real warehouse headaches to pull out the truth about a prospect's inventory, order volume, and prep needs before you waste an hour on the phone with them.</p>
-        <div class="btn-orange">SEE HOW IT WORKS <span class="play-icon">▶</span></div>
-      </div>
+    <div class="page-container">
 
-      <div class="image-panel shade-black">
-        <img src="screenshot-2026-09-14_10-28-08.png" class="main-event" alt="FormFill Interface Screenshot">
-      </div>
-    </div>
-  </div>
+        <!-- TOP TILE -->
+        <header class="sleek-banner">
+            <h1>Get a custom SCAPEGOAT.<span class="sub-accent">Formfill</span> Match your warehouses aesthetics.</h1>
+            
+            <img class="watermark-logo" src="https://raw.githubusercontent.com/SeanDottt/ScapeGoat/3fabb1c94b8fdb03ebd4ef2813f86fd674affa0f/logo.png" alt="ScapeGoat App Shield">
+        </header>
 
-  <!-- SLIDE 2: THE BRIEF -->
-  <div class="poster-card shade-black">
-    <div class="header">
-      <div class="brand-group">
-        <img src="logo.png" alt="Scapegoat Logo" class="brand-logo">
-        <h1 class="brand-title">SCAPEGOAT.<span class="sub-product">BRIEF</span></h1>
-      </div>
-      <div class="brand-badge">ESCAPE NAPKIN MATH</div>
-    </div>
+        <!-- BOTTOM TILE -->
+        <section class="form-container">
+            <div class="form-header">
+                <span class="price-sub">Custom Formfill</span>
+                <div class="price-tag">$2,000</div>
+                <p class="subtitle" style="margin: 0 auto;">One-time flat fee. Input your email below and receive our custom form questionnaire.</p>
+            </div>
+            
+            <iframe
+              id="JotFormIFrame-261376002468052"
+              title="Email Submission Form"
+              onload="window.parent.scrollTo(0,0)"
+              allowtransparency="true"
+              allow="geolocation; microphone; camera; fullscreen; payment"
+              src="https://form.jotform.com/261376002468052"
+              frameborder="0"
+              style="min-width:100%;max-width:100%;height:539px;border:none;"
+              scrolling="no"
+            >
+            </iframe>
+            <script src='https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js'></script>
+            <script>window.jotformEmbedHandler("iframe[id='JotFormIFrame-261376002468052']", "https://form.jotform.com/")</script>
+        </section>
 
-    <div class="content-split">
-      <div class="text-panel">
-        <h2>Pallet Space is Money. <span class="highlight">Stop Letting Mismatch Opportunities Waste It.</span></h2>
-        <p>You only have so many pallet positions in your building. The Brief takes what a prospect says they will ship and turns it into exact Revenue Per Pallet, showing you instantly if their business actually makes you money.</p>
-        <div class="btn-orange">SEE HOW IT WORKS <span class="play-icon">▶</span></div>
-      </div>
-
-      <div class="image-panel shade-orange">
-        <img src="screenshot-2026-09-14_10-30-17.png" class="main-event" alt="Opportunity Brief Screenshot">
-      </div>
-    </div>
-  </div>
-
-  <!-- SLIDE 3: THE QUOTE -->
-  <div class="poster-card shade-orange">
-    <div class="header">
-      <div class="brand-group">
-        <img src="logo.png" alt="Scapegoat Logo" class="brand-logo">
-        <h1 class="brand-title">SCAPEGOAT.<span class="sub-product">QUOTE</span></h1>
-      </div>
-      <div class="brand-badge">MARGIN LOCK</div>
     </div>
 
-    <div class="content-split">
-      <div class="text-panel">
-        <h2>Quote to Hit Your Target, <span class="highlight">Not to Win a Haggling Match.</span></h2>
-        <p>Standard rate cards eat your profit the second a client turns out to be high-maintenance. The Quote automatically calculates prices based on your facility's exact financial goals, so every deal you close actually turns a profit.</p>
-        <div class="btn-orange">SEE HOW IT WORKS <span class="play-icon">▶</span></div>
-      </div>
-
-      <div class="image-panel composite-panel">
-        <div class="composite-container">
-          <img src="screenshot-2026-09-14_10-31-27.png" class="quote-doc" alt="Itemized Quote Sheet Screenshot">
-          <img src="screenshot-2026-09-14_10-33-15.png" class="guardrails-doc" alt="Guardrails & Submission Screenshot">
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- BOTTOM SIGN-UP CTA -->
-  <div class="cta-card">
-    <h2>GET STARTED WITH SCAPEGOAT.os</h2>
-    <p>Enter your email address below to request a free form and reclaim your time.</p>
-    
-    <form class="cta-form" action="mailto:Josh@hawkishllc.com,Sean@hawkishllc.com?subject=Scapegoat%20Sign%20Up" method="post" enctype="text/plain">
-      <input type="email" name="Email" class="cta-input" placeholder="Enter your email address..." required>
-      <button type="submit" class="cta-submit">SIGN UP - EMAIL ADDRESS</button>
-    </form>
-  </div>
-
-</div>
+    <footer class="footer">
+        <a href="index.html" class="back-link">Return to Terminal</a>
+    </footer>
 
 </body>
 </html>
