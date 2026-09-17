@@ -87,22 +87,22 @@
         /* LEFT SIDE: INFORMATION DECK CARD */
         .info-deck-card {
             width: 100%;
-            padding: 32px 24px;
+            padding: 40px 32px;
             background-color: #FFFFFF;
             border: 4px solid #1A202C;
             box-shadow: 10px 10px 0px #1A202C;
             box-sizing: border-box;
             display: flex;
             flex-direction: column;
-            gap: 24px;
+            gap: 32px;
         }
 
         .info-block {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 16px;
             border-bottom: 2px solid #E2E8F0;
-            padding-bottom: 20px;
+            padding-bottom: 24px;
         }
 
         .info-block:last-child {
@@ -112,13 +112,17 @@
 
         .info-title {
             font-family: 'Oswald', Impact, sans-serif;
-            font-size: 20px;
-            font-weight: 800;
+            font-size: 34px;
+            font-weight: 900;
             text-transform: uppercase;
-            letter-spacing: 0.8px;
+            letter-spacing: 0.5px;
             color: #1A202C;
             margin: 0;
-            line-height: 1.2;
+            line-height: 1.1;
+        }
+
+        .info-title .highlight {
+            color: #FF4B01;
         }
 
         .info-btn {
@@ -126,9 +130,9 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 10px 20px;
+            padding: 12px 24px;
             font-family: 'Oswald', Impact, sans-serif;
-            font-size: 14px;
+            font-size: 16px;
             font-weight: 900;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -284,9 +288,14 @@
             }
 
             .info-deck-card {
-                padding: 20px 16px;
+                padding: 24px 20px;
                 border-width: 3px;
                 box-shadow: 5px 5px 0px #1A202C;
+                gap: 24px;
+            }
+
+            .info-title {
+                font-size: 28px;
             }
 
             .hwk-container-large {
@@ -309,8 +318,8 @@
 
             .info-btn {
                 width: 100%;
-                padding: 12px 8px;
-                font-size: 13px;
+                padding: 14px 12px;
+                font-size: 14px;
             }
         }
     </style>
@@ -340,25 +349,27 @@
 
         <!-- LEFT TILE: INFORMATION & NAVIGATION -->
         <div class="info-deck-card">
+            
             <div class="info-block">
-                <h3 class="info-title">What is Scapegoat?</h3>
+                <h3 class="info-title">What is <span class="highlight">Scapegoat?</span></h3>
                 <a href="https://scapegoat3plwarehouserates.com/faq" class="info-btn">VIEW FAQ</a>
             </div>
 
             <div class="info-block">
-                <h3 class="info-title">How do you Sign up?</h3>
+                <h3 class="info-title">How do you <span class="highlight">Sign up?</span></h3>
                 <a href="https://scapegoat3plwarehouserates.com/faq#bottom" class="info-btn">SIGN UP DETAILS</a>
             </div>
 
             <div class="info-block">
-                <h3 class="info-title">Try it out in our Sandbox Environment</h3>
+                <h3 class="info-title">Try it out in our <span class="highlight">Sandbox Environment</span></h3>
                 <button type="button" class="info-btn" onclick="scrollToSandbox()">TRY SANDBOX FORM</button>
             </div>
 
             <div class="info-block">
-                <h3 class="info-title">Get a custom version if you want to upgrade your experience</h3>
+                <h3 class="info-title">Get a custom version if you want to <span class="highlight">upgrade your experience</span></h3>
                 <a href="https://scapegoat3plwarehouserates.com/pricing" class="info-btn">CUSTOM FORM</a>
             </div>
+
         </div>
 
         <!-- RIGHT TILE: HAWKISH QUOTE ENGINE / SANDBOX EMBED -->
