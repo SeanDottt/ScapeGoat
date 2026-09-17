@@ -60,19 +60,21 @@
         /* DESKTOP WIDE LOGO */
         .logo-desktop {
             width: 90vw;
-            max-width: 800px;
-            /* Forces a tight rectangle, cropping top/bottom */
-            aspect-ratio: 4 / 1;
+            max-width: 820px;
+            /* Taller aspect ratio prevents the top and bottom from clipping */
+            aspect-ratio: 3.1 / 1;
             object-fit: cover;
-            /* Pushes image to the right, cropping out the left white space */
-            object-position: 80% center;
+            /* Shifted back to stop the left border of the goat box from getting cut off */
+            object-position: 52% center;
             
             /* Removing the outer box and shadow */
             border: none;
             box-shadow: none;
             background-color: transparent;
             
-            /* Magically dissolves the white background into the sand texture */
+            /* Bumping brightness forces the dirty JPEG background to pure white, 
+               allowing multiply to blend it seamlessly into the hatch texture */
+            filter: contrast(1.1) brightness(1.05);
             mix-blend-mode: multiply;
             
             padding: 0;
@@ -80,7 +82,6 @@
         }
 
         .logo-desktop:hover {
-            /* Changed hover state to just scale slightly since shadow is gone */
             transform: scale(1.02);
             box-shadow: none;
         }
@@ -390,7 +391,7 @@
 <body>
 
     <div class="logo-container">
-        <!-- Desktop Wide Image (Cropped tight to a rectangle, border removed, background dissolved) -->
+        <!-- Desktop Wide Image (Cropped safe from borders, perfectly blended into background) -->
         <img src="Gemini_Generated_Image_5d4qz5d4qz5d4qz5.jpeg" class="logo logo-desktop" alt="ScapeGoat Wide Logo" onclick="window.location.reload();">
         
         <!-- Mobile Original Image -->
