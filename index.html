@@ -60,25 +60,34 @@
         /* DESKTOP WIDE LOGO */
         .logo-desktop {
             width: 90vw;
-            max-width: 900px;
-            /* Forces a tight, horizontal rectangle and crops the baked-in top/bottom white space */
-            aspect-ratio: 3.5 / 1;
+            max-width: 800px;
+            /* Forces a tight rectangle, cropping top/bottom */
+            aspect-ratio: 4 / 1;
             object-fit: cover;
-            object-position: center;
-            border: 4px solid #1A202C;
-            box-shadow: 10px 10px 0px #FF4B01;
+            /* Pushes image to the right, cropping out the left white space */
+            object-position: 80% center;
+            
+            /* Removing the outer box and shadow */
+            border: none;
+            box-shadow: none;
+            background-color: transparent;
+            
+            /* Magically dissolves the white background into the sand texture */
+            mix-blend-mode: multiply;
+            
             padding: 0;
             display: block;
         }
 
         .logo-desktop:hover {
-            transform: translate(-2px, -2px);
-            box-shadow: 12px 12px 0px #FF4B01;
+            /* Changed hover state to just scale slightly since shadow is gone */
+            transform: scale(1.02);
+            box-shadow: none;
         }
 
         .logo-desktop:active {
-            transform: translate(2px, 2px);
-            box-shadow: 4px 4px 0px #FF4B01;
+            transform: scale(0.98);
+            box-shadow: none;
         }
 
         /* MOBILE ORIGINAL LOGO (Hidden on Desktop) */
@@ -381,7 +390,7 @@
 <body>
 
     <div class="logo-container">
-        <!-- Desktop Wide Image (Cropped tight to a rectangle) -->
+        <!-- Desktop Wide Image (Cropped tight to a rectangle, border removed, background dissolved) -->
         <img src="Gemini_Generated_Image_5d4qz5d4qz5d4qz5.jpeg" class="logo logo-desktop" alt="ScapeGoat Wide Logo" onclick="window.location.reload();">
         
         <!-- Mobile Original Image -->
