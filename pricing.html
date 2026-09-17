@@ -53,7 +53,7 @@
 
             --color-dark: #1A202C;
             --color-accent: #FF4B01;
-            --color-bg: #F4F7FA;
+            --color-bg: #EBE5D9;
             --color-card: #FFFFFF;
         }
 
@@ -61,7 +61,10 @@
         body, html {
             margin: 0;
             padding: 0;
-            background-color: var(--color-bg);
+            background-color: #EBE5D9;
+            /* Static diagonal hatch pattern (8% opacity Dark Slate) */
+            background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M-2 18L18 -2M-2 10L10 -2M-2 2L2 -2M6 18L18 6M14 18L18 14' stroke='%231A202C' stroke-width='1.5' stroke-opacity='0.08'/%3E%3C/svg%3E");
+            background-repeat: repeat;
             color: var(--color-dark);
             font-family: var(--font-body);
             width: 100%;
@@ -73,55 +76,6 @@
             box-sizing: border-box;
             position: relative;
             -webkit-font-smoothing: antialiased;
-        }
-
-        /* Animated Soft Wave Hatch Layer */
-        body::before {
-            content: "";
-            position: fixed;
-            top: -20%;
-            left: -20%;
-            width: 140%;
-            height: 140%;
-            z-index: -1;
-            pointer-events: none;
-            
-            background-image: repeating-linear-gradient(
-                45deg,
-                rgba(26, 32, 44, 0.28) 0px,
-                rgba(26, 32, 44, 0.28) 1.5px,
-                transparent 1.5px,
-                transparent 11px,
-                rgba(26, 32, 44, 0.05) 11px,
-                rgba(26, 32, 44, 0.05) 12.5px,
-                transparent 12.5px,
-                transparent 22px
-            );
-
-            -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, rgba(0,0,0,1) 0%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0.85) 100%);
-            mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, rgba(0,0,0,1) 0%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0.85) 100%);
-            -webkit-mask-size: 160% 160%;
-            mask-size: 160% 160%;
-
-            animation: waveMotion 12s ease-in-out infinite alternate;
-        }
-
-        @keyframes waveMotion {
-            0% {
-                -webkit-mask-position: 0% 0%;
-                mask-position: 0% 0%;
-                transform: scale(1);
-            }
-            50% {
-                -webkit-mask-position: 100% 50%;
-                mask-position: 100% 50%;
-                transform: scale(1.03) rotate(0.5deg);
-            }
-            100% {
-                -webkit-mask-position: 30% 100%;
-                mask-position: 30% 100%;
-                transform: scale(0.98);
-            }
         }
 
         /* Container Structure */
