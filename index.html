@@ -306,6 +306,11 @@
 
         /* Mobile Screen Engine (<= 768px): Stack Logo -> Text -> Form -> Footer */
         @media (max-width: 768px) {
+            body, html {
+                /* Removes the eye-straining moiré hatch pattern on mobile displays */
+                background-image: none !important;
+            }
+
             .split-wrapper {
                 grid-template-columns: 1fr;
                 gap: 20px;
