@@ -512,21 +512,21 @@
 
     .image-panel {
       min-height: auto;
-      max-height: 400px;
-      padding: 8px;
+      max-height: none; /* Changed from 400px to fit full image */
+      padding: 12px;
     }
 
     .image-panel.shade-orange { box-shadow: 6px 6px 0px #FF4B01; }
     .image-panel.shade-black { box-shadow: 6px 6px 0px #1A202C; }
 
     .image-panel img.main-event {
-      max-height: 360px;
+      max-height: none; /* Let the image scale naturally */
       width: 100%;
       height: auto;
     }
 
     .composite-container {
-      min-height: 340px;
+      min-height: 480px; /* Increased from 340px to give images room */
       display: flex;
       flex-direction: column;
       gap: 16px;
@@ -548,6 +548,7 @@
       right: 0;
       width: 100%;
       box-shadow: 6px 6px 0px #FF4B01;
+      margin-top: -20px; /* Slightly overlap images to retain the desktop feel */
     }
 
     .cta-card {
