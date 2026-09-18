@@ -430,6 +430,65 @@
       }
 
       /* ==========================================================================
+         VIDEO MODAL STYLES (NEW)
+         ========================================================================== */
+      .video-modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(26, 32, 44, 0.9);
+        z-index: 9999;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+
+      .video-modal-content {
+        position: relative;
+        width: 100%;
+        max-width: 1000px;
+        aspect-ratio: 16 / 9;
+        background: #000000;
+        border: 4px solid #1A202C;
+        box-shadow: 14px 14px 0px #FF4B01;
+      }
+
+      .close-btn {
+        position: absolute;
+        top: -24px;
+        right: -24px;
+        width: 48px;
+        height: 48px;
+        background: #FF4B01;
+        color: #FFFFFF;
+        border: 3px solid #1A202C;
+        box-shadow: 6px 6px 0px #1A202C;
+        font-family: 'Oswald', Impact, sans-serif;
+        font-size: 24px;
+        font-weight: 900;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10000;
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+      }
+
+      .close-btn:hover {
+        transform: translate(-2px, -2px);
+        box-shadow: 8px 8px 0px #1A202C;
+        background-color: #FF5A16;
+      }
+
+      .close-btn:active {
+        transform: translate(2px, 2px);
+        box-shadow: 3px 3px 0px #1A202C;
+      }
+
+      /* ==========================================================================
          MOBILE RESPONSIVE ADAPTATION ENGINE (<= 860PX)
          ========================================================================== */
       @media (max-width: 860px) {
@@ -578,6 +637,19 @@
         .cta-submit {
           width: 100%;
         }
+
+        .video-modal-content {
+          border-width: 2px;
+          box-shadow: 8px 8px 0px #FF4B01;
+        }
+        
+        .close-btn {
+          top: -16px;
+          right: -16px;
+          width: 36px;
+          height: 36px;
+          font-size: 18px;
+        }
       }
 
       /* PRINT STYLES FOR LANDSCAPE HARDCOPY */
@@ -600,7 +672,7 @@
           page-break-after: always !important;
           break-after: page !important;
         }
-        .cta-card, .footer { display: none !important; }
+        .cta-card, .footer, .video-modal { display: none !important; }
       }
     </style>
 </head>
@@ -622,7 +694,7 @@
       <div class="text-panel">
         <h2>Stop Waste-of-Time Leads <span class="highlight">Before They Touch Your Floor.</span></h2>
         <p>Most intake forms barely scratch the surface. FormFill was built from 10 years of real warehouse experience to uncover what actually matters: inventory, order volume, prep requirements, and operational complexity. Know what you’re dealing with before you waste an hour on a bad-fit lead.</p>
-        <div class="btn-orange">SEE HOW IT WORKS <span class="play-icon">▶</span></div>
+        <div class="btn-orange" onclick="openVideo(19)">SEE HOW IT WORKS <span class="play-icon">▶</span></div>
       </div>
 
       <div class="image-panel shade-black">
@@ -645,7 +717,7 @@
       <div class="text-panel">
         <h2>Pallet Space is Money. <span class="highlight">Stop Letting Mismatch Opportunities Waste It.</span></h2>
         <p>Every pallet position has to earn its keep. The Brief turns a prospect’s projected volume into Revenue Per Pallet, so you can quickly see whether the opportunity makes financial sense for your building.</p>
-        <div class="btn-orange">SEE HOW IT WORKS <span class="play-icon">▶</span></div>
+        <div class="btn-orange" onclick="openVideo(34)">SEE HOW IT WORKS <span class="play-icon">▶</span></div>
       </div>
 
       <div class="image-panel shade-orange">
@@ -668,7 +740,7 @@
       <div class="text-panel">
         <h2>Quote to Hit Your Target, <span class="highlight">Not to Win a Haggling Match.</span></h2>
         <p>Standard rate cards eat your profit the second a client turns out to be high-maintenance. The Quote automatically calculates prices based on your facility's exact financial goals, so every deal you close actually turns a profit.</p>
-        <div class="btn-orange">SEE HOW IT WORKS <span class="play-icon">▶</span></div>
+        <div class="btn-orange" onclick="openVideo(56)">SEE HOW IT WORKS <span class="play-icon">▶</span></div>
       </div>
 
       <div class="image-panel composite-panel">
@@ -698,8 +770,17 @@
 
 </div>
 
-<!-- Force Auto-Scroll on Desktop Images Load Fix -->
+<!-- VIDEO MODAL CONTAINER -->
+<div id="videoModal" class="video-modal" onclick="closeVideo()">
+  <div class="video-modal-content" onclick="event.stopPropagation()">
+    <button class="close-btn" onclick="closeVideo()">X</button>
+    <iframe id="youtubePlayer" width="100%" height="100%" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+</div>
+
+<!-- Scripts -->
 <script>
+  // Force Auto-Scroll on Desktop Images Load Fix
   window.addEventListener('load', function() {
     if (window.location.hash) {
       var target = document.querySelector(window.location.hash);
@@ -711,6 +792,23 @@
       }
     }
   });
+
+  // Video Player Logic
+  function openVideo(startTime) {
+    var modal = document.getElementById('videoModal');
+    var player = document.getElementById('youtubePlayer');
+    // Load YouTube video with autoplay and specific start time
+    player.src = "https://www.youtube.com/embed/KQ0YJ8a2waE?autoplay=1&start=" + startTime;
+    modal.style.display = 'flex';
+  }
+
+  function closeVideo() {
+    var modal = document.getElementById('videoModal');
+    var player = document.getElementById('youtubePlayer');
+    modal.style.display = 'none';
+    // Remove the source to stop the video from playing in the background
+    player.src = "";
+  }
 </script>
 
 </body>
