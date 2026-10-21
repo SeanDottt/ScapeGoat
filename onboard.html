@@ -79,7 +79,7 @@
             display: none;
         }
 
-        /* GATEKEEPER CONTAINER (Hidden until token validates) */
+        /* GATEKEEPER CONTAINER */
         #onboarding-wrapper {
             display: none;
             width: 100%;
@@ -109,7 +109,7 @@
             letter-spacing: 0.5px;
         }
 
-        /* EMBEDDED JOTFORM SANDBOX CONTAINER */
+        /* EMBEDDED JOTFORM CONTAINER */
         .hwk-container-large {
             width: 100%;
             height: 1020px; 
@@ -181,17 +181,77 @@
             }
         }
     </style>
+</head>
+<body>
+
+    <!-- TOP HEADER LOGO CONTAINER -->
+    <div class="logo-container">
+        <!-- Desktop Wide Image -->
+        <img src="logo.png" class="logo logo-desktop" alt="ScapeGoat Wide Logo" onclick="window.location.href='index.html';" onerror="this.src='logo.png';">
+        
+        <!-- Mobile Original Image -->
+        <img src="logo.png" class="logo logo-mobile" alt="ScapeGoat Square Logo" onclick="window.location.href='index.html';">
+    </div>
+
+    <!-- CENTERED EMBEDDED JOTFORM WRAPPER -->
+    <div id="onboarding-wrapper">
+      
+      <!-- NOTICE BANNER -->
+      <div class="location-notice-banner">
+        <p>⚠️ NOTE: PLEASE SUBMIT 1 FORM PER WAREHOUSE LOCATION.</p>
+      </div>
+
+      <!-- START: Scapegoat / Hawkish JotForm Embed Code -->
+      <div class="hwk-container-large" id="sandbox-form-card">
+        <iframe
+          id="JotFormIFrame-262937894386074"
+          title="Hawkish Quote Engine"
+          src="https://form.jotform.com/262937894386074?nojump"
+          allowtransparency="true"
+          frameborder="0"
+          scrolling="no"
+        ></iframe>
+        <script src="https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js"></script>
+        <script>
+          window.jotformEmbedHandler("iframe[id='JotFormIFrame-262937894386074']", "https://form.jotform.com/");
+        </script>
+      </div>
+      <!-- END: Scapegoat / Hawkish JotForm Embed Code -->
+    </div>
+
+    <!-- RETURN TO TERMINAL FOOTER -->
+    <footer>
+      <a href="index.html" class="back-link">Return to Terminal</a>
+    </footer>
 
     <script>
       // ACCESS KEY VALIDATION & GATEKEEPING
-      const SECRET_ACCESS_TOKEN = "HawkishOnboard2026_SecureKey";
-
-      document.addEventListener("DOMContentLoaded", function() {
+      (function() {
+        const SECRET_ACCESS_TOKEN = "HawkishOnboard2026_SecureKey";
         const urlParams = new URLSearchParams(window.location.search);
         const userToken = urlParams.get('token');
         const userEmail = urlParams.get('email') || '';
 
-        // Verify if access token matches
+        // Check token parameter
         if (userToken === SECRET_ACCESS_TOKEN) {
-          // Token is valid: Unhide onboarding wrapper
-          document.getElementById("onboarding-wrapper").style.display = "block
+          // Token valid: Show container
+          const wrapper = document.getElementById("onboarding-wrapper");
+          if (wrapper) wrapper.style.display = "block";
+
+          // Dynamically prefill 'warehouseEmail' in JotForm iframe
+          if (userEmail) {
+            const iframe = document.getElementById("JotFormIFrame-262937894386074");
+            if (iframe) {
+              iframe.src = "https://form.jotform.com/262937894386074?nojump&warehouseEmail=" + encodeURIComponent(userEmail);
+            }
+          }
+        } else {
+          // Token invalid or missing: Alert & Redirect
+          alert("Access Denied: A valid invitation link is required to access this portal.");
+          window.location.href = "index.html";
+        }
+      })();
+    </script>
+
+</body>
+</html>
