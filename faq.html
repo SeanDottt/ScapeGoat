@@ -45,28 +45,22 @@
         align-items: center;
       }
 
-      /* 
-       * NEO-BRUTALIST POSTER CARD 
-       * Pure White container canvas (#FFFFFF), crisp 2px border, inner double-border ring, bottom-right offset shadow.
-       */
+      /* NEO-BRUTALIST POSTER CARD */
       .poster-card {
         width: 100%;
         max-width: 1320px;
         min-height: 780px;
         aspect-ratio: 16 / 9;
         margin-bottom: 60px;
-        background: #FFFFFF; /* Pure White Card Container */
+        background: #FFFFFF;
         border: 2px solid #1A202C;
         padding: 44px;
         display: flex;
         flex-direction: column;
         position: relative;
-        overflow: hidden; /* Prevents screenshot elements from going off page */
-        page-break-after: always;
-        break-after: page;
+        overflow: hidden;
       }
 
-      /* Thin Concentric Inner Frame Ring */
       .poster-card::before {
         content: "";
         position: absolute;
@@ -79,11 +73,10 @@
         z-index: 10;
       }
 
-      /* Bottom Right Only Shadows */
       .poster-card.shade-orange { box-shadow: 14px 14px 0px #FF4B01; }
       .poster-card.shade-black { box-shadow: 14px 14px 0px #1A202C; }
 
-      /* TOP HEADER BANNER */
+      /* HEADER */
       .header {
         border-bottom: 2px solid #1A202C;
         padding-bottom: 16px;
@@ -101,7 +94,6 @@
         gap: 16px;
       }
 
-      /* Tripled Logo Size with Thin 2px Frame & Safety Orange Shadow */
       .brand-logo {
         height: 80px;
         width: auto;
@@ -123,9 +115,7 @@
         margin: 0;
       }
 
-      .brand-title .sub-product {
-        color: #FF4B01;
-      }
+      .brand-title .sub-product { color: #FF4B01; }
 
       .brand-badge {
         background: #1A202C;
@@ -140,19 +130,18 @@
         box-shadow: 5px 5px 0px #FF4B01;
       }
 
-      /* ASYMMETRICAL SPLIT LAYOUT */
+      /* SPLIT LAYOUT */
       .content-split {
         display: grid;
         grid-template-columns: 0.85fr 1.15fr;
         gap: 36px;
         flex: 1;
-        min-height: 0; /* Ensures children shrink properly without overflow */
+        min-height: 0;
         align-items: stretch;
         position: relative;
         z-index: 11;
       }
 
-      /* LEFT PANEL: COPY ENGINE */
       .text-panel {
         display: flex;
         flex-direction: column;
@@ -171,9 +160,7 @@
         margin: 0 0 24px 0;
       }
 
-      .text-panel h2 .highlight {
-        color: #FF4B01;
-      }
+      .text-panel h2 .highlight { color: #FF4B01; }
 
       .text-panel p {
         font-size: 19px;
@@ -185,7 +172,6 @@
         padding-left: 16px;
       }
 
-      /* TACTILE VIDEO POPUP BUTTON */
       .btn-orange {
         align-self: flex-start;
         display: inline-flex;
@@ -197,25 +183,18 @@
         font-size: 22px;
         font-weight: 900;
         text-transform: uppercase;
-        text-align: center;
         letter-spacing: 1.5px;
         border: 2px solid #1A202C;
         box-shadow: 8px 8px 0px #1A202C;
         padding: 16px 28px;
         cursor: pointer;
         transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
-        user-select: none;
       }
 
       .btn-orange:hover {
         transform: translate(-2px, -2px);
         box-shadow: 10px 10px 0px #1A202C;
         background-color: #FF5A16;
-      }
-
-      .btn-orange:active {
-        transform: translate(2px, 2px);
-        box-shadow: 4px 4px 0px #1A202C;
       }
 
       .play-icon {
@@ -232,7 +211,6 @@
         padding-left: 3px;
       }
 
-      /* RIGHT PANEL: SCREENSHOT TERMINAL WINDOW */
       .image-panel {
         background: #1A202C;
         border: 2px solid #1A202C;
@@ -241,9 +219,6 @@
         align-items: center;
         justify-content: center;
         padding: 12px;
-        box-sizing: border-box;
-        max-height: 100%;
-        min-height: 0;
         overflow: hidden;
       }
 
@@ -256,13 +231,11 @@
         width: auto;
         height: auto;
         object-fit: contain;
-        object-position: center;
         background: #FFFFFF;
         border: 2px solid #1A202C;
         display: block;
       }
 
-      /* RIGHT PANEL: SLIDE 3 COMPOSITE */
       .image-panel.composite-panel {
         background: transparent;
         border: none;
@@ -285,12 +258,10 @@
         width: 85%;
         height: 95%;
         object-fit: cover;
-        object-position: top center;
         border: 2px solid #1A202C;
         box-shadow: 10px 10px 0px #1A202C;
         background: #FFFFFF;
         z-index: 1;
-        display: block;
       }
 
       .guardrails-doc {
@@ -304,10 +275,9 @@
         box-shadow: 10px 10px 0px #FF4B01;
         background: #FFFFFF;
         z-index: 2;
-        display: block;
       }
 
-      /* BOTTOM SIGN-UP CTA CONTAINER */
+      /* CTA CARD */
       .cta-card {
         width: 100%;
         max-width: 1320px;
@@ -319,7 +289,6 @@
         flex-direction: column;
         align-items: center;
         text-align: center;
-        position: relative;
         margin-bottom: 40px;
       }
 
@@ -330,7 +299,6 @@
         text-transform: uppercase;
         color: #1A202C;
         margin: 0 0 12px 0;
-        letter-spacing: 1px;
       }
 
       .cta-card p {
@@ -361,10 +329,6 @@
         outline: none;
       }
 
-      .cta-input::placeholder {
-        color: #A0AEC0;
-      }
-
       .cta-submit {
         background: #FF4B01;
         color: #FFFFFF;
@@ -378,18 +342,7 @@
         padding: 16px 32px;
         cursor: pointer;
         white-space: nowrap;
-        transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
-      }
-
-      .cta-submit:hover:not(:disabled) {
-        transform: translate(-2px, -2px);
-        box-shadow: 8px 8px 0px #1A202C;
-        background-color: #FF5A16;
-      }
-
-      .cta-submit:active:not(:disabled) {
-        transform: translate(2px, 2px);
-        box-shadow: 3px 3px 0px #1A202C;
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
       }
 
       .cta-submit:disabled {
@@ -397,7 +350,6 @@
         cursor: not-allowed;
       }
 
-      /* FORM STATUS FEEDBACK STYLES */
       .form-status {
         margin-top: 20px;
         font-family: 'Oswald', Impact, sans-serif;
@@ -413,27 +365,11 @@
         max-width: 680px;
       }
 
-      .form-status.success {
-        display: block;
-        background-color: #28A745;
-        color: #FFFFFF;
-      }
+      .form-status.success { display: block; background-color: #28A745; color: #FFFFFF; }
+      .form-status.error { display: block; background-color: #DC3545; color: #FFFFFF; }
+      .form-status.loading { display: block; background-color: #1A202C; color: #FFFFFF; }
 
-      .form-status.error {
-        display: block;
-        background-color: #DC3545;
-        color: #FFFFFF;
-      }
-
-      .form-status.loading {
-        display: block;
-        background-color: #1A202C;
-        color: #FFFFFF;
-      }
-
-      /* FOOTER BACK LINK */
       .footer {
-        flex-shrink: 0;
         width: 100%;
         padding: 20px 0 60px 0;
         display: flex;
@@ -450,27 +386,10 @@
         text-transform: uppercase;
         padding: 14px 32px;
         border: 3px solid #1A202C;
-        border-radius: 0px;
         background: #FFFFFF;
         box-shadow: 4px 4px 0px #1A202C;
-        transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease, color 0.15s ease;
       }
 
-      .back-link:hover {
-        color: #FFFFFF;
-        background-color: #FF4B01;
-        box-shadow: 6px 6px 0px #1A202C;
-        transform: translate(-2px, -2px);
-      }
-
-      .back-link:active {
-        transform: translate(2px, 2px);
-        box-shadow: 2px 2px 0px #1A202C;
-      }
-
-      /* ==========================================================================
-         VIDEO MODAL STYLES
-         ========================================================================== */
       .video-modal {
         display: none;
         position: fixed;
@@ -504,214 +423,16 @@
         background: #FF4B01;
         color: #FFFFFF;
         border: 3px solid #1A202C;
-        box-shadow: 6px 6px 0px #1A202C;
         font-family: 'Oswald', Impact, sans-serif;
         font-size: 24px;
         font-weight: 900;
         cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        z-index: 10000;
-        transition: transform 0.15s ease, box-shadow 0.15s ease;
       }
 
-      .close-btn:hover {
-        transform: translate(-2px, -2px);
-        box-shadow: 8px 8px 0px #1A202C;
-        background-color: #FF5A16;
-      }
-
-      .close-btn:active {
-        transform: translate(2px, 2px);
-        box-shadow: 3px 3px 0px #1A202C;
-      }
-
-      /* ==========================================================================
-         MOBILE RESPONSIVE ADAPTATION ENGINE (<= 860PX)
-         ========================================================================== */
       @media (max-width: 860px) {
-        .deck-container {
-          padding: 16px 10px;
-        }
-
-        .poster-card {
-          aspect-ratio: auto;
-          min-height: 0;
-          height: auto;
-          padding: 28px 20px 32px 20px;
-          margin-bottom: 40px;
-          border-width: 2px;
-          overflow: visible;
-        }
-
-        .poster-card.shade-orange { box-shadow: 8px 8px 0px #FF4B01; }
-        .poster-card.shade-black { box-shadow: 8px 8px 0px #1A202C; }
-
-        .poster-card::before {
-          top: 5px;
-          left: 5px;
-          right: 5px;
-          bottom: 5px;
-        }
-
-        .header {
-          flex-direction: column;
-          align-items: flex-start;
-          gap: 14px;
-          margin-bottom: 24px;
-          padding-bottom: 14px;
-        }
-
-        .brand-group {
-          gap: 12px;
-          flex-wrap: wrap; /* Keeps elements from breaking outside */
-        }
-
-        .brand-logo {
-          height: 56px;
-          box-shadow: 4px 4px 0px #FF4B01;
-          padding: 4px;
-        }
-
-        .brand-title {
-          font-size: clamp(24px, 7vw, 36px);
-          word-wrap: break-word;
-          overflow-wrap: break-word;
-          line-height: 1.1;
-          max-width: 100%;
-        }
-
-        .brand-badge {
-          font-size: 16px;
-          padding: 6px 14px;
-          align-self: flex-start;
-          box-shadow: 4px 4px 0px #FF4B01;
-        }
-
-        .content-split {
-          grid-template-columns: 1fr;
-          gap: 28px;
-        }
-
-        .text-panel {
-          padding-left: 0;
-        }
-
-        .text-panel h2 {
-          font-size: 32px;
-          margin-bottom: 16px;
-        }
-
-        .text-panel p {
-          font-size: 16px;
-          margin-bottom: 24px;
-          border-left-width: 3px;
-          padding-left: 12px;
-        }
-
-        .btn-orange {
-          width: 100%;
-          font-size: 20px;
-          padding: 14px 20px;
-          justify-content: center;
-          box-shadow: 6px 6px 0px #1A202C;
-        }
-
-        .image-panel {
-          min-height: auto;
-          max-height: none; 
-          padding: 12px;
-        }
-
-        .image-panel.shade-orange { box-shadow: 6px 6px 0px #FF4B01; }
-        .image-panel.shade-black { box-shadow: 6px 6px 0px #1A202C; }
-
-        .image-panel img.main-event {
-          max-height: none; 
-          width: 100%;
-          height: auto;
-        }
-
-        .composite-container {
-          min-height: auto;
-          display: flex;
-          flex-direction: column;
-          gap: 16px;
-        }
-
-        .quote-doc {
-          position: relative;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: auto;
-          max-height: none;
-          box-shadow: 6px 6px 0px #1A202C;
-        }
-
-        .guardrails-doc {
-          position: relative;
-          bottom: auto;
-          right: auto;
-          width: 100%;
-          box-shadow: 6px 6px 0px #FF4B01;
-          margin-top: -20px; 
-        }
-
-        .cta-card {
-          padding: 28px 16px;
-          box-shadow: 8px 8px 0px #FF4B01;
-        }
-
-        .cta-card h2 {
-          font-size: 28px;
-        }
-
-        .cta-form {
-          flex-direction: column;
-          gap: 16px;
-        }
-
-        .cta-submit {
-          width: 100%;
-        }
-
-        .video-modal-content {
-          border-width: 2px;
-          box-shadow: 8px 8px 0px #FF4B01;
-        }
-        
-        .close-btn {
-          top: -16px;
-          right: -16px;
-          width: 36px;
-          height: 36px;
-          font-size: 18px;
-        }
-      }
-
-      /* PRINT STYLES FOR LANDSCAPE HARDCOPY */
-      @media print {
-        body, html { 
-          background: #FFFFFF !important; 
-          background-image: none !important; 
-          padding: 0 !important;
-          margin: 0 !important;
-        }
-        .deck-container { padding: 0 !important; }
-        .poster-card {
-          background: #FFFFFF !important;
-          width: calc(11in - 40px) !important; 
-          height: calc(8.5in - 40px) !important;
-          max-width: none !important; 
-          min-height: 0 !important;
-          margin: 20px !important; 
-          padding: 44px !important;
-          page-break-after: always !important;
-          break-after: page !important;
-        }
-        .cta-card, .footer, .video-modal { display: none !important; }
+        .poster-card { aspect-ratio: auto; padding: 28px 20px; }
+        .content-split { grid-template-columns: 1fr; }
+        .cta-form { flex-direction: column; }
       }
     </style>
 </head>
@@ -719,7 +440,7 @@
 
 <div class="deck-container">
 
-  <!-- SLIDE 1: FORMFILL -->
+  <!-- SLIDE 1 -->
   <div class="poster-card shade-orange">
     <div class="header">
       <div class="brand-group">
@@ -728,21 +449,19 @@
       </div>
       <div class="brand-badge">Pre-Qualify Opportunities</div>
     </div>
-
     <div class="content-split">
       <div class="text-panel">
         <h2>Stop Waste-of-Time Leads <span class="highlight">Before They Touch Your Floor.</span></h2>
-        <p>Most intake forms barely scratch the surface. FormFill was built from 10 years of real warehouse experience to uncover what actually matters: inventory, order volume, prep requirements, and operational complexity. Know what you’re dealing with before you waste an hour on a bad-fit lead.</p>
+        <p>Most intake forms barely scratch the surface. FormFill was built from 10 years of real warehouse experience to uncover what actually matters: inventory, order volume, prep requirements, and operational complexity.</p>
         <div class="btn-orange" onclick="openVideo(19)">SEE HOW IT WORKS <span class="play-icon">▶</span></div>
       </div>
-
       <div class="image-panel shade-black">
-        <img src="screenshot-2026-09-14_10-28-08.png" class="main-event" alt="FormFill Interface Screenshot">
+        <img src="screenshot-2026-09-14_10-28-08.png" class="main-event" alt="FormFill Interface">
       </div>
     </div>
   </div>
 
-  <!-- SLIDE 2: THE BRIEF -->
+  <!-- SLIDE 2 -->
   <div class="poster-card shade-black">
     <div class="header">
       <div class="brand-group">
@@ -751,21 +470,19 @@
       </div>
       <div class="brand-badge">ESCAPE NAPKIN MATH</div>
     </div>
-
     <div class="content-split">
       <div class="text-panel">
         <h2>Pallet Space is Money. <span class="highlight">Stop Letting Mismatch Opportunities Waste It.</span></h2>
-        <p>Every pallet position has to earn its keep. The Brief turns a prospect’s projected volume into Revenue Per Pallet, so you can quickly see whether the opportunity makes financial sense for your building.</p>
+        <p>Every pallet position has to earn its keep. The Brief turns a prospect’s projected volume into Revenue Per Pallet, so you can quickly see whether the opportunity makes financial sense.</p>
         <div class="btn-orange" onclick="openVideo(34)">SEE HOW IT WORKS <span class="play-icon">▶</span></div>
       </div>
-
       <div class="image-panel shade-orange">
-        <img src="screenshot-2026-09-14_10-30-17.png" class="main-event" alt="Opportunity Brief Screenshot">
+        <img src="screenshot-2026-09-14_10-30-17.png" class="main-event" alt="Opportunity Brief">
       </div>
     </div>
   </div>
 
-  <!-- SLIDE 3: THE QUOTE -->
+  <!-- SLIDE 3 -->
   <div class="poster-card shade-orange">
     <div class="header">
       <div class="brand-group">
@@ -774,24 +491,22 @@
       </div>
       <div class="brand-badge">MARGIN LOCK</div>
     </div>
-
     <div class="content-split">
       <div class="text-panel">
         <h2>Quote to Hit Your Target, <span class="highlight">Not to Win a Haggling Match.</span></h2>
-        <p>Standard rate cards eat your profit the second a client turns out to be high-maintenance. The Quote automatically calculates prices based on your facility's exact financial goals, so every deal you close actually turns a profit.</p>
+        <p>Standard rate cards eat your profit the second a client turns out to be high-maintenance. The Quote automatically calculates prices based on your facility's exact financial goals.</p>
         <div class="btn-orange" onclick="openVideo(56)">SEE HOW IT WORKS <span class="play-icon">▶</span></div>
       </div>
-
       <div class="image-panel composite-panel">
         <div class="composite-container">
-          <img src="screenshot-2026-09-14_10-31-27.png" class="quote-doc" alt="Itemized Quote Sheet Screenshot">
-          <img src="screenshot-2026-09-14_10-33-15.png" class="guardrails-doc" alt="Guardrails & Submission Screenshot">
+          <img src="screenshot-2026-09-14_10-31-27.png" class="quote-doc" alt="Quote Sheet">
+          <img src="screenshot-2026-09-14_10-33-15.png" class="guardrails-doc" alt="Guardrails">
         </div>
       </div>
     </div>
   </div>
 
-  <!-- BOTTOM SIGN-UP CTA (TARGETED BY #BOTTOM) -->
+  <!-- BOTTOM CTA -->
   <div class="cta-card" id="bottom">
     <h2>GET STARTED WITH SCAPEGOAT</h2>
     <p>No 30-minute slide decks. No pushy salespeople. Just your custom SCAPEGOAT.formfill sent straight to your inbox from rates@hawkishllc.com</p>
@@ -801,18 +516,16 @@
       <button type="submit" id="submit-btn" class="cta-submit">SIGN UP - EMAIL ADDRESS</button>
     </form>
     
-    <!-- Dynamic Status Banner -->
     <div id="form-status" class="form-status"></div>
   </div>
 
-  <!-- RETURN TO TERMINAL FOOTER BUTTON -->
   <footer class="footer">
     <a href="index.html" class="back-link">Return to Terminal</a>
   </footer>
 
 </div>
 
-<!-- VIDEO MODAL CONTAINER -->
+<!-- VIDEO MODAL -->
 <div id="videoModal" class="video-modal" onclick="closeVideo()">
   <div class="video-modal-content" onclick="event.stopPropagation()">
     <button class="close-btn" onclick="closeVideo()">X</button>
@@ -820,26 +533,10 @@
   </div>
 </div>
 
-<!-- Scripts -->
 <script>
-  // Force Auto-Scroll on Desktop Images Load Fix
-  window.addEventListener('load', function() {
-    if (window.location.hash) {
-      var target = document.querySelector(window.location.hash);
-      if (target) {
-        // A slight delay guarantees the large screenshots have pushed the page down before calculating
-        setTimeout(function() {
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }, 150);
-      }
-    }
-  });
-
-  // Video Player Logic
   function openVideo(startTime) {
     var modal = document.getElementById('videoModal');
     var player = document.getElementById('youtubePlayer');
-    // Load YouTube video with autoplay and specific start time
     player.src = "https://www.youtube.com/embed/KQ0YJ8a2waE?autoplay=1&start=" + startTime;
     modal.style.display = 'flex';
   }
@@ -848,70 +545,12 @@
     var modal = document.getElementById('videoModal');
     var player = document.getElementById('youtubePlayer');
     modal.style.display = 'none';
-    // Remove the source to stop the video from playing in the background
     player.src = "";
   }
 
-  // n8n Webhook Email Submission Logic with Refresh
   document.getElementById('n8n-signup-form').addEventListener('submit', async function(e) {
     e.preventDefault();
 
     const emailInput = document.getElementById('user-email');
     const submitBtn = document.getElementById('submit-btn');
-    const statusDiv = document.getElementById('form-status');
-    const webhookUrl = 'https://seanskin.app.n8n.cloud/webhook/1be460bd-0399-4004-9996-fb2726077bc1';
-
-    const email = emailInput.value.trim();
-
-    // Ensure email field is not empty before submission
-    if (!email) {
-      statusDiv.className = 'form-status error';
-      statusDiv.textContent = 'PLEASE ENTER A VALID EMAIL ADDRESS.';
-      return;
-    }
-
-    // Set UI Loading State
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'SUBMITTING...';
-    statusDiv.className = 'form-status loading';
-    statusDiv.textContent = 'SENDING REQUEST...';
-
-    try {
-      const response = await fetch(webhookUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          email: email,
-          timestamp: new Date().toISOString(),
-          source: 'Scapegoat Terminal Deck'
-        })
-      });
-
-      if (response.ok) {
-        // Success State
-        statusDiv.className = 'form-status success';
-        statusDiv.textContent = 'SUCCESS! REFRESHING PAGE...';
-        submitBtn.textContent = 'SUBMITTED';
-
-        // Refresh the page after a short 1-second delay
-        setTimeout(() => {
-          window.location.reload();
-        }, 1000);
-      } else {
-        throw new Error('Server returned error code ' + response.status);
-      }
-    } catch (err) {
-      // Error State
-      console.error('Submission Error:', err);
-      statusDiv.className = 'form-status error';
-      statusDiv.textContent = 'SUBMISSION FAILED. PLEASE TRY AGAIN.';
-      submitBtn.disabled = false;
-      submitBtn.textContent = 'SIGN UP - EMAIL ADDRESS';
-    }
-  });
-</script>
-
-</body>
-</html>
+    const statusDiv
