@@ -198,7 +198,7 @@
       
       <!-- NOTICE BANNER -->
       <div class="location-notice-banner">
-        <p>⚠️ NOTE: PLEASE SUBMIT 1 FORM PER WAREHOUSE LOCATION.</p>
+        <p>PLEASE SUBMIT 1 FORM PER WAREHOUSE LOCATION.</p>
       </div>
 
       <!-- START: Scapegoat / Hawkish JotForm Embed Code -->
@@ -228,4 +228,30 @@
       // ACCESS KEY VALIDATION & GATEKEEPING
       (function() {
         const SECRET_ACCESS_TOKEN = "HawkishOnboard2026_SecureKey";
-        const urlParams = new URLSearchParams(
+        const urlParams = new URLSearchParams(window.location.search);
+        const userToken = urlParams.get('token');
+        const userEmail = urlParams.get('email') || '';
+
+        // Check token parameter
+        if (userToken === SECRET_ACCESS_TOKEN) {
+          // Token valid: Show container
+          const wrapper = document.getElementById("onboarding-wrapper");
+          if (wrapper) wrapper.style.display = "block";
+
+          // Dynamically prefill 'warehouseEmail' in JotForm iframe
+          if (userEmail) {
+            const iframe = document.getElementById("JotFormIFrame-262937894386074");
+            if (iframe) {
+              iframe.src = "https://form.jotform.com/262937894386074?nojump&warehouseEmail=" + encodeURIComponent(userEmail);
+            }
+          }
+        } else {
+          // Token invalid or missing: Alert & Redirect
+          alert("Access Denied: A valid invitation link is required to access this portal.");
+          window.location.href = "index.html";
+        }
+      })();
+    </script>
+
+</body>
+</html>
