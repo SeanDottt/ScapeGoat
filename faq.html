@@ -378,18 +378,57 @@
         padding: 16px 32px;
         cursor: pointer;
         white-space: nowrap;
-        transition: transform 0.15s ease, box-shadow 0.15s ease;
+        transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
       }
 
-      .cta-submit:hover {
+      .cta-submit:hover:not(:disabled) {
         transform: translate(-2px, -2px);
         box-shadow: 8px 8px 0px #1A202C;
         background-color: #FF5A16;
       }
 
-      .cta-submit:active {
+      .cta-submit:active:not(:disabled) {
         transform: translate(2px, 2px);
         box-shadow: 3px 3px 0px #1A202C;
+      }
+
+      .cta-submit:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+      }
+
+      /* FORM STATUS FEEDBACK STYLES */
+      .form-status {
+        margin-top: 20px;
+        font-family: 'Oswald', Impact, sans-serif;
+        font-size: 18px;
+        font-weight: 800;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        padding: 12px 24px;
+        border: 2px solid #1A202C;
+        box-shadow: 4px 4px 0px #1A202C;
+        display: none;
+        width: 100%;
+        max-width: 680px;
+      }
+
+      .form-status.success {
+        display: block;
+        background-color: #28A745;
+        color: #FFFFFF;
+      }
+
+      .form-status.error {
+        display: block;
+        background-color: #DC3545;
+        color: #FFFFFF;
+      }
+
+      .form-status.loading {
+        display: block;
+        background-color: #1A202C;
+        color: #FFFFFF;
       }
 
       /* FOOTER BACK LINK */
@@ -430,7 +469,7 @@
       }
 
       /* ==========================================================================
-         VIDEO MODAL STYLES (NEW)
+         VIDEO MODAL STYLES
          ========================================================================== */
       .video-modal {
         display: none;
@@ -607,209 +646,4 @@
           left: 0;
           width: 100%;
           height: auto;
-          max-height: none;
-          box-shadow: 6px 6px 0px #1A202C;
-        }
-
-        .guardrails-doc {
-          position: relative;
-          bottom: auto;
-          right: auto;
-          width: 100%;
-          box-shadow: 6px 6px 0px #FF4B01;
-          margin-top: -20px; 
-        }
-
-        .cta-card {
-          padding: 28px 16px;
-          box-shadow: 8px 8px 0px #FF4B01;
-        }
-
-        .cta-card h2 {
-          font-size: 28px;
-        }
-
-        .cta-form {
-          flex-direction: column;
-          gap: 16px;
-        }
-
-        .cta-submit {
-          width: 100%;
-        }
-
-        .video-modal-content {
-          border-width: 2px;
-          box-shadow: 8px 8px 0px #FF4B01;
-        }
-        
-        .close-btn {
-          top: -16px;
-          right: -16px;
-          width: 36px;
-          height: 36px;
-          font-size: 18px;
-        }
-      }
-
-      /* PRINT STYLES FOR LANDSCAPE HARDCOPY */
-      @media print {
-        body, html { 
-          background: #FFFFFF !important; 
-          background-image: none !important; 
-          padding: 0 !important;
-          margin: 0 !important;
-        }
-        .deck-container { padding: 0 !important; }
-        .poster-card {
-          background: #FFFFFF !important;
-          width: calc(11in - 40px) !important; 
-          height: calc(8.5in - 40px) !important;
-          max-width: none !important; 
-          min-height: 0 !important;
-          margin: 20px !important; 
-          padding: 44px !important;
-          page-break-after: always !important;
-          break-after: page !important;
-        }
-        .cta-card, .footer, .video-modal { display: none !important; }
-      }
-    </style>
-</head>
-<body>
-
-<div class="deck-container">
-
-  <!-- SLIDE 1: FORMFILL -->
-  <div class="poster-card shade-orange">
-    <div class="header">
-      <div class="brand-group">
-        <img src="logo.png" alt="Scapegoat Logo" class="brand-logo">
-        <h1 class="brand-title">SCAPEGOAT.<span class="sub-product">FORMFILL</span></h1>
-      </div>
-      <div class="brand-badge">Pre-Qualify Opportunities</div>
-    </div>
-
-    <div class="content-split">
-      <div class="text-panel">
-        <h2>Stop Waste-of-Time Leads <span class="highlight">Before They Touch Your Floor.</span></h2>
-        <p>Most intake forms barely scratch the surface. FormFill was built from 10 years of real warehouse experience to uncover what actually matters: inventory, order volume, prep requirements, and operational complexity. Know what you’re dealing with before you waste an hour on a bad-fit lead.</p>
-        <div class="btn-orange" onclick="openVideo(19)">SEE HOW IT WORKS <span class="play-icon">▶</span></div>
-      </div>
-
-      <div class="image-panel shade-black">
-        <img src="screenshot-2026-09-14_10-28-08.png" class="main-event" alt="FormFill Interface Screenshot">
-      </div>
-    </div>
-  </div>
-
-  <!-- SLIDE 2: THE BRIEF -->
-  <div class="poster-card shade-black">
-    <div class="header">
-      <div class="brand-group">
-        <img src="logo.png" alt="Scapegoat Logo" class="brand-logo">
-        <h1 class="brand-title">SCAPEGOAT.<span class="sub-product">BRIEF</span></h1>
-      </div>
-      <div class="brand-badge">ESCAPE NAPKIN MATH</div>
-    </div>
-
-    <div class="content-split">
-      <div class="text-panel">
-        <h2>Pallet Space is Money. <span class="highlight">Stop Letting Mismatch Opportunities Waste It.</span></h2>
-        <p>Every pallet position has to earn its keep. The Brief turns a prospect’s projected volume into Revenue Per Pallet, so you can quickly see whether the opportunity makes financial sense for your building.</p>
-        <div class="btn-orange" onclick="openVideo(34)">SEE HOW IT WORKS <span class="play-icon">▶</span></div>
-      </div>
-
-      <div class="image-panel shade-orange">
-        <img src="screenshot-2026-09-14_10-30-17.png" class="main-event" alt="Opportunity Brief Screenshot">
-      </div>
-    </div>
-  </div>
-
-  <!-- SLIDE 3: THE QUOTE -->
-  <div class="poster-card shade-orange">
-    <div class="header">
-      <div class="brand-group">
-        <img src="logo.png" alt="Scapegoat Logo" class="brand-logo">
-        <h1 class="brand-title">SCAPEGOAT.<span class="sub-product">QUOTE</span></h1>
-      </div>
-      <div class="brand-badge">MARGIN LOCK</div>
-    </div>
-
-    <div class="content-split">
-      <div class="text-panel">
-        <h2>Quote to Hit Your Target, <span class="highlight">Not to Win a Haggling Match.</span></h2>
-        <p>Standard rate cards eat your profit the second a client turns out to be high-maintenance. The Quote automatically calculates prices based on your facility's exact financial goals, so every deal you close actually turns a profit.</p>
-        <div class="btn-orange" onclick="openVideo(56)">SEE HOW IT WORKS <span class="play-icon">▶</span></div>
-      </div>
-
-      <div class="image-panel composite-panel">
-        <div class="composite-container">
-          <img src="screenshot-2026-09-14_10-31-27.png" class="quote-doc" alt="Itemized Quote Sheet Screenshot">
-          <img src="screenshot-2026-09-14_10-33-15.png" class="guardrails-doc" alt="Guardrails & Submission Screenshot">
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- BOTTOM SIGN-UP CTA (TARGETED BY #BOTTOM) -->
-  <div class="cta-card" id="bottom">
-    <h2>GET STARTED WITH SCAPEGOAT</h2>
-    <p>No 30-minute slide decks. No pushy salespeople. Just your custom SCAPEGOAT.formfill sent straight to your inbox from rates@hawkishllc.com</p>
-    
-    <form class="cta-form" action="mailto:Josh@hawkishllc.com,Sean@hawkishllc.com?subject=Scapegoat%20Sign%20Up" method="post" enctype="text/plain">
-      <input type="email" name="Email" class="cta-input" placeholder="Enter your email address..." required>
-      <button type="submit" class="cta-submit">SIGN UP - EMAIL ADDRESS</button>
-    </form>
-  </div>
-
-  <!-- RETURN TO TERMINAL FOOTER BUTTON -->
-  <footer class="footer">
-    <a href="index.html" class="back-link">Return to Terminal</a>
-  </footer>
-
-</div>
-
-<!-- VIDEO MODAL CONTAINER -->
-<div id="videoModal" class="video-modal" onclick="closeVideo()">
-  <div class="video-modal-content" onclick="event.stopPropagation()">
-    <button class="close-btn" onclick="closeVideo()">X</button>
-    <iframe id="youtubePlayer" width="100%" height="100%" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-  </div>
-</div>
-
-<!-- Scripts -->
-<script>
-  // Force Auto-Scroll on Desktop Images Load Fix
-  window.addEventListener('load', function() {
-    if (window.location.hash) {
-      var target = document.querySelector(window.location.hash);
-      if (target) {
-        // A slight delay guarantees the large screenshots have pushed the page down before calculating
-        setTimeout(function() {
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }, 150);
-      }
-    }
-  });
-
-  // Video Player Logic
-  function openVideo(startTime) {
-    var modal = document.getElementById('videoModal');
-    var player = document.getElementById('youtubePlayer');
-    // Load YouTube video with autoplay and specific start time
-    player.src = "https://www.youtube.com/embed/KQ0YJ8a2waE?autoplay=1&start=" + startTime;
-    modal.style.display = 'flex';
-  }
-
-  function closeVideo() {
-    var modal = document.getElementById('videoModal');
-    var player = document.getElementById('youtubePlayer');
-    modal.style.display = 'none';
-    // Remove the source to stop the video from playing in the background
-    player.src = "";
-  }
-</script>
-
-</body>
-</html>
+          max
